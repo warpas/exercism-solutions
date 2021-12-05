@@ -1,19 +1,11 @@
 class Phrase
   def initialize(phrase)
-    @phrase = phrase
+    @words = phrase.downcase.scan(/\b[\w']+\b/)
   end
 
   def word_count
-    words = @phrase.split(/'*[.:,!&@$%^\s]+'*/)
-
-    hash = {}
-    words.each do |mix_case_word|
-      word = mix_case_word.downcase
-      if word.empty?
-      else
-        hash[word].nil? ? hash[word] = 1 : hash[word] += 1
-      end
+    @words.each_with_object(Hash.new(0)) do |word, hash|
+      hash[word] += 1
     end
-    hash
   end
 end
