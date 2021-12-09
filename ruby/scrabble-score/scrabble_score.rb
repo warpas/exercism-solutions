@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Solution to the Scrabble Score exercise on Exercism Ruby track
 class Scrabble
   SCORING = {
     'A' => 1,
