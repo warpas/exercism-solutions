@@ -36,19 +36,10 @@ class Scrabble
   end
 
   def initialize(word)
-    @word = word
+    @word = word.to_s.upcase.chars
   end
 
   def score
-    return 0 if @word.nil?
-
-    @word.chars.map { |letter| evaluate_char(letter) }.sum
-  end
-
-  private
-
-  def evaluate_char(letter)
-    number = SCORING[letter.upcase]
-    number.nil? ? 0 : number
+    @word.map { |letter| SCORING[letter].to_i }.sum
   end
 end
