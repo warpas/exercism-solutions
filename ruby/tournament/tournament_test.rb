@@ -31,7 +31,6 @@ class TournamentTest < Minitest::Test
   end
 
   def test_a_win_can_also_be_expressed_as_a_loss
-    skip
     input = <<~INPUT
       Blithering Badgers;Allegoric Alaskans;loss
     INPUT
