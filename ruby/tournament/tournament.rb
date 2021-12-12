@@ -1,28 +1,36 @@
 class Tournament
-  def self.tally(matches)
-    scoreboard = ScoreBoard.new
+  def self.tally(input)
+    new(input).report
+  end
+
+  def initialize(matches)
+    @scoreboard = ScoreBoard.new
     matches.each_line do |match|
-      atoms = match.split(';')
-      if !atoms[0].to_s.strip.empty?
-        team1 = scoreboard.find_or_create(atoms[0])
-        team2 = scoreboard.find_or_create(atoms[1])
-        result = atoms[2].to_s.strip
-        if result == 'win'
+      team1_name, team2_name, result = match.split(';')
+      if !team1_name.to_s.strip.empty?
+        team1 = @scoreboard.find_or_create(team1_name)
+        team2 = @scoreboard.find_or_create(team2_name)
+        result = result.to_s.strip
+        case result
+        when 'win'
           team1.win
           team2.loss
-        elsif result == 'loss'
+        when 'loss'
           team1.loss
           team2.win
-        elsif result == 'draw'
+        when 'draw'
           team1.draw
           team2.draw
         end
-        scoreboard.add(team1)
-        scoreboard.add(team2)
+        @scoreboard.add(team1)
+        @scoreboard.add(team2)
       end
     end
 
-    scoreboard.display
+  end
+
+  def report
+    @scoreboard.display
   end
 end
 
@@ -97,31 +105,32 @@ class Array
 end
 
 class TeamScore
-  attr_reader :name, :matches_played, :matches_won, :matches_tied, :matches_lost, :points
+  attr_reader :name, :matches_won, :matches_tied, :matches_lost
   def initialize(name)
     @name = name
-    @matches_played = 0
     @matches_won = 0
     @matches_tied = 0
     @matches_lost = 0
-    @points = 0
   end
 
   def win
-    @matches_played += 1
     @matches_won += 1
-    @points += 3
   end
 
   def loss
-    @matches_played += 1
     @matches_lost += 1
   end
 
   def draw
-    @matches_played += 1
     @matches_tied += 1
-    @points += 1
+  end
+
+  def matches_played
+    @matches_won + @matches_lost + @matches_tied
+  end
+
+  def points
+    @matches_won * 3 + @matches_tied
   end
 
   def to_s
