@@ -35,6 +35,8 @@ class Tournament
 end
 
 class ScoreBoard
+  REPORT_FORMAT = "%-31s| %2s |  %s |  %s |  %s |  %s\n".freeze
+
   def initialize
     @board = {}
   end
@@ -58,7 +60,7 @@ class ScoreBoard
     TALLY
 
     sorted_teams.each do |team|
-      tally << team.to_s
+      tally << REPORT_FORMAT % team.tally#.to_s
     end
 
     tally
@@ -68,44 +70,16 @@ class ScoreBoard
     sorted_list = []
     @board.keys.each do |key|
       team = @board[key]
-      if sorted_list.empty?
-        sorted_list << team
-      elsif team.points > sorted_list.last.points
-        sorted_list.unshift(team)
-      else
-        sorted_list << team
-      end
+      sorted_list << team
     end
 
-    sorted_list.sort_by(&:points).reverse.sort_by_name
-  end
-end
-
-class Array
-  def sort_by_name
-    # TODO: only sorts two elements with equal scores, needs more
-    sorted = []
-    self.each_with_index do |elem, index|
-      if sorted.empty?
-        sorted << elem
-      elsif sorted.last.points != elem.points
-        sorted << elem
-      else
-        if sorted.last.name > elem.name
-          sorted[index] = sorted.last
-          sorted[index - 1] = elem
-        else
-          sorted << elem
-        end
-      end
-    end
-
-    sorted
+    sorted_list.sort_by { |team| [-team.points, team.name] }
   end
 end
 
 class TeamScore
-  attr_reader :name, :matches_won, :matches_tied, :matches_lost
+  attr_reader :name
+
   def initialize(name)
     @name = name
     @matches_won = 0
@@ -125,19 +99,19 @@ class TeamScore
     @matches_tied += 1
   end
 
-  def matches_played
-    @matches_won + @matches_lost + @matches_tied
-  end
-
   def points
     @matches_won * 3 + @matches_tied
   end
 
-  def to_s
-    "#{format_name}|  #{matches_played} |  #{matches_won} |  #{matches_tied} |  #{matches_lost} |  #{points}\n"
+  def tally
+    [name, matches_played, @matches_won, @matches_tied, @matches_lost, points]
   end
 
   private
+
+  def matches_played
+    @matches_won + @matches_lost + @matches_tied
+  end
 
   def format_name
     spaces = 31 - name.length
