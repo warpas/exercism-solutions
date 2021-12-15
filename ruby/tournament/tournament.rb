@@ -60,20 +60,14 @@ class ScoreBoard
     TALLY
 
     sorted_teams.each do |team|
-      tally << REPORT_FORMAT % team.tally#.to_s
+      tally << REPORT_FORMAT % team.tally
     end
 
     tally
   end
 
   def sorted_teams
-    sorted_list = []
-    @board.keys.each do |key|
-      team = @board[key]
-      sorted_list << team
-    end
-
-    sorted_list.sort_by { |team| [-team.points, team.name] }
+    @board.values.sort_by { |team| [-team.points, team.name] }
   end
 end
 
@@ -82,39 +76,32 @@ class TeamScore
 
   def initialize(name)
     @name = name
-    @matches_won = 0
-    @matches_tied = 0
-    @matches_lost = 0
+    @won = @tied = @lost = 0
   end
 
   def win
-    @matches_won += 1
+    @won += 1
   end
 
   def loss
-    @matches_lost += 1
+    @lost += 1
   end
 
   def draw
-    @matches_tied += 1
+    @tied += 1
   end
 
   def points
-    @matches_won * 3 + @matches_tied
+    @won * 3 + @tied
   end
 
   def tally
-    [name, matches_played, @matches_won, @matches_tied, @matches_lost, points]
+    [name, played, @won, @tied, @lost, points]
   end
 
   private
 
-  def matches_played
-    @matches_won + @matches_lost + @matches_tied
-  end
-
-  def format_name
-    spaces = 31 - name.length
-    name + ' ' * spaces
+  def played
+    @won + @lost + @tied
   end
 end
