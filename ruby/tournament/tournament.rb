@@ -59,15 +59,11 @@ class ScoreBoard
       Team                           | MP |  W |  D |  L |  P
     TALLY
 
-    sorted_teams.each do |team|
-      tally << REPORT_FORMAT % team.tally
-    end
+    @board.values
+          .sort_by { |team| [-team.points, team.name] }
+          .each { |team| tally << REPORT_FORMAT % team.tally }
 
     tally
-  end
-
-  def sorted_teams
-    @board.values.sort_by { |team| [-team.points, team.name] }
   end
 end
 
