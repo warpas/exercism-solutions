@@ -3,34 +3,38 @@ class Tournament
     new(input).report
   end
 
-  def initialize(matches)
+  def initialize(match_results)
     @scoreboard = ScoreBoard.new
-    matches.each_line do |match|
-      team1_name, team2_name, result = match.split(';')
-      if !team1_name.to_s.strip.empty?
-        team1 = @scoreboard.find_or_create(team1_name)
-        team2 = @scoreboard.find_or_create(team2_name)
-        result = result.to_s.strip
-        case result
-        when 'win'
-          team1.win
-          team2.loss
-        when 'loss'
-          team1.loss
-          team2.win
-        when 'draw'
-          team1.draw
-          team2.draw
-        end
-        @scoreboard.add(team1)
-        @scoreboard.add(team2)
-      end
+    match_results.each_line do |line|
+      parse(line.strip)
     end
-
   end
 
   def report
     @scoreboard.display
+  end
+
+  private
+
+  def parse(line)
+    team1_name, team2_name, result = line.split(';')
+    return if result.nil?
+
+    team1 = @scoreboard.find_or_create(team1_name)
+    team2 = @scoreboard.find_or_create(team2_name)
+    case result
+    when 'win'
+      team1.win
+      team2.loss
+    when 'loss'
+      team1.loss
+      team2.win
+    when 'draw'
+      team1.draw
+      team2.draw
+    end
+    @scoreboard.add(team1)
+    @scoreboard.add(team2)
   end
 end
 
