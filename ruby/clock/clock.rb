@@ -5,37 +5,44 @@ class Clock
   attr_reader :hour, :minute
 
   def initialize(hour: 0, minute: 0)
-    @hour = (hour + minute / 60) % 24
-    @minute = minute % 60
+    assignments(hour, minute)
   end
 
   def to_s
-    "#{hours_to_s}:#{minutes_to_s}"
+    "#{add_zero(hour)}:#{add_zero(minute)}"
   end
 
   def +(other)
-    @hour = (hour + other.hour + (minute + other.minute) / 60) % 24
-    @minute = (minute + other.minute) % 60
+    assignments(hour + other.hour, minute + other.minute)
     self
   end
 
   def -(other)
-    @hour = (hour - other.hour + (minute - other.minute) / 60) % 24
-    @minute = (minute - other.minute) % 60
+    assignments(hour - other.hour, minute - other.minute)
     self
   end
 
   def ==(other)
-    @hour == other.hour && @minute == other.minute
+    hour == other.hour && minute == other.minute
   end
 
   private
 
-  def hours_to_s
-    hour > 9 ? hour.to_s : "0#{hour}"
+  def assignments(hour, minute)
+    calculate_hour(hour, minute)
+    calculate_minute(minute)
   end
 
-  def minutes_to_s
-    minute > 9 ? minute.to_s : "0#{minute}"
+  def calculate_hour(hour, minute)
+    @hour = (hour + minute / 60) % 24
+  end
+
+  def calculate_minute(minute)
+    @minute = minute % 60
+  end
+
+  def add_zero(num)
+    zero = num > 9 ? '' : '0'
+    "#{zero}#{num}"
   end
 end
