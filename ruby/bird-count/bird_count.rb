@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Implementation of the BirdCount exercise in Ruby track on Exercism.
 class BirdCount
   def self.last_week
     [0, 2, 5, 3, 7, 8, 4]
@@ -20,6 +23,6 @@ class BirdCount
   end
 
   def day_without_birds?
-    !@birds_per_day.select { |d| d == 0 }.empty?
+    !@birds_per_day.select(&:zero?).empty?
   end
 end
