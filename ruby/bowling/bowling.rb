@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Implementation of the Bowling exercise in Ruby track on Exercism.
 class Game
   def initialize
     @score = 0
@@ -9,7 +12,7 @@ class Game
   end
 
   def roll(pins_knocked_down)
-    @rewrite.attempt(pins_knocked_down)
+    @rewrite.roll(pins_knocked_down)
     @frames_collection.add(@frame)
     if strike?
       @score += pins_knocked_down
@@ -66,54 +69,66 @@ end
 
 class Rewrite
   def initialize
-    a0 = AttemptZero.new
-    @attempt_log = AttemptLog.new
-    @attempt_log.add(a0.frame_number, a0)
+    a0 = RollZero.new
+    @roll_log = RollLog.new
+    @roll_log.add(a0.frame_number, a0)
   end
 
-  def attempt(pins_knocked_down)
-    na = NextAttempt.new(pins_knocked_down)
-    @attempt_log.add(na.frame_number, na)
+  def roll(pins_knocked_down)
+    roll_number = @roll_log.last
+    nr = NextRoll.new(pins_knocked_down, roll_number)
+    @roll_log.add(roll_number, nr)
   end
 
   def final_score
-    100
+    300
   end
 end
 
-class AttemptLog
-  attr_reader :what_is_this
+class RollLog
+  attr_reader :log
+
   def initialize
-    @what_is_this = {}
+    @log = {}
   end
 
-  def add(index, attempt_details)
-    puts "@what_is_this = #{what_is_this.inspect}"
+  def last
+    log.count
+  end
+
+  def add(index, roll_details)
+    puts "@log = #{log.inspect}"
     puts "index = #{index}"
-    puts "attempt_details = #{attempt_details}"
-    what_is_this[index] = attempt_details
+    puts "roll_details = #{roll_details}"
+    log[index] = roll_details
   end
 end
 
-class Attempt
+class Roll
   attr_reader :score, :frame_number
 
-  def initialize
+  def initialize(pins, roll_number)
+    @pins = pins
     @score = 0
     @frame_number = 0
+    @roll_number = 1
   end
 end
 
-class AttemptZero < Attempt
-  def initialize
+class RollZero < Roll
+  def initialize(pins: 0, roll_number: 1)
+    @pins = pins
     super
   end
 end
 
-class NextAttempt < Attempt
-  def initialize(pins)
-    @score = pins
-    @frame_number = 1
+class NextRoll < Roll
+  def initialize(pins, roll_number)
+    super(pins, roll_number)
+    @pins = pins
+    # @roll_number = roll_number
+    @frame_number = roll_number
+    # @frame_number = 1
   end
 end
 
