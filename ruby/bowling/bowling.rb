@@ -70,13 +70,15 @@ end
 class Rewrite
   def initialize
     a0 = RollZero.new
+    # p a0
     @roll_log = RollLog.new
     @roll_log.add(a0.frame_number, a0)
   end
 
   def roll(pins_knocked_down)
     roll_number = @roll_log.last
-    nr = NextRoll.new(pins_knocked_down, roll_number)
+    nr = NextRoll.new(pins: pins_knocked_down, roll_number: roll_number)
+    # p nr
     @roll_log.add(roll_number, nr)
   end
 
@@ -107,28 +109,32 @@ end
 class Roll
   attr_reader :score, :frame_number
 
-  def initialize(pins, roll_number)
+  def initialize(pins:, roll_number: 1)
+    puts "inside Roll.initialize"
     @pins = pins
     @score = 0
     @frame_number = 0
-    @roll_number = 1
+    @roll_number = roll_number
   end
 end
 
 class RollZero < Roll
   def initialize(pins: 0, roll_number: 1)
+    # puts "inside RollZero.initialize"
     @pins = pins
+    @roll_number = roll_number
     super
   end
 end
 
 class NextRoll < Roll
-  def initialize(pins, roll_number)
-    super(pins, roll_number)
+  def initialize(pins:, roll_number:)
+    # puts "inside NextRoll.initialize"
     @pins = pins
     # @roll_number = roll_number
     @frame_number = roll_number
     # @frame_number = 1
+    super(pins: pins, roll_number: roll_number)
   end
 end
 
