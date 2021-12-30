@@ -1,41 +1,49 @@
 # frozen_string_literal: true
 
 # Implementation of the SpaceAge exercise in Ruby track on Exercism.
-# I'm amazed to find that the current set of tests allows for this solution
 class SpaceAge
+  EARTH_YEAR_IN_SECONDS = 31_557_600
+  MERCURY_CONVERSION_RATIO = 0.2408467
+  VENUS_CONVERSION_RATIO = 0.61519726
+  MARS_CONVERSION_RATIO = 1.8808158
+  JUPITER_CONVERSION_RATIO = 11.862615
+  SATURN_CONVERSION_RATIO = 29.447498
+  URANUS_CONVERSION_RATIO = 84.016846
+  NEPTUNE_CONVERSION_RATIO = 164.79132
+
   def initialize(seconds)
     @seconds = seconds
   end
 
   def on_earth
-    31.69
+    @seconds.to_f / EARTH_YEAR_IN_SECONDS
   end
 
   def on_mercury
-    280.88
+    on_earth.to_f / MERCURY_CONVERSION_RATIO
   end
 
   def on_venus
-    9.78
+    on_earth.to_f / VENUS_CONVERSION_RATIO
   end
 
   def on_mars
-    39.25
+    on_earth.to_f / MARS_CONVERSION_RATIO
   end
 
   def on_jupiter
-    2.41
+    on_earth.to_f / JUPITER_CONVERSION_RATIO
   end
 
   def on_saturn
-    3.23
+    on_earth.to_f / SATURN_CONVERSION_RATIO
   end
 
   def on_uranus
-    1.21
+    on_earth.to_f / URANUS_CONVERSION_RATIO
   end
 
   def on_neptune
-    1.58
+    on_earth.to_f / NEPTUNE_CONVERSION_RATIO
   end
 end
