@@ -5,17 +5,19 @@ end
 
 # Implementation of the Translation exercise in Ruby track on Exercism.
 class Translation
-  def self.of_codon(codon)
-    protein = CODONS[codon.to_sym]
-    protein || raise(InvalidCodonError)
-  end
+  class << self
+    def of_codon(codon)
+      protein = CODONS[codon.to_sym]
+      protein || raise(InvalidCodonError)
+    end
 
-  def self.of_rna(strand)
-    strand.scan(/.../).reduce([]) do |chain, codon|
-      protein = of_codon(codon)
-      return chain if protein == 'STOP'
+    def of_rna(strand)
+      strand.scan(/.../).reduce([]) do |chain, codon|
+        protein = of_codon(codon)
+        return chain if protein == 'STOP'
 
-      chain << protein
+        chain << protein
+      end
     end
   end
 
