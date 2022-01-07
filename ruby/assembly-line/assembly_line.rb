@@ -4,6 +4,7 @@
 class AssemblyLine
   # Number of cars produced at 1x speed
   FLAWLESS_RATE = 221
+  private_constant :FLAWLESS_RATE
 
   def initialize(speed)
     @speed = speed
