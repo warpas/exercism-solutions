@@ -2,10 +2,6 @@
 
 # Implementation of the Assembly Line exercise in Ruby track on Exercism.
 class AssemblyLine
-  # Number of cars produced at 1x speed
-  FLAWLESS_RATE = 221
-  private_constant :FLAWLESS_RATE
-
   def initialize(speed)
     @speed = speed
   end
@@ -21,6 +17,10 @@ class AssemblyLine
   end
 
   private
+
+  # Number of cars produced at 1x speed
+  FLAWLESS_RATE = 221
+  private_constant :FLAWLESS_RATE
 
   def success_rate
     case @speed
