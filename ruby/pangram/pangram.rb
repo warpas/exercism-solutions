@@ -2,12 +2,12 @@
 
 # Implementation of the Pangram exercise in Ruby track on Exercism.
 class Pangram
-  # @param [String] sentence to check
+  ALL_LOWERCASE_LETTERS = [*'a'..'z'].freeze
+  private_constant :ALL_LOWERCASE_LETTERS
+
+  # @param sentence [String] to check
   # @return [Boolean] is the sentence a pangram?
   def self.pangram?(sentence)
-    characters = sentence.downcase.chars.uniq
-    characters.delete(' ')
-    characters.delete('1')
-    characters.count > 25
+    (ALL_LOWERCASE_LETTERS - sentence.downcase.chars).empty?
   end
 end
