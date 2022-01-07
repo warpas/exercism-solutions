@@ -1,12 +1,9 @@
-=begin
-Write your code for the 'Two Fer' exercise in this file. Make the tests in
-`two_fer_test.rb` pass.
+# frozen_string_literal: true
 
-To get started with TDD, see the `README.md` file in your
-`ruby/two-fer` directory.
-=end
-
+# Implementation of the Two Fer exercise in Ruby track on Exercism.
 class TwoFer
+  # @param name [String]
+  # @return [String] personalized greeting
   def self.two_fer(name = 'you')
     "One for #{name}, one for me."
   end
