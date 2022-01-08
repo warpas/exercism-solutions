@@ -9,12 +9,6 @@ module Hamming
   def self.compute(strand1, strand2)
     raise ArgumentError if strand1.length != strand2.length
 
-    differences = 0
-    strand1_array = strand1.chars
-    strand2_array = strand2.chars
-    0.upto(strand1.length - 1) do |index|
-      differences += 1 if strand1_array[index] != strand2_array[index]
-    end
-    differences
+    strand1.length.times.count { |i| strand1[i] != strand2[i] }
   end
 end
