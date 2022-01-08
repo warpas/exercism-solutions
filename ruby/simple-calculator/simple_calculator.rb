@@ -16,8 +16,7 @@ class SimpleCalculator
     raise ArgumentError if first_operand.is_a?(String) || second_operand.is_a?(String)
 
     begin
-      expression = "#{first_operand} #{operator} #{second_operand}"
-      "#{expression} = #{eval(expression)}"
+      "#{first_operand} #{operator} #{second_operand} = #{first_operand.send(operator, second_operand)}"
     rescue ZeroDivisionError
       'Division by zero is not allowed.'
     end
