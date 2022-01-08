@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 # Error type for invalid Codons considered for translation
-class InvalidCodonError < RuntimeError
-end
+class InvalidCodonError < RuntimeError; end
 
 # Implementation of the Translation exercise in Ruby track on Exercism.
 class Translation
