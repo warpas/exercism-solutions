@@ -8,6 +8,7 @@ end
 class Translation
   class << self
     # @param codon [String] RNA broken into three nucleotide sequences
+    # @raise [InvalidCodonError] if Codon given for consideration is outside of the predefined list
     # @return [String] sequences transcribed to a protein
     def of_codon(codon)
       protein = CODONS[codon.to_sym]
