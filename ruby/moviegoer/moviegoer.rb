@@ -16,9 +16,7 @@ class Moviegoer
 
   # @return [Integer] ticket price
   def ticket_price
-    return 10 if age >= DISCOUNT_MIN_AGE
-
-    15
+    age >= DISCOUNT_MIN_AGE ? 10 : 15
   end
 
   # @return [Boolean] is the person old enough to watch a scary movie?
