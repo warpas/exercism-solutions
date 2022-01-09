@@ -27,9 +27,7 @@ class Moviegoer
   # @raise [NotMovieClubMemberError] if the person is not a member of the Movie Club
   # @return [String] free popcorn for Movie Club members
   def claim_free_popcorn!
-    raise NotMovieClubMemberError unless member
-
-    '🍿'
+    member ? '🍿' : raise(NotMovieClubMemberError)
   end
 
   DISCOUNT_MIN_AGE = 60
