@@ -4,18 +4,17 @@
 class Squares
   # @param number [Integer]
   def initialize(number)
-    @number = number
+    @numbers = (1..number)
   end
 
   # @return [Integer] the squared sum of all numbers up to and including the given number
   def square_of_sum
-    sum = (1..@number).sum
-    sum * sum
+    @numbers.sum**2
   end
 
   # @return [Integer] the sum of squares of all numbers up to and including the given number
   def sum_of_squares
-    (1..@number).map { |i| i * i }.sum
+    @numbers.reduce { |sum, i| sum + i**2 }
   end
 
   # @return [Integer] the difference between the squared sum and sum of squares
