@@ -5,6 +5,6 @@ class Year
   # @param year [Integer]
   # @return [Boolean] is the year a leap year?
   def self.leap?(year)
-    (year % 4).zero? && ((year % 100).positive? || (year % 400).zero?)
+    (year % 4).zero? and (year % 100).positive? or (year % 400).zero?
   end
 end
