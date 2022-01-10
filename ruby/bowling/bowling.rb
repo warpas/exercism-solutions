@@ -2,12 +2,15 @@
 
 # Implementation of the Bowling exercise in Ruby track on Exercism.
 class Game
+  class BowlingError < StandardError; end
+
   def initialize
     puts ""
     @rewrite = Rewrite.new
   end
 
   def roll(pins_knocked_down)
+    # p pins_knocked_down
     @rewrite.roll(pins_knocked_down)
   end
 
@@ -27,6 +30,8 @@ class Rewrite
   end
 
   def roll(pins_knocked_down)
+    raise Game::BowlingError if pins_knocked_down.negative? || pins_knocked_down > 10
+
     total_roll_number = @roll_log.last_roll_number
     nr = NextRoll.new(pins: pins_knocked_down, total_roll_number: total_roll_number)
     # p nr
@@ -74,7 +79,7 @@ class Rewrite
       spares.each do |spare|
         next_roll = log[spare.total_roll_number + 1]
         # p next_roll.pins
-        spare.add_to_score(next_roll.pins) if !next_roll.nil? && next_roll.frame_number != 11
+        spare.add_to_score(next_roll.pins) if !next_roll.nil? && spare.frame_number < 10
       end
 
       strikes = log.values.select { |roll| roll.strike_trigger == true }
@@ -84,9 +89,10 @@ class Rewrite
         next_roll2 = log[strike.total_roll_number + 2]
         # p next_roll1.pins
         # p next_roll2.pins
-        strike.add_to_score(next_roll1.pins) if !next_roll1.nil? && next_roll1.frame_number != 11
-        strike.add_to_score(next_roll2.pins) if !next_roll2.nil? && next_roll2.frame_number != 11
+        strike.add_to_score(next_roll1.pins) if !next_roll1.nil? && strike.frame_number < 10
+        strike.add_to_score(next_roll2.pins) if !next_roll2.nil? && strike.frame_number < 10
       end
+      # puts "@log = #{log.inspect}"
       log.values.map(&:score).sum
     end
 
