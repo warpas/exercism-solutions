@@ -4,24 +4,33 @@
 class Clock
   attr_reader :hour, :minute
 
+  # @param hour [Integer]
+  # @param minute [Integer]
   def initialize(hour: 0, minute: 0)
     assignments(hour, minute)
   end
 
+  # @return [String] Clock formatted in HH:MM
   def to_s
     "#{add_zero(hour)}:#{add_zero(minute)}"
   end
 
+  # @param other [Clock]
+  # @return [Clock] sum of the two clocks
   def +(other)
     assignments(hour + other.hour, minute + other.minute)
     self
   end
 
+  # @param other [Clock]
+  # @return [Clock] the original clock after subtracting the other one
   def -(other)
     assignments(hour - other.hour, minute - other.minute)
     self
   end
 
+  # @param other [Clock]
+  # @return [Boolean] is Clock equal to the other one?
   def ==(other)
     hour == other.hour && minute == other.minute
   end
