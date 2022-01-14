@@ -56,11 +56,22 @@ class Rewrite
     end
 
     def add(index, roll_details)
+      previous_frame = @frame
       next_frame if next_frame_condition_fulfilled(index)
       # puts "@log = #{log.inspect}"
       # puts "index = #{index}"
       # @frame.add(roll_details)
       # p @frame.number
+      if previous_frame.number == 10
+        p @frame.number
+        if !(previous_frame.spare || previous_frame.strike)
+          puts "not!!"
+          # raise Game::BowlingError
+        else
+          puts "strike or spare"
+        end
+        # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
+      end
       roll_details.frame_number = @frame.number
       add_roll_to_frame(roll_details)
       # p @frame
@@ -73,6 +84,8 @@ class Rewrite
     end
 
     def final_score
+      p @frame.number
+      raise Game::BowlingError if @frame.number < 10
       # puts "@log = #{log.inspect}"
       spares = log.values.select { |roll| roll.spare_trigger == true }
       # p spares
@@ -190,6 +203,8 @@ class Rewrite
       if @first_roll.is_a?(RollZero)
         @first_roll = roll
       else
+        raise Game::BowlingError if @first_roll.pins + roll.pins > 10
+
         @second_roll = roll
       end
     end
