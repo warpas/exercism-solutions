@@ -49,6 +49,7 @@ class Rewrite
     def initialize
       @log = {}
       @frame = CurrentFrame.new
+      @frame_not_achieved = false
     end
 
     def last_roll_number
@@ -63,12 +64,17 @@ class Rewrite
       # @frame.add(roll_details)
       # p @frame.number
       if previous_frame.number == 10
-        p @frame.number
+        # p @frame.number
         if !(previous_frame.spare || previous_frame.strike)
-          puts "not!!"
-          # raise Game::BowlingError
+          # puts "not!!"
+          # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
+          # p previous_frame.spare
+          # p previous_frame.strike
+          raise Game::BowlingError if @frame_not_achieved == true
+
+          @frame_not_achieved = true
         else
-          puts "strike or spare"
+          # puts "strike or spare"
         end
         # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
       end
@@ -84,8 +90,49 @@ class Rewrite
     end
 
     def final_score
-      p @frame.number
+      # p @frame.number
+      previous_frame = @frame
       raise Game::BowlingError if @frame.number < 10
+
+      if previous_frame.number == 10
+        # p @frame.number
+        if !(previous_frame.spare || previous_frame.strike)
+          # puts "not!!"
+          # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
+          # # p previous_frame.spare
+          # # p previous_frame.strike
+          # raise Game::BowlingError if @frame_not_achieved == true
+
+          # @frame_not_achieved = true
+        else
+          # puts "strike or spare"
+          raise Game::BowlingError
+        end
+        # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
+      end
+
+      if previous_frame.number == 11
+        # p @frame.number
+        if previous_frame.spare
+          # puts "the old test that shouldN'T RAISE"
+        elsif previous_frame.strike
+          # p @frame
+          # p @frame.roll_numbers
+          golden_roll_number = @frame.roll_numbers.first - 1
+          # p golden_roll_number
+          # p @log[golden_roll_number]
+          # p @log[golden_roll_number].spare_trigger
+          # p @log[golden_roll_number].strike_trigger
+          # puts "the old test that shouldN'T RAISE"
+          # if !(previous_frame.spare || previous_frame.strike)
+          # puts "not!!"
+          raise Game::BowlingError if @log[golden_roll_number].strike_trigger
+        else
+          # puts "strike or spare"
+        end
+        # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
+      end
+
       # puts "@log = #{log.inspect}"
       spares = log.values.select { |roll| roll.spare_trigger == true }
       # p spares
@@ -132,6 +179,7 @@ class Rewrite
   class Roll
     attr_accessor :frame_number, :spare_trigger, :strike_trigger
     attr_reader :total_roll_number, :pins
+
     # attr_writer :strike_trigger
 
     def initialize(pins:, total_roll_number: 1)
@@ -217,6 +265,10 @@ class Rewrite
       condition = score == 10
       spare_or_strike if condition
       condition
+    end
+
+    def roll_numbers
+      [@first_roll.total_roll_number, @second_roll.total_roll_number]
     end
 
     private
