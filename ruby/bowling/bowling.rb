@@ -64,6 +64,8 @@ class Rewrite
       # @frame.add(roll_details)
       # p @frame.number
       if previous_frame.number == 10
+        # puts "previous_frame.number == 10"
+        # p previous_frame.number
         # p @frame.number
         if !(previous_frame.spare || previous_frame.strike)
           # puts "not!!"
@@ -78,6 +80,24 @@ class Rewrite
         end
         # puts "previous_frame.spare = #{previous_frame.spare} & previous_frame.strike = #{previous_frame.strike}"
       end
+
+      if previous_frame.number == 11
+        # puts "previous_frame.number == 11"
+        # p previous_frame.number
+        # p @frame.number
+        if previous_frame.spare
+          # puts "spare"
+        elsif previous_frame.strike
+          # puts "strike"
+        else
+          # puts "else"
+          # p @frame
+          # p @frame.roll_numbers
+          raise Game::BowlingError unless @frame.roll_numbers.first < 21
+          raise Game::BowlingError  if @frame.number == 12
+        end
+      end
+
       roll_details.frame_number = @frame.number
       add_roll_to_frame(roll_details)
       # p @frame
