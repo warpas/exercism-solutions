@@ -8,10 +8,13 @@ class Game
     @rewrite = Rewrite.new
   end
 
+  # @param pins_knocked_down [Clock] the number of pins knocked down in the current roll
+  # @return [Rewrite::Roll] (to required in the exercise) the Roll object for the current roll
   def roll(pins_knocked_down)
     @rewrite.roll(pins_knocked_down)
   end
 
+  # @return [Integer] the score, which is the sum of points for the entire game
   def score
     @rewrite.final_score
   end
@@ -210,3 +213,4 @@ class Rewrite
     end
   end
 end
+# TODO: OH BOI IS THERE room to grow on this solution
