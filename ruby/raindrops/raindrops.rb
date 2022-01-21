@@ -1,4 +1,9 @@
-class Raindrops
+# frozen_string_literal: true
+
+# Implementation of the Raindrops exercise in Ruby track on Exercism.
+module Raindrops
+  # @param number [Integer]
+  # @return [String]
   def self.convert(number)
     sounds = ''
     sounds += 'Pling' if (number % 3).zero?
