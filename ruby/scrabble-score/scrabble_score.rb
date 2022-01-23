@@ -2,6 +2,22 @@
 
 # Implementation of the Scrabble Score exercise in Ruby track on Exercism.
 class Scrabble
+  # @param word [String]
+  # @return [Integer]
+  def self.score(word)
+    new(word).score
+  end
+
+  # @param word [String]
+  def initialize(word)
+    @word = word.to_s.upcase.chars
+  end
+
+  # @return [Integer]
+  def score
+    @word.map { |letter| SCORING[letter].to_i }.sum
+  end
+
   SCORING = {
     'A' => 1,
     'E' => 1,
@@ -31,20 +47,4 @@ class Scrabble
     'Z' => 10
   }.freeze
   private_constant :SCORING
-
-  # @param word [String]
-  # @return [Integer]
-  def self.score(word)
-    new(word).score
-  end
-
-  # @param word [String]
-  def initialize(word)
-    @word = word.to_s.upcase.chars
-  end
-
-  # @return [Integer]
-  def score
-    @word.map { |letter| SCORING[letter].to_i }.sum
-  end
 end
