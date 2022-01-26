@@ -5,6 +5,20 @@ class FlattenArray
   # @param array [Array<Integer, nil>]
   # @return [Array<Integer>]
   def self.flatten(array)
-    array.flatten.reject(&:nil?)
+    recursive_flatten(array).reject(&:nil?)
   end
+
+  def self.recursive_flatten(array)
+    flattened_array = []
+    array.each do |elem|
+      if elem.instance_of?(Array)
+        flattened_array.concat recursive_flatten(elem)
+      else
+        flattened_array.push(elem)
+      end
+    end
+    flattened_array
+  end
+
+  private_class_method :recursive_flatten
 end
