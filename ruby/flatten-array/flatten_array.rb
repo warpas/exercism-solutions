@@ -9,15 +9,9 @@ class FlattenArray
   end
 
   def self.recursive_flatten(array)
-    flattened_array = []
-    array.each do |elem|
-      if elem.instance_of?(Array)
-        flattened_array.concat recursive_flatten(elem)
-      else
-        flattened_array.push(elem)
-      end
+    array.reduce([]) do |acc, elem|
+      elem.instance_of?(Array) ? acc.concat(recursive_flatten(elem)) : acc.push(elem)
     end
-    flattened_array
   end
 
   private_class_method :recursive_flatten
