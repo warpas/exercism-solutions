@@ -6,7 +6,7 @@ class FlattenArray
     # @param array [Array<Integer, nil>]
     # @return [Array<Integer>]
     def flatten(array)
-      recursive_flatten(array).reject(&:nil?)
+      recursive_flatten(array).compact
     end
 
     def recursive_flatten(array)
@@ -14,7 +14,6 @@ class FlattenArray
         elem.instance_of?(Array) ? acc.concat(recursive_flatten(elem)) : acc.push(elem)
       end
     end
-
   end
 
   private_class_method :recursive_flatten
