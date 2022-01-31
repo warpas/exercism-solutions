@@ -5,9 +5,7 @@ class PhoneNumber
   # @param raw_phone_number [String]
   # @return [String, nil]
   def self.clean(raw_phone_number)
-    phone_number = new(raw_phone_number)
-
-    phone_number.validate
+    new(raw_phone_number).validate
   end
 
   # @return [String, nil]
@@ -29,10 +27,10 @@ class PhoneNumber
 
   def initialize(raw_number)
     @number = raw_number.scan(/\d+/).join
-    @number = @number[1..10] if longer_than_10_digits_good_start
+    @number = @number[1..10] if longer_with_good_start
   end
 
-  def longer_than_10_digits_good_start
+  def longer_with_good_start
     number.length > 10 && number[0] == '1'
   end
 
