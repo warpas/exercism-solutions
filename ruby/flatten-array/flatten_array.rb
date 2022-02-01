@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Implementation of the Flatten Array exercise in Ruby track on Exercism. Missing the point of the exercise!
+# Implementation of the Flatten Array exercise in Ruby track on Exercism.
 class FlattenArray
   class << self
     # @param array [Array<Integer, nil>]
