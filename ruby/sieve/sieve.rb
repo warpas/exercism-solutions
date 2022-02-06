@@ -13,7 +13,10 @@ class Sieve
     2.upto(@limit) do |n|
       is_n_prime = true
       primes.each do |prime|
-        is_n_prime = false if (n % prime).zero?
+        if (n % prime).zero?
+          is_n_prime = false
+          break
+        end
       end
       primes.push(n) if is_n_prime
     end
