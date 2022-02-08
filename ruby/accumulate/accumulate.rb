@@ -4,6 +4,7 @@
 class Array
   # Let's miss the point of the exercise by using map!
   def accumulate(&block)
-    map(&block)
+    # block.call could be replaced by yield 😱
+    map { |n| block.call n }
   end
 end
