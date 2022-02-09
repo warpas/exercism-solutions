@@ -2,9 +2,11 @@
 
 # Implementation of the Accumulate exercise in Ruby track on Exercism.
 class Array
-  # Let's miss the point of the exercise by using map!
   def accumulate(&block)
-    # block.call could be replaced by yield 😱
-    map { |n| block.call n }
+    new_array = []
+    each do |n|
+      new_array.push(block.call(n))
+    end
+    new_array
   end
 end
