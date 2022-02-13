@@ -1,7 +1,21 @@
-=begin
-Write your code for the 'Strain' exercise in this file. Make the tests in
-`strain_test.rb` pass.
+# frozen_string_literal: true
 
-To get started with TDD, see the `README.md` file in your
-`ruby/strain` directory.
-=end
+# Implementation of the Strain exercise in Ruby track on Exercism.
+# Missing the point of the exercise!
+class Array
+  # @param block [Block]
+  # @return [Array]
+  def keep(&block)
+    select do |elem|
+      block.call(elem)
+    end
+  end
+
+  # @param block [Block]
+  # @return [Array]
+  def discard(&block)
+    reject do |elem|
+      block.call(elem)
+    end
+  end
+end
