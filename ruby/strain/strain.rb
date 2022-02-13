@@ -6,16 +6,22 @@ class Array
   # @param block [Block]
   # @return [Array]
   def keep(&block)
-    select do |elem|
-      block.call(elem)
-    end
+    create_subarray_by(true, &block)
   end
 
   # @param block [Block]
   # @return [Array]
   def discard(&block)
-    reject do |elem|
-      block.call(elem)
+    create_subarray_by(false, &block)
+  end
+
+  private
+
+  def create_subarray_by(bool, &condition)
+    kept_array = []
+    each do |elem|
+      kept_array << elem if condition.call(elem) == bool
     end
+    kept_array
   end
 end
