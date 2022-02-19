@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'prime'
+StdlibPrime = Object.send(:remove_const, :Prime)
+
 # Implementation of the Nth Prime exercise in Ruby track on Exercism.
 class Prime
   # @param index [Integer]
@@ -7,13 +10,6 @@ class Prime
   def self.nth(index)
     raise ArgumentError if index <= 0
 
-    candidates = (2..index * 15)
-    primes = []
-    while index > primes.length do
-      current_prime = candidates.first
-      candidates = candidates.reject { |elem| (elem % current_prime).zero? }
-      primes.push(current_prime)
-    end
-    primes.last
+    StdlibPrime.first(index).last
   end
 end
