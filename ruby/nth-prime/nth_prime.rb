@@ -6,18 +6,14 @@ class Prime
   # @return [Integer]
   def self.nth(index)
     raise ArgumentError if index <= 0
-    return 3 if index == 2
 
-    primes = [2]
-    candidate = 3
+    candidates = (2..index * 15)
+    primes = []
     while index > primes.length do
-      viable = true
-      primes.each do |divisor|
-        viable = false if (candidate % divisor).zero?
-      end
-      primes.push(candidate) if viable
-      candidate += 1
+      current_prime = candidates.first
+      candidates = candidates.reject { |elem| (elem % current_prime).zero? }
+      primes.push(current_prime)
     end
-    primes[index - 1]
+    primes.last
   end
 end
