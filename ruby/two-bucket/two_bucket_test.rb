@@ -12,7 +12,6 @@ class TwoBucketTest < Minitest::Test
   end
 
   def test_bucket_one_size_3_bucket_two_size_5_goal_1_start_with_bucket_two
-    skip
     subject = TwoBucket.new(3, 5, 1, 'two')
     assert_equal 8, subject.moves
     assert_equal 'two', subject.goal_bucket
