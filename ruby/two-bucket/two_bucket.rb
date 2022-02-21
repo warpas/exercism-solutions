@@ -28,7 +28,7 @@ class TwoBucket
     @moves = 0
     empty_buckets
     make_initial_step
-    move_towards_goal until @moves_queue.empty? # @goal_reached
+    move_towards_goal until @goal_reached #|| @moves_queue.empty?
   end
 
   # def goal_bucket
@@ -54,11 +54,24 @@ class TwoBucket
     end
 
     def take
-      @queue.pop
+      # p @queue.length
+      # p @queue.first
+      # elem = @queue.shift
+      # p @queue.length
+      # p @queue.first
+      # elem
+
+      @queue.shift
+    end
+
+    def to_s
+      @queue.map(&:to_s)
     end
   end
 
   class State
+    attr_reader :moves
+
     def initialize(bucket1, bucket2, moves)
       @bucket1 = bucket1
       @bucket2 = bucket2
@@ -66,49 +79,56 @@ class TwoBucket
     end
 
     def to_s
-      "#{bucket1},#{bucket2}"
+      "#{@bucket1},#{@bucket2}"
+    end
+
+    def reached?(goal)
+      [@bucket1, @bucket2].include? goal
     end
 
     def empty_bucket_one
-      puts 'empty_bucket_one'
-      p @bucket1
-      p @bucket2
-      State.new(0, @bucket2, @moves + 1)
+      # puts 'empty_bucket_one'
+      bucket1_after_pouring = 0
+      bucket2_after_pouring = @bucket2
+      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def empty_bucket_two
-      puts 'empty_bucket_two'
-      p @bucket1
-      p @bucket2
-      State.new(@bucket1, 0, @moves + 1)
+      # puts 'empty_bucket_two'
+      bucket1_after_pouring = @bucket1
+      bucket2_after_pouring = 0
+      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def fill_bucket_one(size)
-      puts 'fill_bucket_one'
-      p size
-      State.new(size, @bucket2, @moves + 1)
+      # puts 'fill_bucket_one'
+      bucket1_after_pouring = size
+      bucket2_after_pouring = @bucket2
+      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def fill_bucket_two(size)
-      puts 'fill_bucket_two'
-      p size
-      State.new(@bucket1, size, @moves + 1)
+      # puts 'fill_bucket_two'
+      bucket1_after_pouring = @bucket1
+      bucket2_after_pouring = size
+      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def pour_from_bucket_one_to_bucket_two(size)
-      puts 'pour_from_bucket_one_to_bucket_two'
-      bucket1_after_pouring = 0
-      bucket2_after_pouring = @bucket1
+      # puts 'pour_from_bucket_one_to_bucket_two'
+      sum_of_buckets = @bucket1 + @bucket2
+      overflow_amount = sum_of_buckets - size
+      bucket1_after_pouring = [overflow_amount, 0].max
+      bucket2_after_pouring = [sum_of_buckets, size].min
       State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def pour_from_bucket_two_to_bucket_one(size)
-      puts 'pour_from_bucket_one_to_bucket_two'
-      p @bucket1
-      p @bucket2
-      p size
-      bucket1_after_pouring = @bucket2
-      bucket2_after_pouring = 0
+      # puts 'pour_from_bucket_one_to_bucket_two'
+      sum_of_buckets = @bucket1 + @bucket2
+      overflow_amount = sum_of_buckets - size
+      bucket1_after_pouring = [sum_of_buckets, size].min
+      bucket2_after_pouring = [overflow_amount, 0].max
       State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
   end
@@ -134,6 +154,12 @@ class TwoBucket
     add_valid_moves_to_queue_for(current_state)
   end
 
+  def take_a_step(state)
+    @visited_states << state
+    state.reached?(@goal)
+    add_valid_moves_to_queue_for(state)
+  end
+
   def fill_starting_bucket
     # TODO: add logic for recognizing which is the starting bucket
     new_state = State.new(@size1, 0, @moves)
@@ -149,20 +175,37 @@ class TwoBucket
     @moves_queue.add(state.fill_bucket_two(@size2))
     @moves_queue.add(state.pour_from_bucket_one_to_bucket_two(@size2))
     @moves_queue.add(state.pour_from_bucket_two_to_bucket_one(@size1))
-    p @moves_queue
-    p @moves_queue.length
+    # p @moves_queue.to_s
+    puts "moves_queue is #{@moves_queue.length} long"
   end
 
   def move_towards_goal
     perform_valid_moves
 
-    @goal_reached = true if @moves > 90
+    @goal_reached = true if @moves > 5
   end
 
   def perform_valid_moves
     state = @moves_queue.take
-    p state
-    # @
+    visited_state = did_we_visit_this_state_already?(state)
+    @moves = state.moves
+    return if visited_state
+
+    p "unvisited state is #{state}"
+    take_a_step(state)
+  end
+
+  def did_we_visit_this_state_already?(state)
+    visited_already = false
+    # p state
+    # p state.to_s
+    # p @visited_states
+    @visited_states.each do |visited_state|
+      # puts "visited: #{visited_state.to_s}"
+      visited_already = true if visited_state.to_s == state.to_s
+    end
+    # p visited_already
+    visited_already
   end
 
   def valid_moves
