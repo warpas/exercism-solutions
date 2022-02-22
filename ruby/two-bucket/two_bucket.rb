@@ -21,16 +21,6 @@ class TwoBucket
     perform_acrobatics
   end
 
-  def perform_acrobatics
-    puts ""
-    puts "s1 = #{@size1}, s2 = #{@size2}, goal = #{@goal}"
-
-    @moves = 0
-    empty_buckets
-    make_initial_step
-    move_towards_goal until @goal_reached #|| @moves_queue.empty?
-  end
-
   # def goal_bucket
   #   'one'
   #   # @start_with
@@ -135,7 +125,19 @@ class TwoBucket
 
   private
 
+  def perform_acrobatics
+    puts ""
+    puts "s1 = #{@size1}, s2 = #{@size2}, goal = #{@goal}"
+
+    @moves = 0
+    empty_buckets
+    make_initial_step
+    move_towards_goal until goal_reached
+  end
+
   # attr_reader :bucket1, :bucket2
+  attr_reader :goal_reached
+
   def bucket1
     'one'
   end
@@ -156,7 +158,9 @@ class TwoBucket
 
   def take_a_step(state)
     @visited_states << state
-    state.reached?(@goal)
+    puts "goal reached?"
+    p state.reached?(@goal)
+    @goal_reached = state.reached?(@goal)
     add_valid_moves_to_queue_for(state)
   end
 
