@@ -11,8 +11,11 @@ class TwoBucket
     @goal = goal
     @start_with = start_with
 
+    puts "\nstart_with:"
+    p start_with
+
     @goal_bucket = @start_with
-    @other_bucket = 5
+    @other_bucket = 0
 
     @visited_states = []
     @goal_reached = false
@@ -76,6 +79,18 @@ class TwoBucket
       [@bucket1, @bucket2].include? goal
     end
 
+    def other(goal)
+      p "last_state b1 = #{@bucket1}, goal? #{goal == @bucket1}"
+      p "last_state b2 = #{@bucket2}, goal? #{goal == @bucket2}"
+      if goal == @bucket1
+        @bucket2
+      elsif goal == @bucket2
+        @bucket1
+      else
+        -1
+      end
+    end
+
     def empty_bucket_one
       # puts 'empty_bucket_one'
       bucket1_after_pouring = 0
@@ -133,6 +148,11 @@ class TwoBucket
     empty_buckets
     make_initial_step
     move_towards_goal until goal_reached
+    determine_other_bucket
+  end
+
+  def determine_other_bucket
+    @other_bucket = @visited_states.last.other(@goal)
   end
 
   # attr_reader :bucket1, :bucket2
@@ -158,15 +178,21 @@ class TwoBucket
 
   def take_a_step(state)
     @visited_states << state
-    puts "goal reached?"
-    p state.reached?(@goal)
+    puts "goal reached? #{state.reached?(@goal)}"
     @goal_reached = state.reached?(@goal)
     add_valid_moves_to_queue_for(state)
   end
 
   def fill_starting_bucket
+    new_state =
+    if @start_with == 'one'
+      @visited_states << State.new(0, @size2, 0)
+      State.new(@size1, 0, @moves)
+    else
+      @visited_states << State.new(@size1, 0, 0)
+      State.new(0, @size2, @moves)
+    end
     # TODO: add logic for recognizing which is the starting bucket
-    new_state = State.new(@size1, 0, @moves)
     @visited_states << new_state
     @moves += 1
     new_state
@@ -186,7 +212,7 @@ class TwoBucket
   def move_towards_goal
     perform_valid_moves
 
-    @goal_reached = true if @moves > 5
+    @goal_reached = true if @moves > 25
   end
 
   def perform_valid_moves
@@ -195,7 +221,7 @@ class TwoBucket
     @moves = state.moves
     return if visited_state
 
-    p "unvisited state is #{state}"
+    p "unvisited state is #{state}, moves #{@moves}"
     take_a_step(state)
   end
 
