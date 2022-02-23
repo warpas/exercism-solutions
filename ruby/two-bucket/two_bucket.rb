@@ -147,6 +147,7 @@ class TwoBucket
     @moves = 0
     empty_buckets
     make_initial_step
+    p goal_reached
     move_towards_goal until goal_reached
     determine_other_bucket
   end
@@ -173,6 +174,8 @@ class TwoBucket
 
   def make_initial_step
     current_state = fill_starting_bucket
+    p @visited_states
+    @goal_reached = current_state.reached?(@goal)
     add_valid_moves_to_queue_for(current_state)
   end
 
@@ -194,7 +197,7 @@ class TwoBucket
     end
     # TODO: add logic for recognizing which is the starting bucket
     @visited_states << new_state
-    @moves += 1
+    # @moves += 1
     new_state
   end
 
