@@ -14,7 +14,7 @@ class TwoBucket
     puts "\nstart_with:"
     p start_with
 
-    @goal_bucket = @start_with
+    # @goal_bucket = @start_with
     @other_bucket = 0
 
     @visited_states = []
@@ -91,6 +91,16 @@ class TwoBucket
       end
     end
 
+    def goal_bucket(goal)
+      if goal == @bucket1
+        'one'
+      elsif goal == @bucket2
+        'two'
+      else
+        'none'
+      end
+    end
+
     def empty_bucket_one
       # puts 'empty_bucket_one'
       bucket1_after_pouring = 0
@@ -150,10 +160,15 @@ class TwoBucket
     p goal_reached
     move_towards_goal until goal_reached
     determine_other_bucket
+    determine_goal_bucket
   end
 
   def determine_other_bucket
     @other_bucket = @visited_states.last.other(@goal)
+  end
+
+  def determine_goal_bucket
+    @goal_bucket = @visited_states.last.goal_bucket(@goal)
   end
 
   # attr_reader :bucket1, :bucket2
@@ -215,7 +230,7 @@ class TwoBucket
   def move_towards_goal
     perform_valid_moves
 
-    @goal_reached = true if @moves > 25
+    @goal_reached = true if @moves > 105
   end
 
   def perform_valid_moves
