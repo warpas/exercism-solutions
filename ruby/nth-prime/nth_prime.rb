@@ -1,15 +1,26 @@
 # frozen_string_literal: true
 
-require 'prime'
-StdlibPrime = Object.send(:remove_const, :Prime)
-
 # Implementation of the Nth Prime exercise in Ruby track on Exercism.
 class Prime
   # @param index [Integer]
   # @return [Integer]
   def self.nth(index)
     raise ArgumentError if index <= 0
+    return 3 if index == 2
 
-    StdlibPrime.first(index).last
+    primes = [2]
+    candidate = 3
+    while index > primes.length
+      viable = true
+      primes.each do |divisor|
+        if (candidate % divisor).zero?
+          viable = false
+          break
+        end
+      end
+      primes.push(candidate) if viable
+      candidate += 1
+    end
+    primes[index - 1]
   end
 end
