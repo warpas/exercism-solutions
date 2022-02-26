@@ -12,7 +12,10 @@ class Prime
     candidate = 3
     while index > primes.length
       viable = true
+      sqrt_of_candidate = Math.sqrt candidate
       primes.each do |divisor|
+        break if divisor > sqrt_of_candidate
+
         if (candidate % divisor).zero?
           viable = false
           break
