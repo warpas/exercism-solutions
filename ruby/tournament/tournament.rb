@@ -5,12 +5,13 @@ class Tournament
 
   def initialize(match_results)
     @scoreboard = ScoreBoard.new
-    match_results.each_line do |line|
-      parse(line.strip)
-    end
+    @results_string = match_results
   end
 
   def report
+    @results_string.each_line do |line|
+      parse(line.strip)
+    end
     @scoreboard.display
   end
 
@@ -22,19 +23,21 @@ class Tournament
 
     team1 = @scoreboard.find_or_create(team1_name)
     team2 = @scoreboard.find_or_create(team2_name)
+    apply_score(result, team1, team2)
+    @scoreboard.add(team1)
+    @scoreboard.add(team2)
+  end
+
+  def apply_score(result, team1, team2)
     case result
     when 'win'
-      team1.win
-      team2.loss
+      team1.win_over(team2)
     when 'loss'
-      team1.loss
-      team2.win
+      team2.win_over(team1)
     when 'draw'
       team1.draw
       team2.draw
     end
-    @scoreboard.add(team1)
-    @scoreboard.add(team2)
   end
 end
 
@@ -77,6 +80,11 @@ class TeamScore
   def initialize(name)
     @name = name
     @won = @tied = @lost = 0
+  end
+
+  def win_over(other_team)
+    win
+    other_team.loss
   end
 
   def win
