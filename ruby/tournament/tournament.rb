@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Implementation of the Tournament exercise in Ruby track on Exercism.
 class Tournament
   def self.tally(input)
     new(input).report
@@ -39,77 +42,80 @@ class Tournament
       team2.draw
     end
   end
-end
 
-class ScoreBoard
-  REPORT_FORMAT = "%-31s| %2s |  %s |  %s |  %s |  %s\n".freeze
+  # The representation of the Score Board not available to outside classes
+  class ScoreBoard
+    REPORT_HEADER = %w[Team MP W D L P].freeze
+    REPORT_FORMAT = "%-31s| %2s |  %s |  %s |  %s |  %s\n"
 
-  def initialize
-    @board = {}
-  end
+    def initialize
+      @board = {}
+    end
 
-  def find_or_create(team_name)
-    existing_team = @board[team_name]
-    if existing_team.nil?
-      TeamScore.new(team_name)
-    else
-      existing_team
+    def find_or_create(team_name)
+      existing_team = @board[team_name]
+      if existing_team.nil?
+        TeamScore.new(team_name)
+      else
+        existing_team
+      end
+    end
+
+    def add(team)
+      @board[team.name] = team
+    end
+
+    def display
+      tally = REPORT_FORMAT % REPORT_HEADER
+      @board.values
+            .sort_by { |team| [-team.points, team.name] }
+            .each { |team| tally << REPORT_FORMAT % team.tally }
+
+      tally
     end
   end
 
-  def add(team)
-    @board[team.name] = team
+  # The representation of the Team not available to outside classes
+  class TeamScore
+    attr_reader :name
+
+    def initialize(name)
+      @name = name
+      @won = @tied = @lost = 0
+    end
+
+    def win_over(other_team)
+      win
+      other_team.loss
+    end
+
+    def win
+      @won += 1
+    end
+
+    def loss
+      @lost += 1
+    end
+
+    def draw
+      @tied += 1
+    end
+
+    def points
+      @won * 3 + @tied
+    end
+
+    def tally
+      [name, played, @won, @tied, @lost, points]
+    end
+
+    private
+
+    def played
+      @won + @lost + @tied
+    end
   end
 
-  def display
-    tally = <<~TALLY
-      Team                           | MP |  W |  D |  L |  P
-    TALLY
-
-    @board.values
-          .sort_by { |team| [-team.points, team.name] }
-          .each { |team| tally << REPORT_FORMAT % team.tally }
-
-    tally
-  end
-end
-
-class TeamScore
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
-    @won = @tied = @lost = 0
-  end
-
-  def win_over(other_team)
-    win
-    other_team.loss
-  end
-
-  def win
-    @won += 1
-  end
-
-  def loss
-    @lost += 1
-  end
-
-  def draw
-    @tied += 1
-  end
-
-  def points
-    @won * 3 + @tied
-  end
-
-  def tally
-    [name, played, @won, @tied, @lost, points]
-  end
-
-  private
-
-  def played
-    @won + @lost + @tied
-  end
+  private_constant :ScoreBoard
+  private_constant :TeamScore
 end
