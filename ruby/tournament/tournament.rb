@@ -2,15 +2,19 @@
 
 # Implementation of the Tournament exercise in Ruby track on Exercism.
 class Tournament
+  # @param input [String]
+  # @return [String]
   def self.tally(input)
     new(input).report
   end
 
+  # @param match_results [String]
   def initialize(match_results)
     @scoreboard = ScoreBoard.new
     @results_string = match_results
   end
 
+  # @return [String]
   def report
     @results_string.each_line do |line|
       parse(line.strip)
