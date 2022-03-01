@@ -51,11 +51,15 @@ class Tournament
   class ScoreBoard
     REPORT_HEADER = %w[Team MP W D L P].freeze
     REPORT_FORMAT = "%-31s| %2s |  %s |  %s |  %s |  %s\n"
+    private_constant :REPORT_HEADER
+    private_constant :REPORT_FORMAT
 
     def initialize
       @board = {}
     end
 
+    # @param team_name [String]
+    # @return [Tournament::TeamScore]
     def find_or_create(team_name)
       existing_team = @board[team_name]
       if existing_team.nil?
@@ -65,10 +69,13 @@ class Tournament
       end
     end
 
+    # @param team [Tournament::TeamScore]
+    # @return [Tournament::TeamScore]
     def add(team)
       @board[team.name] = team
     end
 
+    # @return [String]
     def display
       tally = REPORT_FORMAT % REPORT_HEADER
       @board.values
@@ -83,32 +90,40 @@ class Tournament
   class TeamScore
     attr_reader :name
 
+    # @param name [String]
     def initialize(name)
       @name = name
       @won = @tied = @lost = 0
     end
 
+    # @param other_team [Tournament::TeamScore]
+    # @return [Integer]
     def win_over(other_team)
       win
       other_team.loss
     end
 
+    # @return [Integer]
     def win
       @won += 1
     end
 
+    # @return [Integer]
     def loss
       @lost += 1
     end
 
+    # @return [Integer]
     def draw
       @tied += 1
     end
 
+    # @return [Integer]
     def points
       @won * 3 + @tied
     end
 
+    # @return [Array<Tournament::TeamScore, Integer>]
     def tally
       [name, played, @won, @tied, @lost, points]
     end
