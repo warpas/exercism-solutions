@@ -13,12 +13,12 @@ class TwoBucket
     @other_bucket = 0
     @visited_states = []
     @goal_reached = false
-    @moves_queue = MovesQueue.new
+    @queue = PotentialMovesQueue.new
 
     perform_acrobatics
   end
 
-  class MovesQueue
+  class PotentialMovesQueue
     def initialize
       @queue = []
     end
@@ -38,13 +38,9 @@ class TwoBucket
     def take_first
       @queue.shift
     end
-
-    def to_s
-      @queue.map(&:to_s)
-    end
   end
 
-  class State
+  class BucketState
     attr_reader :moves
 
     def initialize(bucket1, bucket2, moves)
@@ -62,47 +58,41 @@ class TwoBucket
     end
 
     def other(goal)
-      if goal == @bucket1
-        @bucket2
-      elsif goal == @bucket2
-        @bucket1
-      else
-        -1
-      end
+      return @bucket2 if goal == @bucket1
+      return @bucket1 if goal == @bucket2
+
+      -1
     end
 
     def goal_bucket(goal)
-      if goal == @bucket1
-        'one'
-      elsif goal == @bucket2
-        'two'
-      else
-        'none'
-      end
+      return 'one' if goal == @bucket1
+      return 'two' if goal == @bucket2
+
+      'none'
     end
 
     def empty_bucket_one
       bucket1_after_pouring = 0
       bucket2_after_pouring = @bucket2
-      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def empty_bucket_two
       bucket1_after_pouring = @bucket1
       bucket2_after_pouring = 0
-      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def fill_bucket_one(size)
       bucket1_after_pouring = size
       bucket2_after_pouring = @bucket2
-      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def fill_bucket_two(size)
       bucket1_after_pouring = @bucket1
       bucket2_after_pouring = size
-      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def pour_from_bucket_one_to_bucket_two(size)
@@ -110,7 +100,7 @@ class TwoBucket
       overflow_amount = sum_of_buckets - size
       bucket1_after_pouring = [overflow_amount, 0].max
       bucket2_after_pouring = [sum_of_buckets, size].min
-      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
 
     def pour_from_bucket_two_to_bucket_one(size)
@@ -118,7 +108,7 @@ class TwoBucket
       overflow_amount = sum_of_buckets - size
       bucket1_after_pouring = [sum_of_buckets, size].min
       bucket2_after_pouring = [overflow_amount, 0].max
-      State.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
     end
   end
 
@@ -144,7 +134,7 @@ class TwoBucket
   attr_reader :goal_reached
 
   def empty_buckets
-    @visited_states << State.new(0, 0, @moves)
+    @visited_states << BucketState.new(0, 0, @moves)
     @moves += 1
   end
 
@@ -163,23 +153,23 @@ class TwoBucket
   def fill_starting_bucket
     new_state =
       if @start_with == 'one'
-        @visited_states << State.new(0, @size2, 0)
-        State.new(@size1, 0, @moves)
+        @visited_states << BucketState.new(0, @size2, 0)
+        BucketState.new(@size1, 0, @moves)
       else
-        @visited_states << State.new(@size1, 0, 0)
-        State.new(0, @size2, @moves)
+        @visited_states << BucketState.new(@size1, 0, 0)
+        BucketState.new(0, @size2, @moves)
       end
     @visited_states << new_state
     new_state
   end
 
   def add_valid_moves_to_queue_for(state)
-    @moves_queue.add(state.empty_bucket_one)
-    @moves_queue.add(state.empty_bucket_two)
-    @moves_queue.add(state.fill_bucket_one(@size1))
-    @moves_queue.add(state.fill_bucket_two(@size2))
-    @moves_queue.add(state.pour_from_bucket_one_to_bucket_two(@size2))
-    @moves_queue.add(state.pour_from_bucket_two_to_bucket_one(@size1))
+    @queue.add(state.empty_bucket_one)
+    @queue.add(state.empty_bucket_two)
+    @queue.add(state.fill_bucket_one(@size1))
+    @queue.add(state.fill_bucket_two(@size2))
+    @queue.add(state.pour_from_bucket_one_to_bucket_two(@size2))
+    @queue.add(state.pour_from_bucket_two_to_bucket_one(@size1))
   end
 
   def move_towards_goal
@@ -189,7 +179,7 @@ class TwoBucket
   end
 
   def perform_valid_moves
-    state = @moves_queue.take_first
+    state = @queue.take_first
     visited_state = did_we_visit_this_state_already?(state)
     @moves = state.moves
     return if visited_state
