@@ -49,6 +49,10 @@ class TwoBucket
       @moves = moves
     end
 
+    def same_state_as(state)
+      to_s == state.to_s
+    end
+
     def to_s
       "#{@bucket1},#{@bucket2}"
     end
@@ -188,10 +192,10 @@ class TwoBucket
   end
 
   def did_we_visit_this_state_already?(state)
-    visited_already = false
     @visited_states.each do |visited_state|
-      visited_already = true if visited_state.to_s == state.to_s
+      return true if state.same_state_as(visited_state)
     end
-    visited_already
+
+    false
   end
 end
