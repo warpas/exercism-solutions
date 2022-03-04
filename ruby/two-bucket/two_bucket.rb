@@ -76,27 +76,27 @@ class TwoBucket
     end
 
     def empty_bucket_one
-      bucket1_after_pouring = 0
-      bucket2_after_pouring = @bucket2
-      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      bucket1_emptied = 0
+      bucket2_unchanged = @bucket2
+      BucketState.new(bucket1_emptied, bucket2_unchanged, @moves + 1)
     end
 
     def empty_bucket_two
-      bucket1_after_pouring = @bucket1
-      bucket2_after_pouring = 0
-      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      bucket1_unchanged = @bucket1
+      bucket2_emptied = 0
+      BucketState.new(bucket1_unchanged, bucket2_emptied, @moves + 1)
     end
 
     def fill_bucket_one(size)
-      bucket1_after_pouring = size
-      bucket2_after_pouring = @bucket2
-      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      bucket1_filled = size
+      bucket2_unchanged = @bucket2
+      BucketState.new(bucket1_filled, bucket2_unchanged, @moves + 1)
     end
 
     def fill_bucket_two(size)
-      bucket1_after_pouring = @bucket1
-      bucket2_after_pouring = size
-      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, @moves + 1)
+      bucket1_unchanged = @bucket1
+      bucket2_filled = size
+      BucketState.new(bucket1_unchanged, bucket2_filled, @moves + 1)
     end
 
     def pour_from_bucket_one_to_bucket_two(size)
@@ -177,21 +177,14 @@ class TwoBucket
   end
 
   def move_towards_goal
-    perform_valid_moves
-
-    @goal_reached = true if @moves > 105
-  end
-
-  def perform_valid_moves
     state = @queue.take_first
-    visited_state = did_we_visit_this_state_already?(state)
     @moves = state.moves
-    return if visited_state
+    return if visited?(state)
 
     take_a_step(state)
   end
 
-  def did_we_visit_this_state_already?(state)
+  def visited?(state)
     @visited_states.each do |visited_state|
       return true if state.same_state_as(visited_state)
     end
