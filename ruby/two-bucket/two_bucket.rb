@@ -2,43 +2,39 @@
 
 # Implementation of the Two Bucket exercise in Ruby track on Exercism.
 class TwoBucket
-  attr_reader :moves, :goal_bucket, :other_bucket
-
   def initialize(size1, size2, goal, start_with)
     @size1 = size1
     @size2 = size2
     @goal = goal
     @start_with = start_with
 
+    @moves_count = 0
     @other_bucket = 0
-    @visited_states = []
     @goal_reached = false
-    @queue = PotentialMovesQueue.new
 
-    perform_acrobatics
+    @visited_states = []
+    @potential_moves = QueuedMoves.new
   end
 
-  class PotentialMovesQueue
-    def initialize
-      @queue = []
-    end
+  def moves
+    perform_acrobatics unless @goal_reached
 
-    def add(element)
-      @queue << element
-    end
-
-    def length
-      @queue.length
-    end
-
-    def empty?
-      @queue.empty?
-    end
-
-    def take_first
-      @queue.shift
-    end
+    @moves_count
   end
+
+  def goal_bucket
+    perform_acrobatics unless @goal_reached
+
+    @goal_bucket
+  end
+
+  def other_bucket
+    perform_acrobatics unless @goal_reached
+
+    @other_bucket
+  end
+
+  private
 
   class BucketState
     attr_reader :moves
@@ -116,10 +112,7 @@ class TwoBucket
     end
   end
 
-  private
-
   def perform_acrobatics
-    @moves = 0
     empty_buckets
     make_initial_step
     move_towards_goal until goal_reached
@@ -138,8 +131,8 @@ class TwoBucket
   attr_reader :goal_reached
 
   def empty_buckets
-    @visited_states << BucketState.new(0, 0, @moves)
-    @moves += 1
+    @visited_states << BucketState.new(0, 0, @moves_count)
+    @moves_count += 1
   end
 
   def make_initial_step
@@ -158,27 +151,27 @@ class TwoBucket
     new_state =
       if @start_with == 'one'
         @visited_states << BucketState.new(0, @size2, 0)
-        BucketState.new(@size1, 0, @moves)
+        BucketState.new(@size1, 0, @moves_count)
       else
         @visited_states << BucketState.new(@size1, 0, 0)
-        BucketState.new(0, @size2, @moves)
+        BucketState.new(0, @size2, @moves_count)
       end
     @visited_states << new_state
     new_state
   end
 
   def add_valid_moves_to_queue_for(state)
-    @queue.add(state.empty_bucket_one)
-    @queue.add(state.empty_bucket_two)
-    @queue.add(state.fill_bucket_one(@size1))
-    @queue.add(state.fill_bucket_two(@size2))
-    @queue.add(state.pour_from_bucket_one_to_bucket_two(@size2))
-    @queue.add(state.pour_from_bucket_two_to_bucket_one(@size1))
+    @potential_moves.add(state.empty_bucket_one)
+    @potential_moves.add(state.empty_bucket_two)
+    @potential_moves.add(state.fill_bucket_one(@size1))
+    @potential_moves.add(state.fill_bucket_two(@size2))
+    @potential_moves.add(state.pour_from_bucket_one_to_bucket_two(@size2))
+    @potential_moves.add(state.pour_from_bucket_two_to_bucket_one(@size1))
   end
 
   def move_towards_goal
-    state = @queue.take_first
-    @moves = state.moves
+    state = @potential_moves.take_next
+    @moves_count = state.moves
     return if visited?(state)
 
     take_a_step(state)
@@ -191,4 +184,29 @@ class TwoBucket
 
     false
   end
+
+  class QueuedMoves
+    def initialize
+      @queue = []
+    end
+
+    def add(element)
+      @queue << element
+    end
+
+    def length
+      @queue.length
+    end
+
+    def empty?
+      @queue.empty?
+    end
+
+    def take_next
+      @queue.shift
+    end
+  end
+
+  private_constant :QueuedMoves
+  private_constant :BucketState
 end
