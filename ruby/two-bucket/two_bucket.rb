@@ -9,10 +9,9 @@ class TwoBucket
     @start_with = start_with
 
     @moves_count = 0
-    @other_bucket = 0
     @goal_reached = false
 
-    @visited_states = []
+    @visited_states = VisitedStates.new
     @potential_moves = QueuedMoves.new
   end
 
@@ -131,7 +130,7 @@ class TwoBucket
   attr_reader :goal_reached
 
   def empty_buckets
-    @visited_states << BucketState.new(0, 0, @moves_count)
+    @visited_states.add BucketState.new(0, 0, @moves_count)
     @moves_count += 1
   end
 
@@ -142,7 +141,7 @@ class TwoBucket
   end
 
   def take_a_step(state)
-    @visited_states << state
+    @visited_states.add state
     @goal_reached = state.reached?(@goal)
     add_valid_moves_to_queue_for(state)
   end
@@ -150,13 +149,13 @@ class TwoBucket
   def fill_starting_bucket
     new_state =
       if @start_with == 'one'
-        @visited_states << BucketState.new(0, @size2, 0)
+        @visited_states.add BucketState.new(0, @size2, 0)
         BucketState.new(@size1, 0, @moves_count)
       else
-        @visited_states << BucketState.new(@size1, 0, 0)
+        @visited_states.add BucketState.new(@size1, 0, 0)
         BucketState.new(0, @size2, @moves_count)
       end
-    @visited_states << new_state
+    @visited_states.add new_state
     new_state
   end
 
@@ -178,11 +177,7 @@ class TwoBucket
   end
 
   def visited?(state)
-    @visited_states.each do |visited_state|
-      return true if state.same_state_as(visited_state)
-    end
-
-    false
+    @visited_states.include?(state)
   end
 
   class QueuedMoves
@@ -207,6 +202,29 @@ class TwoBucket
     end
   end
 
+  class VisitedStates
+    def initialize
+      @visited = []
+    end
+
+    def add(state)
+      @visited << state
+    end
+
+    def include?(state)
+      @visited.each do |visited_state|
+        return true if state.same_state_as(visited_state)
+      end
+
+      false
+    end
+
+    def last
+      @visited.last
+    end
+  end
+
   private_constant :QueuedMoves
+  private_constant :VisitedStates
   private_constant :BucketState
 end
