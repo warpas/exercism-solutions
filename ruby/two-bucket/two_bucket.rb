@@ -13,22 +13,23 @@ class TwoBucket
 
     @visited_states = VisitedStates.new
     @potential_moves = QueuedMoves.new
+    empty_buckets
   end
 
   def moves
-    perform_acrobatics unless @goal_reached
+    find_goal unless @goal_reached
 
     @moves_count
   end
 
   def goal_bucket
-    perform_acrobatics unless @goal_reached
+    find_goal unless @goal_reached
 
     @goal_bucket
   end
 
   def other_bucket
-    perform_acrobatics unless @goal_reached
+    find_goal unless @goal_reached
 
     @other_bucket
   end
@@ -111,9 +112,8 @@ class TwoBucket
     end
   end
 
-  def perform_acrobatics
-    empty_buckets
-    make_initial_step
+  def find_goal
+    fill_starting_bucket
     move_towards_goal until goal_reached
     determine_other_bucket
     determine_goal_bucket
@@ -134,13 +134,10 @@ class TwoBucket
     @moves_count += 1
   end
 
-  def make_initial_step
-    current_state = fill_starting_bucket
-    @goal_reached = current_state.reached?(@goal)
-    add_valid_moves_to_queue_for(current_state)
-  end
-
   def take_a_step(state)
+    @moves_count = state.moves
+    return if visited?(state)
+
     @visited_states.add state
     @goal_reached = state.reached?(@goal)
     add_valid_moves_to_queue_for(state)
@@ -155,8 +152,7 @@ class TwoBucket
         @visited_states.add BucketState.new(@size1, 0, 0)
         BucketState.new(0, @size2, @moves_count)
       end
-    @visited_states.add new_state
-    new_state
+    take_a_step(new_state)
   end
 
   def add_valid_moves_to_queue_for(state)
@@ -170,9 +166,6 @@ class TwoBucket
 
   def move_towards_goal
     state = @potential_moves.take_next
-    @moves_count = state.moves
-    return if visited?(state)
-
     take_a_step(state)
   end
 
