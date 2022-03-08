@@ -77,31 +77,19 @@ class TwoBucket
     end
 
     def fill_bucket_one(size)
-      bucket1_filled = size
-      bucket2_unchanged = @bucket2
-      BucketState.new(bucket1_filled, bucket2_unchanged, moves + 1)
+      fill_bucket('one', size)
     end
 
     def fill_bucket_two(size)
-      bucket1_unchanged = @bucket1
-      bucket2_filled = size
-      BucketState.new(bucket1_unchanged, bucket2_filled, moves + 1)
+      fill_bucket('two', size)
     end
 
     def pour_from_bucket_one_to_bucket_two(size)
-      sum_of_buckets = @bucket1 + @bucket2
-      overflow_amount = sum_of_buckets - size
-      bucket1_after_pouring = [overflow_amount, 0].max
-      bucket2_after_pouring = [sum_of_buckets, size].min
-      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, moves + 1)
+      pour_from_one_bucket_to_another('one', size)
     end
 
     def pour_from_bucket_two_to_bucket_one(size)
-      sum_of_buckets = @bucket1 + @bucket2
-      overflow_amount = sum_of_buckets - size
-      bucket1_after_pouring = [sum_of_buckets, size].min
-      bucket2_after_pouring = [overflow_amount, 0].max
-      BucketState.new(bucket1_after_pouring, bucket2_after_pouring, moves + 1)
+      pour_from_one_bucket_to_another('two', size)
     end
 
     private
@@ -110,6 +98,24 @@ class TwoBucket
       return BucketState.new(EMPTY, @bucket2, moves + 1) if bucket_label == 'one'
 
       BucketState.new(@bucket1, EMPTY, moves + 1)
+    end
+
+    def fill_bucket(bucket_label, size)
+      return BucketState.new(size, @bucket2, moves + 1) if bucket_label == 'one'
+
+      BucketState.new(@bucket1, size, moves + 1)
+    end
+
+    def pour_from_one_bucket_to_another(bucket_label, size)
+      sum_of_buckets = @bucket1 + @bucket2
+      overflow_amount = sum_of_buckets - size
+      after_pouring =
+        if bucket_label == 'one'
+          [[overflow_amount, 0].max, [sum_of_buckets, size].min]
+        else
+          [[sum_of_buckets, size].min, [overflow_amount, 0].max]
+        end
+      BucketState.new(after_pouring.first, after_pouring.last, moves + 1)
     end
 
     private_constant :EMPTY
