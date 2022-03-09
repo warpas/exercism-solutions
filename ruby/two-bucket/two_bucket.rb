@@ -109,13 +109,16 @@ class TwoBucket
     def pour_from_one_bucket_to_another(bucket_label, size)
       sum_of_buckets = @bucket1 + @bucket2
       overflow_amount = sum_of_buckets - size
-      after_pouring =
-        if bucket_label == 'one'
-          [[overflow_amount, 0].max, [sum_of_buckets, size].min]
-        else
-          [[sum_of_buckets, size].min, [overflow_amount, 0].max]
-        end
+      after_pouring = pour(bucket_label, size, sum_of_buckets, overflow_amount)
       BucketState.new(after_pouring.first, after_pouring.last, moves + 1)
+    end
+
+    def pour(bucket_label, size, sum_of_buckets, overflow_amount)
+      if bucket_label == 'one'
+        [[overflow_amount, EMPTY].max, [sum_of_buckets, size].min]
+      else
+        [[sum_of_buckets, size].min, [overflow_amount, EMPTY].max]
+      end
     end
 
     private_constant :EMPTY
