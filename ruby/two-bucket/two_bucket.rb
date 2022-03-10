@@ -182,6 +182,7 @@ class TwoBucket
     @visited_states.include?(state)
   end
 
+  # The queue of available moves built in BFS manner.
   class QueuedMoves
     def initialize
       @queue = []
@@ -204,6 +205,7 @@ class TwoBucket
     end
   end
 
+  # The list of states that have already been visited.
   class VisitedStates
     def initialize
       @visited = []
