@@ -2,6 +2,10 @@
 
 # Implementation of the Two Bucket exercise in Ruby track on Exercism.
 class TwoBucket
+  # @param size1 [Integer]
+  # @param size2 [Integer]
+  # @param goal [Integer]
+  # @param start_with [String]
   def initialize(size1, size2, goal, start_with)
     @size1 = size1
     @size2 = size2
@@ -14,18 +18,21 @@ class TwoBucket
     initialize_buckets
   end
 
+  # @return [Integer]
   def moves
     find_goal unless goal_reached
 
     moves_count_to_goal
   end
 
+  # @return [String]
   def goal_bucket
     find_goal unless goal_reached
 
     determine_goal_bucket
   end
 
+  # @return [Integer]
   def other_bucket
     find_goal unless goal_reached
 
