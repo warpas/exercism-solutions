@@ -41,6 +41,7 @@ class TwoBucket
 
   private
 
+  # I don't think it's as useful as it could be. To rewrite
   class BucketState
     EMPTY = 0
     attr_reader :moves
