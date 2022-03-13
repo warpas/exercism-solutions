@@ -4,7 +4,6 @@ require_relative 'transpose'
 # Common test data version: 1.1.0 92bc877
 class TransposeTest < Minitest::Test
   def test_empty_string
-    # skip
     input = ""
 
     expected = ""
@@ -13,7 +12,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_two_characters_in_a_row
-    skip
     input = "A1"
 
     expected = "A\n1"
@@ -22,7 +20,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_two_characters_in_a_column
-    skip
     input = "A\n1"
 
     expected = "A1"
