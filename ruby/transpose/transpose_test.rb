@@ -84,7 +84,6 @@ class TransposeTest < Minitest::Test
   end
 
   def test_triangle
-    skip
     input = "T\nEE\nAAA\nSSSS\nEEEEE\nRRRRRR"
 
     expected = "TEASER\n EASER\n  ASER\n   SER\n    ER\n     R"
