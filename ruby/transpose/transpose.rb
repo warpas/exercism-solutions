@@ -1,6 +1,15 @@
+# frozen_string_literal: true
+
+# Implementation of the Transpose exercise in Ruby track on Exercism.
 class Transpose
   class << self
     def transpose(input_string)
+      flipped = flip_columns_with_rows(input_string)
+      spaced_rows = fill_spaces(flipped)
+      merge_rows(spaced_rows).strip
+    end
+
+    def flip_columns_with_rows(input_string)
       rows = []
       input_string.each_line do |line|
         columns = []
@@ -9,34 +18,19 @@ class Transpose
         end
         rows << columns
       end
-      spaced_rows = fill_spaces(rows)
-
-      output_string = ''
-      number_of_iterations = spaced_rows.first.nil? ? 0 : (spaced_rows.first.length)
-      0.upto(number_of_iterations) do |index|
-        build_line = ''
-        spaced_rows.each do |row|
-          build_line += row[index] unless row[index].nil?
-        end
-        output_string += "#{build_line}\n"
-      end
-
-      output_string.strip
+      rows
     end
 
     def fill_spaces(rows)
-      row_lengths = rows.map(&:length)
-      max_row = row_lengths.max
-
-      return rows if max_row.nil?
+      return rows if rows.empty?
 
       rows.each_with_index do |row, index|
         max_row = following_max(rows, index)
-        if row.length < max_row
-          difference = max_row - row.length
-          difference.times do
-            row.push(' ')
-          end
+        next unless row.length < max_row
+
+        difference = max_row - row.length
+        difference.times do
+          row.push(' ')
         end
       end
 
@@ -51,6 +45,20 @@ class Transpose
     def remaining_rows(rows, limit)
       element_count = rows.length
       rows[limit..element_count]
+    end
+
+    def merge_rows(rows)
+      output_string = ''
+      number_of_iterations = rows.first.nil? ? 0 : rows.first.length
+      0.upto(number_of_iterations) do |index|
+        build_line = ''
+        rows.each do |row|
+          build_line += row[index] unless row[index].nil?
+        end
+        output_string += "#{build_line}\n"
+      end
+
+      output_string
     end
   end
 end
