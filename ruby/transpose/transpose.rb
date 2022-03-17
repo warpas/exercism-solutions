@@ -12,13 +12,13 @@ class Transpose
     def flip_columns_with_rows(input_string)
       rows = []
       input_string.each_line do |line|
-        columns = []
-        line.chomp.chars.each do |char|
-          columns << char
-        end
-        rows << columns
+        rows << convert_to_columns(line.chomp)
       end
       rows
+    end
+
+    def convert_to_columns(line)
+      line.chars.reduce([]) { |acc, char| acc << char }
     end
 
     def fill_spaces(rows)
