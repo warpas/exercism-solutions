@@ -51,10 +51,11 @@ class Transpose
       output_string = ''
       number_of_iterations = rows.first.nil? ? 0 : rows.first.length
       0.upto(number_of_iterations) do |index|
-        build_line = ''
-        rows.each do |row|
-          build_line += row[index] unless row[index].nil?
-        end
+        # build_line = ''
+        # rows.each do |row|
+        #   build_line += row[index] unless row[index].nil?
+        # end
+        build_line = rows.reject { |row| row[index].nil? }.reduce('') { |acc, row| acc += row[index] }
         output_string += "#{build_line}\n"
       end
 
