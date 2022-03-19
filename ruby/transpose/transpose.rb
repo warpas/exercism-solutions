@@ -10,11 +10,7 @@ class Transpose
     end
 
     def flip_columns_with_rows(input_string)
-      rows = []
-      input_string.each_line do |line|
-        rows << convert_to_columns(line.chomp)
-      end
-      rows
+      input_string.lines.reduce([]) { |acc, line| acc << convert_to_columns(line.chomp) }
     end
 
     def convert_to_columns(line)
