@@ -3,11 +3,15 @@
 # Implementation of the Transpose exercise in Ruby track on Exercism.
 class Transpose
   class << self
+    # @param input_string [String]
+    # @return [String]
     def transpose(input_string)
       flipped = flip_columns_with_rows(input_string)
       spaced_rows = fill_spaces(flipped)
       merge_rows(spaced_rows).strip
     end
+
+    private
 
     def flip_columns_with_rows(input_string)
       input_string.lines.reduce([]) { |acc, line| acc << convert_to_columns(line.chomp) }
