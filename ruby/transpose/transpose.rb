@@ -43,8 +43,7 @@ class Transpose
     end
 
     def remaining_rows(rows, limit)
-      element_count = rows.length
-      rows[limit..element_count]
+      rows[limit..rows.length]
     end
 
     def merge_rows(rows)
