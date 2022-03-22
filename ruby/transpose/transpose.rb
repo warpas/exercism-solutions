@@ -38,8 +38,7 @@ class Transpose
     end
 
     def following_max(rows, index)
-      remaining = remaining_rows(rows, index)
-      remaining.map(&:length).max
+      remaining_rows(rows, index).map(&:length).max
     end
 
     def remaining_rows(rows, limit)
