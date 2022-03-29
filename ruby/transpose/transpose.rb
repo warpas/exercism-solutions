@@ -25,7 +25,7 @@ class Transpose
       return rows if rows.empty?
 
       rows.each_with_index do |row, index|
-        max_row = following_max(rows, index)
+        max_row = remaining_max(rows, index)
         next unless row.length < max_row
 
         difference = max_row - row.length
@@ -37,7 +37,7 @@ class Transpose
       rows
     end
 
-    def following_max(rows, index)
+    def remaining_max(rows, index)
       remaining_rows(rows, index).map(&:length).max
     end
 
