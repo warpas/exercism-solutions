@@ -11,28 +11,28 @@ load bats-extra
 }
 
 @test "the sound for 3 is Pling" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 3
   assert_success
   assert_output "Pling"
 }
 
 @test "the sound for 5 is Plang" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 5
   assert_success
   assert_output "Plang"
 }
 
 @test "the sound for 7 is Plong" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 7
   assert_success
   assert_output "Plong"
 }
 
 @test "the sound for 6 is Pling as it has a factor 3" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 6
   assert_success
   assert_output "Pling"
