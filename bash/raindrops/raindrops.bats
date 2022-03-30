@@ -60,7 +60,7 @@ load bats-extra
 }
 
 @test "the sound for 14 is Plong as it has a factor of 7" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 14
   assert_success
   assert_output "Plong"
