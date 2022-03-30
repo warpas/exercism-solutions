@@ -1,9 +1,12 @@
 main() {
+  local Var1=$(($1 % 3))
+  # echo "${Var1}"
+
   if [ $1 == 1 ]; then
     echo '1'
   fi
 
-  if [ $1 == 3 ]; then
+  if [ $Var1 == 0 ]; then
     echo 'Pling'
   fi
 
