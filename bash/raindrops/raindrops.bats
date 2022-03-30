@@ -46,7 +46,7 @@ load bats-extra
 }
 
 @test "the sound for 9 is Pling as it has a factor 3" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 9
   assert_success
   assert_output "Pling"
