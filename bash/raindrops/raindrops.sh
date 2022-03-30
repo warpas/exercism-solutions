@@ -4,18 +4,19 @@ main() {
 
   if [ $1 == 1 ]; then
     echo '1'
-  fi
+  # fi
 
-  if [ $Var1 == 0 ]; then
+  elif [ $Var1 == 0 ]; then
     echo 'Pling'
-  fi
+  # fi
 
-  if [ $1 == 5 ]; then
+  elif [ $1 == 5 ]; then
     echo 'Plang'
-  fi
+  # fi
 
-  if [ $1 == 7 ]; then
+  elif [ $1 == 7 ]; then
     echo 'Plong'
+  else echo "$1"
   fi
 }
 

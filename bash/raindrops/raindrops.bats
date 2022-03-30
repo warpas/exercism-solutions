@@ -39,7 +39,7 @@ load bats-extra
 }
 
 @test "2 to the power 3 does not make a raindrop sound as 3 is the exponent not the base" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 8
   assert_success
   assert_output "8"
