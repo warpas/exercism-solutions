@@ -53,7 +53,7 @@ load bats-extra
 }
 
 @test "the sound for 10 is Plang as it has a factor 5" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 10
   assert_success
   assert_output "Plang"

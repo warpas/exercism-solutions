@@ -1,9 +1,10 @@
 main() {
-  local Var1=$(($1 % 3))
+  local DivisibleBy3=$(($1 % 3))
+  local DivisibleBy5=$(($1 % 5))
 
-  if [ $Var1 == 0 ]; then
+  if [ $DivisibleBy3 == 0 ]; then
     echo 'Pling'
-  elif [ $1 == 5 ]; then
+  elif [ $DivisibleBy5 == 0 ]; then
     echo 'Plang'
   elif [ $1 == 7 ]; then
     echo 'Plong'
