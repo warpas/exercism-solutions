@@ -16,8 +16,10 @@ main() {
     Plong='Plong'
   fi
 
-  if ! [[ $DivisibleBy3 != 0 && $DivisibleBy5 != 0 && $DivisibleBy7 != 0 ]]; then
-    echo "${Pling}${Plang}${Plong}"
+  local result="${Pling}${Plang}${Plong}"
+
+  if [[ -n "$result" ]]; then
+    echo "$result"
   else echo "$1"
   fi
 }
