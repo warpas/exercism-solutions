@@ -1,22 +1,18 @@
 main() {
-  local DivisibleBy3=$(($1 % 3))
-  local DivisibleBy5=$(($1 % 5))
-  local DivisibleBy7=$(($1 % 7))
-
-  local Pling=""
-  if [ $DivisibleBy3 == 0 ]; then
-    Pling='Pling'
+  local Div3Text=""
+  if [ $(($1 % 3)) == 0 ]; then
+    Div3Text='Pling'
   fi
-  local Plang=""
-  if [ $DivisibleBy5 == 0 ]; then
-    Plang='Plang'
+  local Div5Text=""
+  if [ $(($1 % 5)) == 0 ]; then
+    Div5Text='Plang'
   fi
-  local Plong=""
-  if [ $DivisibleBy7 == 0 ]; then
-    Plong='Plong'
+  local Div7Text=""
+  if [ $(($1 % 7)) == 0 ]; then
+    Div7Text='Plong'
   fi
 
-  local result="${Pling}${Plang}${Plong}"
+  local result="${Div3Text}${Div5Text}${Div7Text}"
 
   if [[ -n "$result" ]]; then
     echo "$result"
