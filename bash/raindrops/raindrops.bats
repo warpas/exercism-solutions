@@ -67,7 +67,7 @@ load bats-extra
 }
 
 @test "the sound for 15 is PlingPlang as it has factors 3 and 5" {
-  [[ $BATS_RUN_SKIPPED == "true" ]] || skip
+  #[[ $BATS_RUN_SKIPPED == "true" ]] || skip
   run bash raindrops.sh 15
   assert_success
   assert_output "PlingPlang"
