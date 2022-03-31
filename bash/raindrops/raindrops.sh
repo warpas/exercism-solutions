@@ -16,20 +16,10 @@ main() {
     Plong='Plong'
   fi
 
-
   if ! [[ $DivisibleBy3 != 0 && $DivisibleBy5 != 0 && $DivisibleBy7 != 0 ]]; then
     echo "${Pling}${Plang}${Plong}"
   else echo "$1"
   fi
-
-  # if [ $DivisibleBy3 == 0 ]; then
-  #   echo 'Pling'
-  # elif [ $DivisibleBy5 == 0 ]; then
-  #   echo 'Plang'
-  # elif [ $DivisibleBy7 == 0 ]; then
-  #   echo 'Plong'
-  # else echo "$1"
-  # fi
 }
 
 main "$@"
