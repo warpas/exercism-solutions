@@ -20,21 +20,21 @@ class TwoBucket
 
   # @return [Integer]
   def moves
-    find_goal unless goal_reached
+    find_goal unless goal_reached?
 
     moves_count_to_goal
   end
 
   # @return [String]
   def goal_bucket
-    find_goal unless goal_reached
+    find_goal unless goal_reached?
 
     determine_goal_bucket
   end
 
   # @return [Integer]
   def other_bucket
-    find_goal unless goal_reached
+    find_goal unless goal_reached?
 
     determine_other_bucket
   end
@@ -133,7 +133,7 @@ class TwoBucket
   end
 
   def find_goal
-    move_towards_goal until goal_reached
+    move_towards_goal until goal_reached?
     determine_other_bucket
     determine_goal_bucket
   end
@@ -150,7 +150,9 @@ class TwoBucket
     @goal_bucket = @visited_states.last.goal_bucket(@goal)
   end
 
-  attr_reader :goal_reached
+  def goal_reached?
+    @goal_reached
+  end
 
   def take_a_step(state)
     return if visited?(state)
