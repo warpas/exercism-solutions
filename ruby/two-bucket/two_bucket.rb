@@ -9,7 +9,7 @@ class TwoBucket
   def initialize(size1, size2, goal, start_with)
     @size1 = size1
     @size2 = size2
-    @goal = goal
+    @goal = Goal.new(goal)
     @start_with = start_with
     @goal_reached = false
 
@@ -143,22 +143,22 @@ class TwoBucket
   end
 
   def determine_other_bucket
-    @other_bucket = @visited_states.last.other(@goal)
+    @other_bucket = @visited_states.last.other(@goal.value)
   end
 
   def determine_goal_bucket
-    @goal_bucket = @visited_states.last.goal_bucket(@goal)
+    @goal_bucket = @visited_states.last.goal_bucket(@goal.value)
   end
 
   def goal_reached?
-    @goal_reached
+    @goal.reached?
   end
 
   def take_a_step(state)
     return if visited?(state)
 
     @visited_states.add state
-    @goal_reached = state.reached?(@goal)
+    @goal.check(state.reached?(@goal.value))
     add_valid_moves_to_queue_for(state)
   end
 
@@ -236,9 +236,33 @@ class TwoBucket
     def last
       @visited.last
     end
+
+    def includes_goal?
+      # TODO: maybe index that would be updated with "add". This class would have to know what the goal is
+    end
   end
 
   private_constant :QueuedMoves
   private_constant :VisitedStates
   private_constant :BucketState
+
+  class Goal
+    def initialize(goal)
+      @goal = goal
+      @reached = false
+    end
+
+    def reached?
+      @reached
+    end
+
+    def value
+      @goal
+    end
+
+    def check(boolean)
+      @reached = boolean
+    end
+  end
 end
+# TODO: OH BOI IS THERE room to grow on this solution
