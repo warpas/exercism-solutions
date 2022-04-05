@@ -6,12 +6,13 @@ class TwoBucket
   # @param size2 [Integer]
   # @param goal [Integer]
   # @param start_with [String]
-  def initialize(size1, size2, goal, start_with)
-    @size1 = size1
-    @size2 = size2
-    @goal = Goal.new(goal)
+  def initialize(size1, size2, goal_amount, start_with)
+    # @size1 = size1
+    @bucket1 = BucketValue.new(size1)
+    # @size2 = size2
+    @bucket2 = BucketValue.new(size2)
+    @goal = Goal.new(goal_amount)
     @start_with = start_with
-    @goal_reached = false
 
     @visited_states = VisitedStates.new
     @potential_moves = QueuedMoves.new
@@ -40,6 +41,14 @@ class TwoBucket
   end
 
   private
+
+  class BucketValue
+    attr_reader :size
+
+    def initialize(size)
+      @size = size
+    end
+  end
 
   # I don't think it's as useful as it could be. To rewrite
   class BucketState
@@ -166,21 +175,21 @@ class TwoBucket
     zero_state = BucketState.new(0, 0, 0)
     @visited_states.add zero_state
     if @start_with == 'one'
-      @visited_states.add zero_state.fill_bucket_two(@size2)
-      @potential_moves.add zero_state.fill_bucket_one(@size1)
+      @visited_states.add zero_state.fill_bucket_two(@bucket2.size)
+      @potential_moves.add zero_state.fill_bucket_one(@bucket1.size)
     else
-      @visited_states.add zero_state.fill_bucket_one(@size1)
-      @potential_moves.add zero_state.fill_bucket_two(@size2)
+      @visited_states.add zero_state.fill_bucket_one(@bucket1.size)
+      @potential_moves.add zero_state.fill_bucket_two(@bucket2.size)
     end
   end
 
   def add_valid_moves_to_queue_for(state)
     @potential_moves.add(state.empty_bucket_one)
     @potential_moves.add(state.empty_bucket_two)
-    @potential_moves.add(state.fill_bucket_one(@size1))
-    @potential_moves.add(state.fill_bucket_two(@size2))
-    @potential_moves.add(state.pour_from_bucket_one_to_bucket_two(@size2))
-    @potential_moves.add(state.pour_from_bucket_two_to_bucket_one(@size1))
+    @potential_moves.add(state.fill_bucket_one(@bucket1.size))
+    @potential_moves.add(state.fill_bucket_two(@bucket2.size))
+    @potential_moves.add(state.pour_from_bucket_one_to_bucket_two(@bucket2.size))
+    @potential_moves.add(state.pour_from_bucket_two_to_bucket_one(@bucket1.size))
   end
 
   def move_towards_goal
