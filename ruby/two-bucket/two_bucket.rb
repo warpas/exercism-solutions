@@ -7,10 +7,9 @@ class TwoBucket
   # @param goal [Integer]
   # @param start_with [String]
   def initialize(size1, size2, goal_amount, start_with)
-    # @size1 = size1
     @bucket1 = BucketValue.new(size1)
-    # @size2 = size2
     @bucket2 = BucketValue.new(size2)
+    @buckets = BucketValues.new(size1, size2)
     @goal = Goal.new(goal_amount)
     @start_with = start_with
 
@@ -47,6 +46,22 @@ class TwoBucket
 
     def initialize(size)
       @size = size
+    end
+  end
+
+  class BucketValues
+    def initialize(size1, size2)
+      bucket1 = BucketValue.new(size1)
+      bucket2 = BucketValue.new(size2)
+      @buckets = [bucket1, bucket2]
+    end
+
+    def first
+      @buckets.first
+    end
+
+    def second
+      @buckets.last
     end
   end
 
