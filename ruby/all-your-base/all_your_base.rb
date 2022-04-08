@@ -7,7 +7,8 @@ class BaseConverter
       raise ArgumentError if base_given <= 1 || base_expected <= 1
 
       base10_number = convert_from(digits, base_given)
-      convert_to(base10_number, base_expected)
+      reversed_digits = convert_to(base10_number, base_expected)
+      reversed_digits.reverse
     end
 
     private
@@ -23,17 +24,12 @@ class BaseConverter
     end
 
     def convert_to(number, base)
-      intermediary = number
       converted_digits = []
-      while intermediary >= base
-        mod = intermediary % base
-        int_res = intermediary / base
-        converted_digits << mod
-        intermediary = int_res
+      until (number - base).negative?
+        converted_digits << number % base
+        number /= base
       end
-      mod = intermediary % base
-      converted_digits << mod
-      converted_digits.reverse
+      converted_digits << number
     end
   end
 end
