@@ -10,7 +10,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_chromatic_scale
-    skip
     chromatic = Scale.new('C', :chromatic)
     expected = %w[C C# D D# E F F# G G# A A# B]
     actual = chromatic.pitches
@@ -18,7 +17,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_another_chromatic_scale
-    skip
     chromatic = Scale.new('F', :chromatic)
     expected = %w[F Gb G Ab A Bb B C Db D Eb E]
     actual = chromatic.pitches
