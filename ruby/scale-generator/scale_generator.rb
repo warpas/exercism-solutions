@@ -17,3 +17,4 @@ class Scale
     ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E"]
   end
 end
+# TODO: OH BOI IS THERE room to grow on this solution
