@@ -369,7 +369,10 @@ class BeerSongTest < Minitest::Test
 
       No more bottles of beer on the wall, no more bottles of beer.
       Go to the store and buy some more, 99 bottles of beer on the wall.
+
+      99 bottles of beer on the wall, 99 bottles of beer.
+      Take one down and pass it around, 98 bottles of beer on the wall.
     TEXT
-    assert_equal expected, BeerSong.recite(99, 100)
+    assert_equal expected, BeerSong.recite(99, 101)
   end
 end

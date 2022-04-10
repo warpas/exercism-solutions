@@ -4,13 +4,22 @@ class BeerSong
       song = ''
       verses.times do
         song += sing(start)
-        start -= 1
+        start = cycle(start)
       end
 
       song.strip + "\n"
     end
 
     private
+
+    SONG_START = 99
+    private_constant :SONG_START
+
+    def cycle(number)
+      return SONG_START if number.zero?
+
+      number - 1
+    end
 
     def sing(start)
       "#{bottles(start).capitalize} of beer on the wall, #{bottles(start)} of beer.
