@@ -4,13 +4,11 @@ require_relative 'wordy'
 # Common test data version: 1.2.0 86d0069
 class WordyTest < Minitest::Test
   def test_addition
-    # skip
     problem = WordProblem.new("What is 1 plus 1?")
     assert_equal(2, problem.answer)
   end
 
   def test_more_addition
-    skip
     problem = WordProblem.new("What is 53 plus 2?")
     assert_equal(55, problem.answer)
   end
