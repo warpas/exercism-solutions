@@ -14,19 +14,16 @@ class WordyTest < Minitest::Test
   end
 
   def test_addition_with_negative_numbers
-    skip
     problem = WordProblem.new("What is -1 plus -10?")
     assert_equal(-11, problem.answer)
   end
 
   def test_large_addition
-    skip
     problem = WordProblem.new("What is 123 plus 45678?")
     assert_equal(45_801, problem.answer)
   end
 
   def test_subtraction
-    skip
     problem = WordProblem.new("What is 4 minus -12?")
     assert_equal(16, problem.answer)
   end
