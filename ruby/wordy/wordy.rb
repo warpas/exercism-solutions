@@ -1,8 +1,14 @@
 class WordProblem
-  def initialize(_)
+  def initialize(question)
+    @question = question
   end
 
   def answer
-    2
+    numbers = []
+    @question.gsub(/\d+/) do |number|
+      numbers << number.to_i
+    end
+    # p numbers
+    numbers.sum
   end
 end
