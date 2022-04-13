@@ -15,8 +15,12 @@ class WordProblem
       numbers.first + numbers.last
     when 'minus'
       numbers.first - numbers.last
+    when 'multiplied'
+      numbers.first * numbers.last
+    when 'divided'
+      numbers.first / numbers.last
     else
-      0
+      raise ArgumentError
     end
   end
 end

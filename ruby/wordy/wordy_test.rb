@@ -29,13 +29,11 @@ class WordyTest < Minitest::Test
   end
 
   def test_multiplication
-    skip
     problem = WordProblem.new("What is -3 multiplied by 25?")
     assert_equal(-75, problem.answer)
   end
 
   def test_division
-    skip
     problem = WordProblem.new("What is 33 divided by -3?")
     assert_equal(-11, problem.answer)
   end
@@ -84,7 +82,6 @@ class WordyTest < Minitest::Test
   end
 
   def test_unknown_operation
-    skip
     problem = WordProblem.new("What is 52 cubed?")
     assert_raises(ArgumentError) do
       problem.answer
@@ -92,7 +89,6 @@ class WordyTest < Minitest::Test
   end
 
   def test_non_math_question
-    skip
     problem = WordProblem.new("Who is the President of the United States?")
     assert_raises(ArgumentError) do
       problem.answer
