@@ -39,7 +39,6 @@ class WordyTest < Minitest::Test
   end
 
   def test_multiple_additions
-    skip
     problem = WordProblem.new("What is 1 plus 1 plus 1?")
     assert_equal(3, problem.answer)
   end
