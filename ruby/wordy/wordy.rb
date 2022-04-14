@@ -2,10 +2,13 @@
 
 # Implementation of the Wordy exercise in Ruby track on Exercism.
 class WordProblem
+  # @param question [String] in a form of "What is A plus B multiplied by C?"
   def initialize(question)
     @question = question.gsub(/ by/, '_by').chop
   end
 
+  # @raise [ArgumentError] if one of the operators does not correspond with the list of ALLOWED_OPERATIONS
+  # @return [Integer] parsed and calculated answer to the initial question
   def answer
     terms = @question.split[2..@question.length]
 
