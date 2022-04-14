@@ -23,7 +23,7 @@ class WordProblem
 
   private
 
-  ALLOWED_OPERATIONS = {'plus' => '+', 'minus' => '-', 'multiplied_by' => '*', 'divided_by' => '/'}.freeze
+  ALLOWED_OPERATIONS = { 'plus' => '+', 'minus' => '-', 'multiplied_by' => '*', 'divided_by' => '/' }.freeze
   private_constant :ALLOWED_OPERATIONS
 
   def calculate(number1, number2, operator)
