@@ -1,41 +1,34 @@
 # frozen_string_literal: true
 
+# Implementation of the Wordy exercise in Ruby track on Exercism.
 class WordProblem
   def initialize(question)
     @question = question.gsub(/ by/, '_by').chop
   end
 
   def answer
-    operation = @question.split[2..@question.length]
+    terms = @question.split[2..@question.length]
 
-    first_number = operation.first.to_i
-    remainder = operation[1..operation.length]
+    result = terms.first
+    terms = terms[1..terms.length]
 
-    operand, second_number = remainder.take(2)
-    remainder = remainder[2..remainder.length]
-
-    result = perform_operation(first_number, second_number.to_i, operand)
-
-    if remainder.count.positive?
-      operand, second_number = remainder.take(2)
-
-      result = perform_operation(result, second_number.to_i, operand)
+    until terms.empty?
+      operand, second_number = terms.take(2)
+      terms = terms[2..terms.length]
+      result = calculate(result, second_number, operand)
     end
+
     result
   end
 
-  def perform_operation(number1, number2, operation)
-    case operation
-    when 'plus'
-      number1 + number2
-    when 'minus'
-      number1 - number2
-    when 'multiplied_by'
-      number1 * number2
-    when 'divided_by'
-      number1 / number2
-    else
-      raise ArgumentError
-    end
+  private
+
+  ALLOWED_OPERATIONS = {'plus' => '+', 'minus' => '-', 'multiplied_by' => '*', 'divided_by' => '/'}.freeze
+  private_constant :ALLOWED_OPERATIONS
+
+  def calculate(number1, number2, operator)
+    raise ArgumentError unless ALLOWED_OPERATIONS.keys.include? operator
+
+    number1.to_i.send(ALLOWED_OPERATIONS[operator], number2.to_i)
   end
 end
