@@ -16,14 +16,12 @@ class AtbashCipherTest < Minitest::Test
   end
 
   def test_encode_omg
-    skip
     plaintext = 'OMG'
     ciphertext = 'lnt'
     assert_equal ciphertext, Atbash.encode(plaintext)
   end
 
   def test_encode_spaces
-    skip
     plaintext = 'O M G'
     ciphertext = 'lnt'
     assert_equal ciphertext, Atbash.encode(plaintext)
