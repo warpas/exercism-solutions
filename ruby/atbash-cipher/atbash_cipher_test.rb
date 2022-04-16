@@ -4,14 +4,12 @@ require_relative 'atbash_cipher'
 # Common test data version: 1.2.0 d5238bd
 class AtbashCipherTest < Minitest::Test
   def test_encode_yes
-    # skip
     plaintext = 'yes'
     ciphertext = 'bvh'
     assert_equal ciphertext, Atbash.encode(plaintext)
   end
 
   def test_encode_no
-    skip
     plaintext = 'no'
     ciphertext = 'ml'
     assert_equal ciphertext, Atbash.encode(plaintext)
