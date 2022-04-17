@@ -28,35 +28,30 @@ class AtbashCipherTest < Minitest::Test
   end
 
   def test_encode_mindblowingly
-    skip
     plaintext = 'mindblowingly'
     ciphertext = 'nrmwy oldrm tob'
     assert_equal ciphertext, Atbash.encode(plaintext)
   end
 
   def test_encode_numbers
-    skip
     plaintext = 'Testing,1 2 3, testing.'
     ciphertext = 'gvhgr mt123 gvhgr mt'
     assert_equal ciphertext, Atbash.encode(plaintext)
   end
 
   def test_encode_deep_thought
-    skip
     plaintext = 'Truth is fiction.'
     ciphertext = 'gifgs rhurx grlm'
     assert_equal ciphertext, Atbash.encode(plaintext)
   end
 
   def test_encode_all_the_letters
-    skip
     plaintext = 'The quick brown fox jumps over the lazy dog.'
     ciphertext = 'gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt'
     assert_equal ciphertext, Atbash.encode(plaintext)
   end
 
   def test_decode_exercism
-    skip
     ciphertext = 'vcvix rhn'
     plaintext = 'exercism'
     assert_equal plaintext, Atbash.decode(ciphertext)

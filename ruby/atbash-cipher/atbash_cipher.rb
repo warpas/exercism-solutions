@@ -1,8 +1,27 @@
 class Atbash
-  def self.encode(string)
-    string.downcase.chars.map do |char|
-      CIPHER[char]
-    end.join
+  class << self
+    def encode(string)
+      encoded_cipher = string.downcase.chars.map do |char|
+        CIPHER[char]
+      end.join
+
+      add_spaces(encoded_cipher)
+    end
+
+    private
+
+    def add_spaces(string)
+      new_string = ''
+      # p string
+      until string.nil? || string.empty?
+        five = string.chars.take(5)
+        new_string = "#{new_string}#{five.join} "
+        string = string[5..string.length]
+
+      end
+
+      new_string.strip
+    end
   end
 
   CIPHER = {
@@ -31,7 +50,17 @@ class Atbash
     'w' => 'd',
     'x' => 'c',
     'y' => 'b',
-    'z' => 'a'
+    'z' => 'a',
+    '1' => '1',
+    '2' => '2',
+    '3' => '3',
+    '4' => '4',
+    '5' => '5',
+    '6' => '6',
+    '7' => '7',
+    '8' => '8',
+    '9' => '9',
+    '0' => '0'
   }.freeze
 
   private_constant  :CIPHER
