@@ -1,23 +1,30 @@
+# frozen_string_literal: true
+
+# Implementation of the Atbash Cipher exercise in Ruby track on Exercism.
 class Atbash
   class << self
     def encode(string)
-      encoded_cipher = string.downcase.chars.map do |char|
-        CIPHER[char]
-      end.join
+      add_spaces(coding(string))
+    end
 
-      add_spaces(encoded_cipher)
+    def decode(string)
+      coding(string)
     end
 
     private
 
+    def coding(code)
+      code.downcase.chars.map do |char|
+        CIPHER[char]
+      end.join
+    end
+
     def add_spaces(string)
       new_string = ''
-      # p string
       until string.nil? || string.empty?
         five = string.chars.take(5)
         new_string = "#{new_string}#{five.join} "
         string = string[5..string.length]
-
       end
 
       new_string.strip
@@ -63,5 +70,5 @@ class Atbash
     '0' => '0'
   }.freeze
 
-  private_constant  :CIPHER
+  private_constant :CIPHER
 end
