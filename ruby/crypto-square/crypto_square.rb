@@ -1,7 +1,12 @@
-=begin
-Write your code for the 'Crypto Square' exercise in this file. Make the tests in
-`crypto_square_test.rb` pass.
+# frozen_string_literal: true
 
-To get started with TDD, see the `README.md` file in your
-`ruby/crypto-square` directory.
-=end
+# Implementation of the Crypto Square exercise in Ruby track on Exercism.
+class Crypto
+  def initialize(string)
+    @string = string
+  end
+
+  def ciphertext
+    @string.strip.downcase
+  end
+end
