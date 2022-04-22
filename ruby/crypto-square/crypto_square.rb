@@ -7,23 +7,20 @@ class Crypto
   end
 
   def ciphertext
-    puts ""
     @normalized = normalized_text
+    return @normalized if @normalized.empty?
 
     @columns, @rows = square_sides
-
-    p "length = #{@normalized.length}; columns = #{columns}; rows = #{rows}"
-
     @square = square
-    p square
 
     built = []
-    rows.times do |row|
-      p square[row]
+    columns.times do |row|
       line = []
       columns.times do |col|
-        line << square[col][row]
-        p "row = #{row}, col = #{col}"
+        break if square[col].nil?
+
+        line << square[col][row] unless square[col][row].nil?
+        line << ' ' if square[col][row].nil?
       end
       built << line.join
     end
@@ -40,15 +37,21 @@ class Crypto
   end
 
   def square_sides
-    square_root = Math.sqrt(@normalized.length).floor
-    [square_root, square_root]
+    return 0 if @normalized.nil?
+
+    square_root = Math.sqrt(@normalized.length)
+    square_root_floor = square_root.floor
+    longer_side = square_root.floor
+    longer_side += 1 unless (@normalized.length % square_root).zero?
+    [longer_side, square_root_floor]
   end
 
   def square
     iteration = @normalized.chars
     built_square = []
-    until iteration.empty?
-      built_square << iteration.take(columns)
+    until iteration.nil? || iteration.empty?
+      fs = iteration.take(columns)
+      built_square << fs
       iteration = iteration[columns..iteration.length]
     end
 
