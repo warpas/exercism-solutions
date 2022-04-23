@@ -2,10 +2,12 @@
 
 # Implementation of the Crypto Square exercise in Ruby track on Exercism.
 class Crypto
-  def initialize(string)
-    @string = string
+  # @param message [String]
+  def initialize(message)
+    @message = message
   end
 
+  # @return [String] encoded version of the message
   def ciphertext
     @normalized = normalized_text
     return @normalized if @normalized.empty?
@@ -33,7 +35,7 @@ class Crypto
   attr_reader :columns, :rows
 
   def normalized_text
-    @string.downcase.scan(/\w+/).join
+    @message.downcase.scan(/\w+/).join
   end
 
   def square_sides
