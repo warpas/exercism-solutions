@@ -39,9 +39,9 @@ class Atbash
   def add_spaces(string)
     new_string = ''
     until string.nil? || string.empty?
-      five = string.chars.take(5)
-      new_string = "#{new_string}#{five.join} "
-      string = string[5..string.length]
+      ch1, ch2, ch3, ch4, ch5, *rest = string.chars
+      new_string = "#{new_string}#{[ch1, ch2, ch3, ch4, ch5].join} "
+      string = rest.join
     end
 
     new_string.strip
