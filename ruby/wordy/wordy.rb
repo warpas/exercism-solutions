@@ -10,14 +10,10 @@ class WordProblem
   # @raise [ArgumentError] if one of the operators does not correspond with the list of ALLOWED_OPERATIONS
   # @return [Integer] parsed and calculated answer to the initial question
   def answer
-    terms = @question.split[2..@question.length]
-
-    result = terms.first
-    terms = terms[1..terms.length]
+    _, _, result, *terms = @question.split
 
     until terms.empty?
-      operand, second_number = terms.take(2)
-      terms = terms[2..terms.length]
+      operand, second_number, *terms = terms
       result = calculate(result, second_number, operand)
     end
 
