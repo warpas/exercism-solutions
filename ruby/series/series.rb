@@ -14,6 +14,7 @@ class Series
     valid_length = @series.length - substring_length
     raise ArgumentError if valid_length.negative?
 
+    # TODO: use head, *tail = string ??
     (0..valid_length).reduce([]) { |substrings, index| substrings << @series[index, substring_length] }
   end
 end

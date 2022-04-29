@@ -42,6 +42,7 @@ class Transpose
     end
 
     def remaining_rows(rows, limit)
+      # TODO: use head, *tail = string ??
       rows[limit..rows.length]
     end
 
