@@ -22,5 +22,17 @@ class ListOps
     def mapper(arg, &block)
       arg.reduce([]) { |array, n| array << block.call(n) }
     end
+
+    def filterer(arg, &block)
+      arg.filter { |n| block.call(n) }
+    end
+
+    def sum_reducer(arg)
+      arg.sum
+    end
+
+    def factorial_reducer(arg)
+      arg.reduce(1, &:*)
+    end
   end
 end
