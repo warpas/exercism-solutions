@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Implementation of the List Ops exercise in Ruby track on Exercism.
-class ListOps
+module ListOps
   # The point of this exercise is to implement those functions without calling existing functions.
   # TODO: rewrite without calling existing functions
   class << self
@@ -14,7 +14,7 @@ class ListOps
     end
 
     def concatter(list1, list2)
-      list1.concat(list2)
+      list2.reduce(list1) { |acc, elem| acc << elem }
     end
 
     def mapper(arg, &block)
@@ -26,7 +26,7 @@ class ListOps
     end
 
     def sum_reducer(arg)
-      arg.sum
+      arg.reduce(0, &:+)
     end
 
     def factorial_reducer(arg)
