@@ -6,13 +6,11 @@ class ListOps
   # TODO: rewrite without calling existing functions
   class << self
     def arrays(arg)
-      return 0 if arg.empty?
-
-      arg.length
+      arg.reduce(0) { |length, _elem| length + 1 }
     end
 
     def reverser(arg)
-      arg.reverse
+      arg.reduce([]) { |list, elem| list.unshift elem }
     end
 
     def concatter(list1, list2)
