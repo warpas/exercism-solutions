@@ -6,19 +6,19 @@ module ListOps
   # TODO: rewrite without calling existing functions
   class << self
     def arrays(arg)
-      arg.reduce(0) { |length, _elem| length + 1 }
+      fold(arg, 0) { |length, _elem| length + 1 }
     end
 
     def reverser(arg)
-      arg.reduce([]) { |list, elem| list.unshift elem }
+      fold(arg, []) { |list, elem| list.unshift elem }
     end
 
     def concatter(list1, list2)
-      list2.reduce(list1) { |acc, elem| acc << elem }
+      fold(list2, list1) { |acc, elem| acc << elem }
     end
 
     def mapper(arg, &block)
-      arg.reduce([]) { |array, n| array << block.call(n) }
+      fold(arg, []) { |array, n| array << block.call(n) }
     end
 
     def filterer(arg, &block)
@@ -26,11 +26,17 @@ module ListOps
     end
 
     def sum_reducer(arg)
-      arg.reduce(0, &:+)
+      fold(arg, 0, &:+)
     end
 
     def factorial_reducer(arg)
-      arg.reduce(1, &:*)
+      fold(arg, 1, &:*)
+    end
+
+    private
+
+    def fold(array, start, &block)
+      array.reduce(start) { |acc, elem| block.call(acc, elem) }
     end
   end
 end
