@@ -2,8 +2,6 @@
 
 # Implementation of the List Ops exercise in Ruby track on Exercism.
 module ListOps
-  # The point of this exercise is to implement those functions without calling existing functions.
-  # TODO: rewrite without calling existing functions
   class << self
     def arrays(arg)
       fold(arg, 0) { |length, _elem| length + 1 }
@@ -36,7 +34,11 @@ module ListOps
     private
 
     def fold(array, start, &block)
-      array.reduce(start) { |acc, elem| block.call(acc, elem) }
+      accumulator = start
+      array.each do |elem|
+        accumulator = block.call(accumulator, elem)
+      end
+      accumulator
     end
   end
 end
