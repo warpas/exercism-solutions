@@ -22,7 +22,7 @@ module ListOps
     end
 
     def filterer(arg, &block)
-      arg.filter { |n| block.call(n) }
+      fold(arg, []) { |acc, elem| block.call(elem) ? acc << elem : acc }
     end
 
     def sum_reducer(arg)
