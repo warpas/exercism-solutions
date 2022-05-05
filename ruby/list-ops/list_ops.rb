@@ -34,6 +34,7 @@ module ListOps
     private
 
     def fold(array, start, &block)
+      # TODO: improve the implementation with `yield`
       accumulator = start
       array.each do |elem|
         accumulator = block.call(accumulator, elem)
