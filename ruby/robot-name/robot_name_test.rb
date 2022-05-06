@@ -9,24 +9,20 @@ class RobotTest < Minitest::Test
   end
 
   def test_can_create_a_robot
-    skip
     refute_nil Robot.new
   end
 
   def test_has_name
-    skip
     assert_match NAME_REGEXP, Robot.new.name
   end
 
   def test_name_sticks
-    skip
     robot = Robot.new
     original_name = robot.name
     assert_equal original_name, robot.name
   end
 
   def test_reset_changes_name
-    skip
     robot = Robot.new
     original_name = robot.name
     robot.reset
