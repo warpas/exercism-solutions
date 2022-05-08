@@ -4,17 +4,14 @@ require_relative 'roman_numerals'
 # Common test data version: 1.2.0 3c78ac4
 class RomanNumeralsTest < Minitest::Test
   def test_1_is_a_single_i
-    # skip
     assert_equal 'I', 1.to_roman
   end
 
   def test_2_is_two_i_s
-    skip
     assert_equal 'II', 2.to_roman
   end
 
   def test_3_is_three_i_s
-    skip
     assert_equal 'III', 3.to_roman
   end
 
