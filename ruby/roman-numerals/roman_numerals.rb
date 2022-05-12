@@ -1,77 +1,70 @@
+# frozen_string_literal: true
+
+# The base Integer class extended to include conversion to Roman Numerals
 class Integer
   def to_roman
-    roman_numeral = ''
-
-    thousand = self / 1000
-    roman_numeral += 'M' * thousand if thousand.positive?
-    less_than_thousand = self % 1000
-
-    five_hundred = less_than_thousand / 500
-    less_than_five_hundred = less_than_thousand % 500
-    if less_than_thousand >= 900
-      roman_numeral += 'CM'
-      less_than_five_hundred = less_than_thousand % 900
-    elsif five_hundred.positive?
-      roman_numeral += 'D'
-    end
-
-    hundred = less_than_five_hundred / 100
-    less_than_hundred = less_than_five_hundred % 100
-    if less_than_five_hundred >= 400
-      roman_numeral += 'CD'
-    elsif hundred.positive?
-      roman_numeral += 'C'
-    end
-
-    fifty = less_than_hundred / 50
-    less_than_fifty = less_than_hundred % 50
-    if less_than_hundred >= 90
-      roman_numeral += 'XC'
-      less_than_fifty = less_than_hundred % 90
-    elsif fifty.positive?
-      roman_numeral += 'L'
-    end
-
-    to_roman, last_digit = roman_part(less_than_fifty, 'X', 10)
-    roman_numeral += to_roman
-
-    # ten_plus = less_than_fifty / 10
-    # if ten_plus >= 4
-    #   roman_numeral += 'XL'
-    # else
-    #   roman_numeral += 'X' * ten_plus
-    # end
-    # last_digit = less_than_fifty % 10
-
-    return roman_numeral + 'IX' if last_digit == 9
-    return roman_numeral + 'IV' if last_digit == 4
-
-
-    to_roman, last_five = roman_part(last_digit, 'V', 5)
-    # five = last_digit / 5
-    # roman_numeral += 'V' if five.positive?
-    # last_five = last_digit % 5
-
-    roman_numeral += to_roman
-    roman_numeral += 'I' * last_five
-    roman_numeral
+    RomanNumeral.new(self).to_s
   end
 
-  private
-
-  def roman_part(number_to_convert, symbol, limit)
-    roman_addition = ''
-    five = number_to_convert / limit
-    leftover_number = number_to_convert % limit
-    # p five
-    # if leftover_number >= number_to_convert - 1
-    if five >= 4
-      roman_addition += 'XL'
-    elsif five.positive?
-      roman_addition += symbol * five
+  # Implementation of the Roman Numerals exercise in Ruby track on Exercism.
+  class RomanNumeral
+    def initialize(int)
+      @as_integer = int
     end
-    # roman_addition += symbol if five.positive?
 
-    [roman_addition, leftover_number]
+    def to_s
+      @roman_array ||= unleash_greed
+
+      @roman_array.join
+    end
+
+    private
+
+    CORRESPONDING_ROMAN_NUMERAL = {
+      1 => 'I',
+      4 => 'IV',
+      5 => 'V',
+      9 => 'IX',
+      10 => 'X',
+      40 => 'XL',
+      50 => 'L',
+      90 => 'XC',
+      100 => 'C',
+      400 => 'CD',
+      500 => 'D',
+      900 => 'CM',
+      1000 => 'M'
+    }.freeze
+
+    private_constant :CORRESPONDING_ROMAN_NUMERAL
+
+    attr_reader :as_integer
+
+    def unleash_greed
+      constructed_roman_array = []
+      remainder = as_integer
+      while remainder.positive?
+        highest_available = next_highest(remainder)
+        constructed_roman_array << corresponding(highest_available)
+        remainder -= highest_available
+      end
+
+      constructed_roman_array
+    end
+
+    def next_highest(limit)
+      CORRESPONDING_ROMAN_NUMERAL.keys.select { |key| key <= limit }.max
+    end
+
+    def corresponding(int)
+      CORRESPONDING_ROMAN_NUMERAL[int]
+    end
+
+    # TODO: potentiall improvement - split the build into phases by the following 3 rules:
+    # orders of magnitude - I, X, C, M
+    # half steps to orders of magnitude - V, L, D
+    # 1 less than OoM or HStOoM - IV, IX, XL, XC, CD, CM
   end
+
+  private_constant :RomanNumeral
 end
