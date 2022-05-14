@@ -41,15 +41,20 @@ class Integer
     attr_reader :as_integer
 
     def unleash_greed
-      constructed_roman_array = []
-      remainder = as_integer
-      while remainder.positive?
-        highest_available = next_highest(remainder)
-        constructed_roman_array << corresponding(highest_available)
-        remainder -= highest_available
+      unfolded = unfold_greedily(as_integer, [], 0) do |num, acc|
+        highest_available = next_highest(num)
+        acc << highest_available
+        [num - highest_available, acc]
+      end
+      unfolded.map { |n| corresponding(n) }
+    end
+
+    def unfold_greedily(number_to_unfold, array_to_unfold_into, end_state, &block)
+      until number_to_unfold == end_state
+        number_to_unfold, array_to_unfold_into = block.call(number_to_unfold, array_to_unfold_into)
       end
 
-      constructed_roman_array
+      array_to_unfold_into
     end
 
     def next_highest(limit)
