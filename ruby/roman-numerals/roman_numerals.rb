@@ -22,7 +22,7 @@ class Integer
 
     CORRESPONDING_ROMAN_NUMERAL = {
       1 => 'I',
-      4 => 'IV',
+      # 4 => 'IV',
       5 => 'V',
       9 => 'IX',
       10 => 'X',
@@ -46,7 +46,35 @@ class Integer
         acc << highest_available
         [num - highest_available, acc]
       end
-      unfolded.map { |n| corresponding(n) }
+      p unfolded
+      p replace_fours(unfolded)
+      p unfolded.map { |n| corresponding(n) }
+    end
+
+    def replace_fours(array)
+      longest_chain = 0
+      last_number = 0
+      this_chain = 1
+      longest_chain_starts_at = 0
+      chain_starts_at = 0
+      array.each_with_index do |number, index|
+        if last_number == number
+          p "#{last_number} == #{number} ? #{last_number == number}"
+          this_chain += 1
+        else
+          last_number = number
+          p "longest_chain (#{longest_chain}) < this_chain (#{this_chain})"
+          this_chain = 1
+          chain_starts_at = index
+        end
+        if longest_chain < this_chain
+          longest_chain = this_chain
+          longest_chain_starts_at = chain_starts_at
+        end
+      end
+      p "longest chain = #{longest_chain}, starts at #{longest_chain_starts_at}"
+
+      array
     end
 
     def unfold_greedily(number_to_unfold, array_to_unfold_into, end_state, &block)
