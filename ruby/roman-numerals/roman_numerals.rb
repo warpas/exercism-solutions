@@ -48,7 +48,8 @@ class Integer
       end
       p unfolded
       p replace_fours(unfolded)
-      p unfolded.map { |n| corresponding(n) }
+      p replace_fours(unfolded).map { |n| corresponding(n) }
+      # p unfolded.map { |n| corresponding(n) }
     end
 
     def replace_fours(array)
@@ -59,11 +60,11 @@ class Integer
       chain_starts_at = 0
       array.each_with_index do |number, index|
         if last_number == number
-          p "#{last_number} == #{number} ? #{last_number == number}"
+          # p "#{last_number} == #{number} ? #{last_number == number}"
           this_chain += 1
         else
           last_number = number
-          p "longest_chain (#{longest_chain}) < this_chain (#{this_chain})"
+          # p "longest_chain (#{longest_chain}) < this_chain (#{this_chain})"
           this_chain = 1
           chain_starts_at = index
         end
@@ -72,9 +73,27 @@ class Integer
           longest_chain_starts_at = chain_starts_at
         end
       end
-      p "longest chain = #{longest_chain}, starts at #{longest_chain_starts_at}"
+      if longest_chain > 3
+        p "longest chain = #{longest_chain}, starts at #{longest_chain_starts_at}"
+        replace(array, longest_chain, longest_chain_starts_at)
+      else
+        array
+      end
+    end
 
-      array
+    def replace(array, replace_count, start_at)
+      unmodified_start =
+        if start_at.zero?
+          []
+        else
+          array[0..start_at-1]
+        end
+      middle_to_change = array[start_at..start_at + replace_count]
+      unmodified_end = array[start_at + replace_count..array.length]
+      p "#{unmodified_start} .. . #{middle_to_change} . .. #{unmodified_end}"
+      middle_changed = [1, 5]
+      p "#{unmodified_start} .. . #{middle_changed} . .. #{unmodified_end}"
+      [unmodified_start, middle_changed, unmodified_end].flatten
     end
 
     def unfold_greedily(number_to_unfold, array_to_unfold_into, end_state, &block)

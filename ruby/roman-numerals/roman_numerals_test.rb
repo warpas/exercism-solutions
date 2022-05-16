@@ -78,4 +78,8 @@ class RomanNumeralsTest < Minitest::Test
   def test_3000_is_three_m_s
     assert_equal 'MMM', 3000.to_roman
   end
+
+  def test_90_being_100_10_is_xc_and_4_being_5_1_is_iv
+    assert_equal 'XCIV', 94.to_roman
+  end
 end
