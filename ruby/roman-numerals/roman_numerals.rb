@@ -47,9 +47,23 @@ class Integer
         [num - highest_available, acc]
       end
       p unfolded
-      p replace_fours(unfolded)
-      p replace_fours(unfolded).map { |n| corresponding(n) }
+      # p replace_fours_new(unfolded)
+      # p replace_fours(unfolded)
+      p(replace_fours_new(unfolded).map { |n| corresponding(n) })
       # p unfolded.map { |n| corresponding(n) }
+    end
+
+    def replace_fours_new(array)
+      array => [*left, 1, 1, 1, 1, *right] rescue array
+      if !left.nil?
+        left + [1, 5] + right
+        # new_array = left + [1, 5] + right
+        # p "new method: #{left} .. . #{[1, 5]} . .. #{right}"
+        # p new_array
+        # new_array
+      else
+        array
+      end
     end
 
     def replace_fours(array)
@@ -74,7 +88,7 @@ class Integer
         end
       end
       if longest_chain > 3
-        p "longest chain = #{longest_chain}, starts at #{longest_chain_starts_at}"
+        # p "longest chain = #{longest_chain}, starts at #{longest_chain_starts_at}"
         replace(array, longest_chain, longest_chain_starts_at)
       else
         array
@@ -90,9 +104,9 @@ class Integer
         end
       middle_to_change = array[start_at..start_at + replace_count]
       unmodified_end = array[start_at + replace_count..array.length]
-      p "#{unmodified_start} .. . #{middle_to_change} . .. #{unmodified_end}"
+      # p "#{unmodified_start} .. . #{middle_to_change} . .. #{unmodified_end}"
       middle_changed = [1, 5]
-      p "#{unmodified_start} .. . #{middle_changed} . .. #{unmodified_end}"
+      # p "#{unmodified_start} .. . #{middle_changed} . .. #{unmodified_end}"
       [unmodified_start, middle_changed, unmodified_end].flatten
     end
 
