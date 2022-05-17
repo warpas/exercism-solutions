@@ -24,7 +24,7 @@ class Integer
       1 => 'I',
       # 4 => 'IV',
       5 => 'V',
-      9 => 'IX',
+      # 9 => 'IX',
       10 => 'X',
       40 => 'XL',
       50 => 'L',
@@ -54,13 +54,11 @@ class Integer
     end
 
     def replace_fours_new(array)
-      array => [*left, 1, 1, 1, 1, *right] rescue array
-      if !left.nil?
+      case array
+      in [*left, 5, 1, 1, 1, 1, *right]
+        left + [1, 10] + right
+      in [*left, 1, 1, 1, 1, *right]
         left + [1, 5] + right
-        # new_array = left + [1, 5] + right
-        # p "new method: #{left} .. . #{[1, 5]} . .. #{right}"
-        # p new_array
-        # new_array
       else
         array
       end
