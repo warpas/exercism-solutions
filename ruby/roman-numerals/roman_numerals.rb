@@ -22,17 +22,11 @@ class Integer
 
     CORRESPONDING_ROMAN_NUMERAL = {
       1 => 'I',
-      # 4 => 'IV',
       5 => 'V',
-      # 9 => 'IX',
       10 => 'X',
-      40 => 'XL',
       50 => 'L',
-      90 => 'XC',
       100 => 'C',
-      400 => 'CD',
       500 => 'D',
-      900 => 'CM',
       1000 => 'M'
     }.freeze
 
@@ -46,12 +40,29 @@ class Integer
         acc << highest_available
         [num - highest_available, acc]
       end
-      p unfolded
-      p(replace_parrerns(unfolded).map { |n| corresponding(n) })
+
+      # TODO: simplify the following iteration
+      previous_array = unfolded
+      new_array = []
+      keep_doing_it = true
+      while keep_doing_it
+        new_array = replace_parrerns(previous_array)
+        keep_doing_it = false if new_array == previous_array
+        previous_array = new_array
+      end
+      new_array.map { |n| corresponding(n) }
     end
 
     def replace_parrerns(array)
       case array
+      in [*left, 500, 100, 100, 100, 100, *right]
+        left + [100, 1000] + right
+      in [*left, 100, 100, 100, 100, *right]
+        left + [100, 500] + right
+      in [*left, 50, 10, 10, 10, 10, *right]
+        left + [10, 100] + right
+      in [*left, 10, 10, 10, 10, *right]
+        left + [10, 50] + right
       in [*left, 5, 1, 1, 1, 1, *right]
         left + [1, 10] + right
       in [*left, 1, 1, 1, 1, *right]
@@ -76,11 +87,6 @@ class Integer
     def corresponding(int)
       CORRESPONDING_ROMAN_NUMERAL[int]
     end
-
-    # TODO: potentiall improvement - split the build into phases by the following 3 rules:
-    # orders of magnitude - I, X, C, M
-    # half steps to orders of magnitude - V, L, D
-    # 1 less than OoM or HStOoM - IV, IX, XL, XC, CD, CM
   end
 
   private_constant :RomanNumeral
