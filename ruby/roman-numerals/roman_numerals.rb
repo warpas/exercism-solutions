@@ -40,20 +40,21 @@ class Integer
         acc << highest_available
         [num - highest_available, acc]
       end
-
-      # TODO: simplify the following iteration
-      previous_array = unfolded
-      new_array = []
-      keep_doing_it = true
-      while keep_doing_it
-        new_array = replace_parrerns(previous_array)
-        keep_doing_it = false if new_array == previous_array
-        previous_array = new_array
-      end
-      new_array.map { |n| corresponding(n) }
+      replace_parrerns(unfolded).map { |n| corresponding(n) }
     end
 
     def replace_parrerns(array)
+      modified_array = array
+      to_modify = []
+
+      while to_modify != modified_array
+        to_modify = modified_array
+        modified_array = replace_parrern(to_modify)
+      end
+      modified_array
+    end
+
+    def replace_parrern(array)
       case array
       in [*left, 500, 100, 100, 100, 100, *right]
         left + [100, 1000] + right
