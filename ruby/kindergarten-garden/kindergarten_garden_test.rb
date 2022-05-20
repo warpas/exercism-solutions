@@ -8,13 +8,11 @@ class GardenTest < Minitest::Test
   end
 
   def test_different_garden_for_alice
-    skip
     garden = Garden.new("VC\nRC")
     assert_equal %i[violets clover radishes clover], garden.alice
   end
 
   def test_bobs_garden
-    skip
     garden = Garden.new("VVCG\nVVRC")
     assert_equal %i[clover grass radishes clover], garden.bob
   end
