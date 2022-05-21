@@ -3,13 +3,19 @@ class Robot
   end
 
   def initialize
+    @old_names = []
   end
 
   def name
-    'AX532'
+    # p @old_names
+    if @old_names.empty?
+      'AX532'
+    else
+      'EC152'
+    end
   end
 
   def reset
-    ''
+    @old_names << name
   end
 end
