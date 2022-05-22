@@ -31,15 +31,7 @@ class Crypto
   end
 
   def square(message, width)
-    iteration = message.chars
-    built_square = []
-    until iteration.nil? || iteration.empty?
-      fs = iteration.take(width)
-      built_square << fs
-      iteration = iteration[width..iteration.length]
-    end
-
-    built_square
+    message.chars.each_slice(width).to_a
   end
 
   def transpose(square, count)
