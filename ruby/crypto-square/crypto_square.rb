@@ -34,6 +34,7 @@ class Crypto
     message.chars.each_slice(width).to_a
   end
 
+  # TODO: simplify #transpose
   def transpose(square, count)
     built = []
     count.times do |row|
