@@ -26,7 +26,6 @@ end
 
 class TestFullGarden < Minitest::Test
   def setup
-    skip
     diagram = "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV"
     @garden = Garden.new(diagram)
   end
@@ -34,22 +33,18 @@ class TestFullGarden < Minitest::Test
   attr_reader :garden
 
   def test_alice
-    skip
     assert_equal %i[violets radishes violets radishes], garden.alice
   end
 
   def test_bob
-    skip
     assert_equal %i[clover grass clover clover], garden.bob
   end
 
   def test_charlie
-    skip
     assert_equal %i[violets violets clover grass], garden.charlie
   end
 
   def test_david
-    skip
     assert_equal %i[radishes violets clover radishes], garden.david
   end
 
