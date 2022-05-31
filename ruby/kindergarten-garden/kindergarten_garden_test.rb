@@ -49,22 +49,18 @@ class TestFullGarden < Minitest::Test
   end
 
   def test_eve
-    skip
     assert_equal %i[clover grass radishes grass], garden.eve
   end
 
   def test_fred
-    skip
     assert_equal %i[grass clover violets clover], garden.fred
   end
 
   def test_ginny
-    skip
     assert_equal %i[clover grass grass clover], garden.ginny
   end
 
   def test_harriet
-    skip
     assert_equal %i[violets radishes radishes violets], garden.harriet
   end
 

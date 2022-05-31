@@ -23,6 +23,22 @@ class Garden
     build_garden(:charlie)
   end
 
+  def david
+    build_garden(:david)
+  end
+
+  def eve
+    build_garden(:eve)
+  end
+
+  def fred
+    build_garden(:fred)
+  end
+
+  def ginny
+    build_garden(:ginny)
+  end
+
   private
 
   DICTIONARY = {
@@ -35,7 +51,11 @@ class Garden
   ORDER = {
     alice: [0, 1],
     bob: [2, 3],
-    charlie: [4, 5]
+    charlie: [4, 5],
+    david: [6, 7],
+    eve: [8, 9],
+    fred: [10, 11],
+    ginny: [12, 13]
   }.freeze
 
   private_constant :DICTIONARY
