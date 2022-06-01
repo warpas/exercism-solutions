@@ -65,22 +65,18 @@ class TestFullGarden < Minitest::Test
   end
 
   def test_ileana
-    skip
     assert_equal %i[grass clover violets clover], garden.ileana
   end
 
   def test_joseph
-    skip
     assert_equal %i[violets clover violets grass], garden.joseph
   end
 
   def test_kincaid
-    skip
     assert_equal %i[grass clover clover grass], garden.kincaid
   end
 
   def test_larry
-    skip
     assert_equal %i[grass violets clover violets], garden.larry
   end
 end

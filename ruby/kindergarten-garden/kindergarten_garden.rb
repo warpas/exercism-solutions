@@ -39,6 +39,26 @@ class Garden
     build_garden(:ginny)
   end
 
+  def harriet
+    build_garden(:harriet)
+  end
+
+  def ileana
+    build_garden(:ileana)
+  end
+
+  def joseph
+    build_garden(:joseph)
+  end
+
+  def kincaid
+    build_garden(:kincaid)
+  end
+
+  def larry
+    build_garden(:larry)
+  end
+
   private
 
   DICTIONARY = {
@@ -55,7 +75,12 @@ class Garden
     david: [6, 7],
     eve: [8, 9],
     fred: [10, 11],
-    ginny: [12, 13]
+    ginny: [12, 13],
+    harriet: [14, 15],
+    ileana: [16, 17],
+    joseph: [18, 19],
+    kincaid: [20, 21],
+    larry: [22, 23]
   }.freeze
 
   private_constant :DICTIONARY
