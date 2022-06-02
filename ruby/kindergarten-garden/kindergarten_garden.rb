@@ -1,5 +1,5 @@
 class Garden
-  def initialize(arg)
+  def initialize(arg, students=%w[Alice Bob])
     # p arg
     garden_string = arg
     line1, line2 = garden_string.lines
@@ -59,6 +59,10 @@ class Garden
     build_garden(:larry)
   end
 
+  def patricia
+    build_garden(:patricia)
+  end
+
   private
 
   DICTIONARY = {
@@ -80,7 +84,8 @@ class Garden
     ileana: [16, 17],
     joseph: [18, 19],
     kincaid: [20, 21],
-    larry: [22, 23]
+    larry: [22, 23],
+    patricia: [2, 3]
   }.freeze
 
   private_constant :DICTIONARY
