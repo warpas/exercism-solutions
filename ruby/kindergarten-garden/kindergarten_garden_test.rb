@@ -95,17 +95,14 @@ class DisorderedTest < Minitest::Test
   end
 
   def test_roger
-    skip
     assert_equal %i[radishes radishes grass clover], garden.roger
   end
 
   def test_samantha
-    skip
     assert_equal %i[grass violets clover grass], garden.samantha
   end
 
   def test_xander
-    skip
     assert_equal %i[radishes grass clover violets], garden.xander
   end
 end
