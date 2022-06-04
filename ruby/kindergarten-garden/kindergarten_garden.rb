@@ -1,5 +1,5 @@
 class Garden
-  def initialize(arg, students = %w[Alice Bob])
+  def initialize(arg, students = DEFAULT_ORDER)
     # p arg
     garden_string = arg
     line1, line2 = garden_string.lines
@@ -85,6 +85,21 @@ class Garden
     'V' => :violets
   }.freeze
 
+  DEFAULT_ORDER = %w[
+    Alice
+    Bob
+    Charlie
+    David
+    Eve
+    Fred
+    Ginny
+    Harriet
+    Ileana
+    Joseph
+    Kincaid
+    Larry
+  ].freeze
+
   ORDER = {
     alice: [0, 1],
     bob: [2, 3],
@@ -118,6 +133,13 @@ class Garden
 
   def save_order(students)
     p students
-    ORDER
+    index = 0
+    student_ord = {}
+    students.each do |student|
+      student_ord[student.downcase.to_sym] = [index*2, index*2 + 1]
+      index += 1
+    end
+    p student_ord
+    # p ORDER
   end
 end
