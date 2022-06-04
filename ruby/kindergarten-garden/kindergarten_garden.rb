@@ -1,8 +1,9 @@
 class Garden
-  def initialize(arg, students=%w[Alice Bob])
+  def initialize(arg, students = %w[Alice Bob])
     # p arg
     garden_string = arg
     line1, line2 = garden_string.lines
+    @student_order = save_order(students)
     # p "line1 = #{line1}, line2 = #{line2}"
     translated_line1 = line1.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
     translated_line2 = line2.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
@@ -108,10 +109,15 @@ class Garden
   def build_garden(owner)
     the_garden_front = []
     the_garden_back = []
-    ORDER[owner].each do |index|
+    @student_order[owner].each do |index|
       the_garden_front << @translated[index].first
       the_garden_back << @translated[index].last
     end
     the_garden_front + the_garden_back
+  end
+
+  def save_order(students)
+    p students
+    ORDER
   end
 end

@@ -121,7 +121,6 @@ class TwoGardensDifferentStudents < Minitest::Test
   end
 
   def test_bob_and_charlie_per_garden
-    skip
     assert_equal %i[radishes radishes grass clover], garden1.bob
     assert_equal %i[violets clover radishes violets], garden2.bob
     assert_equal %i[grass violets clover grass], garden1.charlie
