@@ -1,15 +1,11 @@
 class Garden
   def initialize(arg, students = DEFAULT_ORDER)
-    # p arg
     garden_string = arg
     line1, line2 = garden_string.lines
     @student_order = save_order(students)
-    # p "line1 = #{line1}, line2 = #{line2}"
     translated_line1 = line1.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
     translated_line2 = line2.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
-    # p "t_line1 = #{translated_line1}, t_line2 = #{translated_line2}"
     @translated = translated_line1.zip(translated_line2)
-    # p "end of input"
   end
 
   def alice
@@ -100,25 +96,6 @@ class Garden
     Larry
   ].freeze
 
-  ORDER = {
-    alice: [0, 1],
-    bob: [2, 3],
-    charlie: [4, 5],
-    david: [6, 7],
-    eve: [8, 9],
-    fred: [10, 11],
-    ginny: [12, 13],
-    harriet: [14, 15],
-    ileana: [16, 17],
-    joseph: [18, 19],
-    kincaid: [20, 21],
-    larry: [22, 23],
-    patricia: [0, 1],
-    roger: [2, 3],
-    samantha: [4, 5],
-    xander: [6, 7]
-  }.freeze
-
   private_constant :DICTIONARY
 
   def build_garden(owner)
@@ -132,14 +109,12 @@ class Garden
   end
 
   def save_order(students)
-    p students
     index = 0
     student_ord = {}
-    students.each do |student|
-      student_ord[student.downcase.to_sym] = [index*2, index*2 + 1]
+    students.sort.each do |student|
+      student_ord[student.downcase.to_sym] = [index * 2, index * 2 + 1]
       index += 1
     end
-    p student_ord
-    # p ORDER
+    student_ord
   end
 end
