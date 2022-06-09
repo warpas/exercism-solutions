@@ -1,14 +1,12 @@
 class Garden
-  def initialize(arg, students = DEFAULT_ORDER)
-    garden_string = arg
-    line1, line2 = garden_string.lines
-    @students = students
-    @student_order = save_order(students)
-    @students.each do |name|
+  def initialize(garden_string, students = DEFAULT_ORDER)
+    students.each do |name|
       define_singleton_method(name.downcase) do
         build_garden(name.downcase.to_sym)
       end
     end
+    @student_order = save_order(students)
+    line1, line2 = garden_string.lines
     translated_line1 = line1.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
     translated_line2 = line2.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
     @translated = translated_line1.zip(translated_line2)
