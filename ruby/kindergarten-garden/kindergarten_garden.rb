@@ -1,9 +1,10 @@
 class Garden
   def initialize(garden_string, students = DEFAULT_ORDER)
-    line1, line2 = garden_string.lines
-    translated_line1 = line1.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
-    translated_line2 = line2.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
-    @translated = translated_line1.zip(translated_line2)
+    lines = []
+    garden_string.lines.each do |line|
+      lines += line.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
+    end
+    @translated = lines[0].zip(lines[1])
     create_methods(students)
     @student_order = save_order(students)
   end
