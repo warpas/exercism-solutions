@@ -1,12 +1,8 @@
 class Garden
   def initialize(garden_string, students = DEFAULT_ORDER)
-    lines = []
-    garden_string.lines.each do |line|
-      lines << line.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
-    end
-    @translated = lines[0].zip(lines[1])
-    create_methods(students)
+    @as_hash = parse_garden(garden_string)
     @student_order = save_order(students)
+    create_methods(students)
   end
 
   private
@@ -47,8 +43,8 @@ class Garden
     the_garden_front = []
     the_garden_back = []
     @student_order[owner].each do |index|
-      the_garden_front << @translated[index].first
-      the_garden_back << @translated[index].last
+      the_garden_front << @as_hash[index].first
+      the_garden_back << @as_hash[index].last
     end
     the_garden_front + the_garden_back
   end
@@ -59,5 +55,14 @@ class Garden
       student_ord[student.downcase.to_sym] = [index * 2, index * 2 + 1]
     end
     student_ord
+  end
+
+  def parse_garden(garden_string)
+    lines = []
+    garden_string.lines.each do |line|
+      lines << line.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
+    end
+
+    lines[0].zip(lines[1])
   end
 end
