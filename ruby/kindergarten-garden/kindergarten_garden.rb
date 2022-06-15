@@ -37,7 +37,7 @@ class Garden
     Larry
   ].freeze
 
-  private_constant :DICTIONARY
+  private_constant :DICTIONARY, :DEFAULT_ORDER
 
   def build_garden(owner)
     the_garden_front = []
@@ -57,9 +57,9 @@ class Garden
     student_ord
   end
 
-  def parse_garden(garden_string)
+  def parse_garden(string)
     lines = []
-    garden_string.lines.each do |line|
+    string.lines.each do |line|
       lines << line.chars.map { |elem| DICTIONARY[elem] }.reject(&:nil?)
     end
 
