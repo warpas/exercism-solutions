@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Implementation of the Kindergarten Garden exercise in Ruby track on Exercism.
 class Garden
   def initialize(garden_string, students = DEFAULT_ORDER)
     @as_hash = parse_garden(garden_string)
