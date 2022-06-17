@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Implementation of the Robot Name exercise in Ruby track on Exercism.
 class Robot
   def self.forget
   end
