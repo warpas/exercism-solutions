@@ -2,6 +2,8 @@
 
 # Implementation of the Kindergarten Garden exercise in Ruby track on Exercism.
 class Garden
+  # @param garden_string [String] the entire garden in a coded format
+  # @param students [Array<String>] the ordered list of gardens by student
   def initialize(garden_string, students = DEFAULT_ORDER)
     @as_hash = parse_garden(garden_string)
     @student_order = save_order(students)
