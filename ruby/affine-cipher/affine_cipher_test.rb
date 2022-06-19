@@ -4,7 +4,6 @@ require_relative 'affine_cipher'
 # Common test data version: 2.0.0 8026923
 class AffineCipherTest < Minitest::Test
   def test_encode_yes
-    # skip
     cipher = Affine.new(5, 7)
     plaintext = 'yes'
     ciphertext = 'xbt'
@@ -12,7 +11,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_no
-    skip
     cipher = Affine.new(15, 18)
     plaintext = 'no'
     ciphertext = 'fu'
