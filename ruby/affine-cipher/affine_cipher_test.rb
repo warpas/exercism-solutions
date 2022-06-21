@@ -18,7 +18,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_omg
-    skip
     cipher = Affine.new(21, 3)
     plaintext = 'OMG'
     ciphertext = 'lvz'

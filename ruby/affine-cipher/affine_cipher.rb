@@ -4,8 +4,8 @@
 class Affine
   def initialize(a, b)
     puts ""
-    p @a = a
-    p @b = b
+    @key_component_a = a
+    @key_component_b = b
   end
 
   def encode(text)
@@ -21,7 +21,7 @@ class Affine
       p c
       byte_diff = c - a_byte
       p byte_diff
-      calculated_encoding = (@a * byte_diff + @b) % ALPHABET_LENGTH
+      calculated_encoding = (@key_component_a * byte_diff + @key_component_b) % ALPHABET_LENGTH
       bytes << calculated_encoding + a_byte
       p calculated_encoding
     end
