@@ -25,7 +25,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_o_m_g
-    skip
     cipher = Affine.new(25, 47)
     plaintext = 'O M G'
     ciphertext = 'hjp'

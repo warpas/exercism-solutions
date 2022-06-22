@@ -9,6 +9,7 @@ class Affine
   end
 
   def encode(text)
+    prepared_text = text.downcase.split(/[-\s]/).join
     a_byte = 0
     'a'.each_byte do |a|
       a_byte = a
@@ -16,7 +17,7 @@ class Affine
     p a_byte
     p text
     bytes = []
-    text.each_byte do |c|
+    prepared_text.each_byte do |c|
       puts "inside the encode loop"
       p c
       byte_diff = c - a_byte
