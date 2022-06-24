@@ -1,3 +1,4 @@
 .DS_Store
 .exercism
 *node_modules/
+*.stack-work/
