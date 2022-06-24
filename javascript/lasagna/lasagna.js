@@ -29,6 +29,7 @@
 // work with the tests, which you can find in ./lasagna.spec.js
 //
 // Good luck preparing some lasagna!
+export const EXPECTED_MINUTES_IN_OVEN = 40;
 
 /**
  * The number of minutes it takes to prepare a single layer.
