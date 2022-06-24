@@ -3,6 +3,7 @@ module LuciansLusciousLasagna (elapsedTimeInMinutes, expectedMinutesInOven, prep
 expectedMinutesInOven :: Integer
 expectedMinutesInOven = 40
 
--- TODO: define the preparationTimeInMinutes function
+preparationTimeInMinutes :: Integer -> Integer
+preparationTimeInMinutes x = 2 * x
 
 -- TODO: define the elapsedTimeInMinutes function
