@@ -1,6 +1,7 @@
 module LuciansLusciousLasagna (elapsedTimeInMinutes, expectedMinutesInOven, preparationTimeInMinutes) where
 
--- TODO: define the expectedMinutesInOven constant
+expectedMinutesInOven :: Integer
+expectedMinutesInOven = 40
 
 -- TODO: define the preparationTimeInMinutes function
 
