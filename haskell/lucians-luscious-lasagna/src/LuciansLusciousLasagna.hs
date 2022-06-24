@@ -6,4 +6,5 @@ expectedMinutesInOven = 40
 preparationTimeInMinutes :: Integer -> Integer
 preparationTimeInMinutes x = 2 * x
 
--- TODO: define the elapsedTimeInMinutes function
+elapsedTimeInMinutes :: Integer -> Integer -> Integer
+elapsedTimeInMinutes layers timeInOven = preparationTimeInMinutes layers + timeInOven

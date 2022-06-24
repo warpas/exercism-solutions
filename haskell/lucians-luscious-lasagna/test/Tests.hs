@@ -9,5 +9,5 @@ main = hspec $ do
     it "preparationTimeInMinutes" $
         preparationTimeInMinutes 5 `shouldBe` 10
 
-    -- it "elapsedTimeInMinutes" $ do
-    --     elapsedTimeInMinutes 3 20 `shouldBe` 26
+    it "elapsedTimeInMinutes" $ do
+        elapsedTimeInMinutes 3 20 `shouldBe` 26
