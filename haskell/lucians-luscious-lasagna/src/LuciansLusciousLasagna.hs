@@ -3,8 +3,11 @@ module LuciansLusciousLasagna (elapsedTimeInMinutes, expectedMinutesInOven, prep
 expectedMinutesInOven :: Integer
 expectedMinutesInOven = 40
 
+layerPreparationInMinutes :: Integer
+layerPreparationInMinutes = 2
+
 preparationTimeInMinutes :: Integer -> Integer
-preparationTimeInMinutes x = 2 * x
+preparationTimeInMinutes layers = layerPreparationInMinutes * layers
 
 elapsedTimeInMinutes :: Integer -> Integer -> Integer
 elapsedTimeInMinutes layers timeInOven = preparationTimeInMinutes layers + timeInOven
