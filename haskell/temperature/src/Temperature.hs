@@ -10,4 +10,4 @@ tempToC tempFahrenheit = (fromIntegral tempFahrenheit - 32) / 1.8
 `  Celsius to Fahrenheit                    -}
 
 tempToF :: Float -> Integer
-tempToF temp = error "Implement this function."
+tempToF tempCelsius = ceiling (tempCelsius * 1.8) + 32
