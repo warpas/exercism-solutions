@@ -32,7 +32,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_mindblowingly
-    skip
     cipher = Affine.new(11, 15)
     plaintext = 'mindblowingly'
     ciphertext = 'rzcwa gnxzc dgt'
