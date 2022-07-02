@@ -39,7 +39,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_numbers
-    skip
     cipher = Affine.new(3, 4)
     plaintext = 'Testing,1 2 3, testing.'
     ciphertext = 'jqgjc rw123 jqgjc rw'
