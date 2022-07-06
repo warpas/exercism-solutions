@@ -71,5 +71,5 @@ export function canFreePrisoner(
   prisonerIsAwake,
   petDogIsPresent
 ) {
-  return canExecuteFastAttack(knightIsAwake) && canSpy(knightIsAwake, archerIsAwake, prisonerIsAwake) && canSignalPrisoner(archerIsAwake, prisonerIsAwake) // && petDogIsPresent
+  return (petDogIsPresent && !archerIsAwake) || (!petDogIsPresent && prisonerIsAwake && !archerIsAwake && !knightIsAwake)
 }
