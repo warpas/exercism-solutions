@@ -50,9 +50,11 @@ export function daysInBudget(budget, ratePerHour) {
  */
 export function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
   const daysWithoutDiscount = numDays % 22
-  const discountedDays = (numDays - daysWithoutDiscount) / 22
+  const discountedDays = (numDays - daysWithoutDiscount)
   const discountedPrice = discountedDays * dayRate(ratePerHour) * (1 - discount)
   const undiscountedPrice = dayRate(ratePerHour) * daysWithoutDiscount
+  const totalPrice =  Math.ceil(discountedPrice + undiscountedPrice)
+  // console.log(`${numDays} days in total, price per hour ${ratePerHour}.\n${discountedDays} days discounted at ${discount} off, price ${discountedPrice}.\n${daysWithoutDiscount} days without the discount, price at ${undiscountedPrice}.\nTotal price = ${totalPrice}`)
 
-  return Math.ceil(discountedPrice + undiscountedPrice)
+  return totalPrice
 }
