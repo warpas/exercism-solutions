@@ -54,7 +54,6 @@ export function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
   const discountedPrice = discountedDays * dayRate(ratePerHour) * (1 - discount)
   const undiscountedPrice = dayRate(ratePerHour) * daysWithoutDiscount
   const totalPrice =  Math.ceil(discountedPrice + undiscountedPrice)
-  // console.log(`${numDays} days in total, price per hour ${ratePerHour}.\n${discountedDays} days discounted at ${discount} off, price ${discountedPrice}.\n${daysWithoutDiscount} days without the discount, price at ${undiscountedPrice}.\nTotal price = ${totalPrice}`)
 
   return totalPrice
 }
