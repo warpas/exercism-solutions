@@ -9,7 +9,7 @@
  * @returns {number} the card
  */
 export function getItem(cards, position) {
-  throw new Error('Implement the getItem function');
+  return cards[position]
 }
 
 /**
@@ -22,7 +22,8 @@ export function getItem(cards, position) {
  * @returns {number[]} the cards with the change applied
  */
 export function setItem(cards, position, replacementCard) {
-  throw new Error('Implement the setItem function');
+  cards[position] = replacementCard
+  return cards
 }
 
 /**
@@ -34,7 +35,8 @@ export function setItem(cards, position, replacementCard) {
  * @returns {number[]} the cards with the newCard applied
  */
 export function insertItemAtTop(cards, newCard) {
-  throw new Error('Implement the insertItemAtTop function');
+  cards[cards.length] = newCard
+  return cards
 }
 
 /**
