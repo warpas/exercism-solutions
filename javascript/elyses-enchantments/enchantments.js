@@ -48,7 +48,9 @@ export function insertItemAtTop(cards, newCard) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItem(cards, position) {
-  throw new Error('Implement the removeItem function');
+  const valueToRemove = cards[position]
+  // return cards.filter(x => {x !== valueToRemove})
+  return []
 }
 
 /**
