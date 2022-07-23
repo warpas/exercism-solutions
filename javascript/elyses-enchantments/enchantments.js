@@ -50,7 +50,8 @@ export function insertItemAtTop(cards, newCard) {
 export function removeItem(cards, position) {
   const valueToRemove = cards[position]
   // return cards.filter(x => {x !== valueToRemove})
-  return []
+  cards.splice(position, 1)
+  return cards
 }
 
 /**
@@ -61,7 +62,7 @@ export function removeItem(cards, position) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemFromTop(cards) {
-  return cards.slice(0, cards.length - 1)
+  return removeItem(cards, cards.length - 1)
 }
 
 /**
@@ -84,7 +85,7 @@ export function insertItemAtBottom(cards, newCard) {
  * @returns {number[]} the cards without the removed card
  */
 export function removeItemAtBottom(cards) {
-  return cards.slice(1, cards.length)
+  return removeItem(cards, 0)
 }
 
 /**
