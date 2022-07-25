@@ -23,10 +23,13 @@ export function needsLicense(kind) {
  * @returns {string} a sentence of advice which option to choose
  */
 export function chooseVehicle(option1, option2) {
+  let chosenOption = ''
   if(option1 <= option2){
-    return `${option1} is clearly the better choice.`
+    chosenOption = option1
+  } else {
+    chosenOption = option2
   }
-  return `${option2} is clearly the better choice.`
+  return `${chosenOption} is clearly the better choice.`
 }
 
 /**
