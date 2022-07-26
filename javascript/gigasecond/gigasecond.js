@@ -1,8 +1,13 @@
-//
-// This is only a SKELETON file for the 'Gigasecond' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
+// @ts-check
 
-export const gigasecond = () => {
-  throw new Error('Remove this statement and implement this function');
+/**
+ * Adds a gigasecond to a given date.
+ *
+ * @param {Date} date
+ * @returns {Date} date after a gigasecond has passed
+ */
+
+export const gigasecond = (date) => {
+  const gigasecondInMilliseconds = 1_000_000_000_000
+  return new Date(date.valueOf() + gigasecondInMilliseconds)
 };
