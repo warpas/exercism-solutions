@@ -18,7 +18,7 @@ describe('totalBirdCount', () => {
   });
 });
 
-xdescribe('birdsInWeek', () => {
+describe('birdsInWeek', () => {
   test('calculates the number of birds in the first week', () => {
     const birdsPerDay = [3, 0, 5, 1, 0, 4, 1, 0, 3, 4, 3, 0, 8, 0];
     expect(birdsInWeek(birdsPerDay, 1)).toBe(14);
