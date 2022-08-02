@@ -45,7 +45,7 @@ describe('birdsInWeek', () => {
   });
 });
 
-xdescribe('fixBirdCountLog', () => {
+describe('fixBirdCountLog', () => {
   test('returns a bird count list with the corrected values', () => {
     const birdsPerDay = [3, 0, 5, 1, 0, 4, 1, 0, 3, 4, 3, 0];
     const expected = [4, 0, 6, 1, 1, 4, 2, 0, 4, 4, 4, 0];
