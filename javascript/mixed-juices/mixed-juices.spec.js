@@ -20,7 +20,7 @@ describe('timeToMixJuice', () => {
   });
 });
 
-describe('limesToCut', () => {
+xdescribe('limesToCut', () => {
   test('calculates the number of limes needed to reach the target supply', () => {
     const limes = [
       'small',
@@ -60,7 +60,7 @@ describe('limesToCut', () => {
   });
 });
 
-describe('remainingOrders', () => {
+xdescribe('remainingOrders', () => {
   test('correctly determines the remaining orders', () => {
     const orders = [
       'Tropical Island',

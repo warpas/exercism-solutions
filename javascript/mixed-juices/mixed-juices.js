@@ -11,7 +11,15 @@
  * @returns {number} time in minutes
  */
 export function timeToMixJuice(name) {
-  throw new Error('Please implement the timeToMixJuice function');
+  const juices = {
+    'Pure Strawberry Joy': 0.5,
+    'Energizer': 1.5,
+    'Green Garden': 1.5,
+    'Tropical Island': 3,
+    'All or Nothing': 5,
+    'default': 2.5
+  }
+  return juices[name] || juices['default']
 }
 
 /**
