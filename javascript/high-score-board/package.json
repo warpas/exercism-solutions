@@ -1,0 +1,29 @@
+{
+  "name": "@exercism/javascript-high-score-board",
+  "description": "Exercism concept exercise on objects",
+  "author": "Franziska Obbarius <12543047+junedev@users.noreply.github.com>",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exercism/javascript",
+    "directory": "exercises/concept/high-score-board"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@exercism/babel-preset-javascript": "^0.1.2",
+    "@exercism/eslint-config-javascript": "^0.6.0",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^18.6.2",
+    "babel-jest": "^28.1.3",
+    "core-js": "^3.24.1",
+    "eslint": "^8.20.0",
+    "jest": "^28.1.3"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "jest ./*",
+    "watch": "jest --watch ./*",
+    "lint": "eslint ."
+  }
+}
