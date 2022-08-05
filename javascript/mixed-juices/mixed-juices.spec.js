@@ -20,7 +20,7 @@ describe('timeToMixJuice', () => {
   });
 });
 
-xdescribe('limesToCut', () => {
+describe('limesToCut', () => {
   test('calculates the number of limes needed to reach the target supply', () => {
     const limes = [
       'small',

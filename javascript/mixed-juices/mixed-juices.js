@@ -31,7 +31,21 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  throw new Error('Please implement the limesToCut function');
+  // She can get 6 wedges from a 'small' lime, 8 wedges from a 'medium' lime and 10 from a 'large' lime
+  console.log(`wedgesNeeded: ${wedgesNeeded}, limes: ${limes}`)
+  const lime_sizes = {
+    'small': 6,
+    'medium': 8,
+    'large': 10
+  }
+  let sum = 0
+  let count = 0
+  for(const elem of limes) {
+    if(sum >= wedgesNeeded) break
+    sum += lime_sizes[elem]
+    count += 1
+  }
+  return count
 }
 
 /**
