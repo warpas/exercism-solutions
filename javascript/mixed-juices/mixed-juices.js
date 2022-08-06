@@ -31,8 +31,6 @@ export function timeToMixJuice(name) {
  * @returns {number} number of limes cut
  */
 export function limesToCut(wedgesNeeded, limes) {
-  // She can get 6 wedges from a 'small' lime, 8 wedges from a 'medium' lime and 10 from a 'large' lime
-  console.log(`wedgesNeeded: ${wedgesNeeded}, limes: ${limes}`)
   const lime_sizes = {
     'small': 6,
     'medium': 8,
@@ -56,5 +54,12 @@ export function limesToCut(wedgesNeeded, limes) {
  * @returns {string[]} remaining orders after the time is up
  */
 export function remainingOrders(timeLeft, orders) {
-  throw new Error('Please implement the remainingOrders function');
+  let remainingTime = timeLeft
+  let i = 0;
+  while(remainingTime >= 0 && i < orders.length) {
+    remainingTime -= timeToMixJuice(orders[i])
+    i++
+  }
+  console.log(i)
+  return orders.slice(i)
 }
