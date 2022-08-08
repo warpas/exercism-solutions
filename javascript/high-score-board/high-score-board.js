@@ -7,7 +7,7 @@
  * @returns {Record<string, number>} new score board
  */
 export function createScoreBoard() {
-  throw new Error('Please implement the createScoreBoard function');
+  return { 'The Best Ever': 1000000 }
 }
 
 /**
@@ -19,7 +19,8 @@ export function createScoreBoard() {
  * @returns {Record<string, number>} updated score board
  */
 export function addPlayer(scoreBoard, player, score) {
-  throw new Error('Please implement the addPlayer function');
+  scoreBoard[player] = score
+  return scoreBoard
 }
 
 /**

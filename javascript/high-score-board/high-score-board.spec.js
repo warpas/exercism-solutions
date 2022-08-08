@@ -41,7 +41,7 @@ describe('addPlayer', () => {
   });
 });
 
-describe('removePlayer', () => {
+xdescribe('removePlayer', () => {
   test('removes a player from the score board', () => {
     const scoreBoard = {
       'Amil Pastorius': 99373,
@@ -76,7 +76,7 @@ describe('removePlayer', () => {
   });
 });
 
-describe('updateScore', () => {
+xdescribe('updateScore', () => {
   test("increases a player's score", () => {
     const scoreBoard = {
       'Amil Pastorius': 99373,
@@ -99,7 +99,7 @@ describe('updateScore', () => {
   });
 });
 
-describe('applyMondayBonus', () => {
+xdescribe('applyMondayBonus', () => {
   test('adds 100 points for all players', () => {
     const scoreBoard = {
       'Amil Pastorius': 345,
@@ -130,7 +130,7 @@ describe('applyMondayBonus', () => {
   });
 });
 
-describe('normalizeScore', () => {
+xdescribe('normalizeScore', () => {
   test('applies the normalization function', () => {
     const params = {
       score: 45,
