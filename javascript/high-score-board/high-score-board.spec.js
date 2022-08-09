@@ -41,7 +41,7 @@ describe('addPlayer', () => {
   });
 });
 
-xdescribe('removePlayer', () => {
+describe('removePlayer', () => {
   test('removes a player from the score board', () => {
     const scoreBoard = {
       'Amil Pastorius': 99373,
