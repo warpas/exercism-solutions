@@ -76,7 +76,7 @@ describe('removePlayer', () => {
   });
 });
 
-xdescribe('updateScore', () => {
+describe('updateScore', () => {
   test("increases a player's score", () => {
     const scoreBoard = {
       'Amil Pastorius': 99373,
@@ -99,7 +99,7 @@ xdescribe('updateScore', () => {
   });
 });
 
-xdescribe('applyMondayBonus', () => {
+describe('applyMondayBonus', () => {
   test('adds 100 points for all players', () => {
     const scoreBoard = {
       'Amil Pastorius': 345,
