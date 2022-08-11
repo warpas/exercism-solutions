@@ -130,7 +130,7 @@ describe('applyMondayBonus', () => {
   });
 });
 
-xdescribe('normalizeScore', () => {
+describe('normalizeScore', () => {
   test('applies the normalization function', () => {
     const params = {
       score: 45,
