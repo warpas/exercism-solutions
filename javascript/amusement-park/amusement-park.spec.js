@@ -18,7 +18,7 @@ describe('createVisitor', () => {
   });
 });
 
-describe('revokeTicket', () => {
+xdescribe('revokeTicket', () => {
   test('sets the ticketId to null', () => {
     const visitor = { name: 'María Pilar Neri', age: 16, ticketId: 'MFBSF3S2' };
 
@@ -44,7 +44,7 @@ describe('revokeTicket', () => {
   });
 });
 
-describe('ticketStatus', () => {
+xdescribe('ticketStatus', () => {
   test('correctly identifies that a ticket is not in the tracking object', () => {
     expect(ticketStatus(testTickets(), 'Y4KXZOYM')).toBe('unknown ticket id');
     expect(ticketStatus(testTickets(), '8ATQC1ZJ')).toBe('unknown ticket id');
@@ -69,7 +69,7 @@ describe('ticketStatus', () => {
   });
 });
 
-describe('simpleTicketStatus', () => {
+xdescribe('simpleTicketStatus', () => {
   test('identifies ticket that are not in the tracking object as invalid', () => {
     const expected = 'invalid ticket !!!';
     expect(simpleTicketStatus(testTickets(), 'Y4KXZOYM')).toBe(expected);
@@ -104,7 +104,7 @@ describe('simpleTicketStatus', () => {
   });
 });
 
-describe('gtcVersion', () => {
+xdescribe('gtcVersion', () => {
   test('determines the GTC version if it is present', () => {
     const visitor1 = {
       name: 'Zohar Pekkanen',
