@@ -69,7 +69,7 @@ describe('ticketStatus', () => {
   });
 });
 
-xdescribe('simpleTicketStatus', () => {
+describe('simpleTicketStatus', () => {
   test('identifies ticket that are not in the tracking object as invalid', () => {
     const expected = 'invalid ticket !!!';
     expect(simpleTicketStatus(testTickets(), 'Y4KXZOYM')).toBe(expected);
