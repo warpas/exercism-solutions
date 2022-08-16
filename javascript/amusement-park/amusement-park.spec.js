@@ -104,7 +104,7 @@ describe('simpleTicketStatus', () => {
   });
 });
 
-xdescribe('gtcVersion', () => {
+describe('gtcVersion', () => {
   test('determines the GTC version if it is present', () => {
     const visitor1 = {
       name: 'Zohar Pekkanen',
