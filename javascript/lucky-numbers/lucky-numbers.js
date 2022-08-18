@@ -8,7 +8,10 @@
  * @returns {number} sum of the two arrays
  */
 export function twoSum(array1, array2) {
-  throw new Error('Implement the twoSum function');
+  const sum1 = array1.reduce((sum, x) => 10 * sum + x)
+  console.log(sum1)
+  const sum2 = array2.reduce((sum, x) => 10 * sum + x)
+  return sum1 + sum2
 }
 
 /**
