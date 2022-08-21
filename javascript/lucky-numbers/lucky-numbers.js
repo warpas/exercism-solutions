@@ -9,7 +9,6 @@
  */
 export function twoSum(array1, array2) {
   const sum1 = array1.reduce((sum, x) => 10 * sum + x)
-  console.log(sum1)
   const sum2 = array2.reduce((sum, x) => 10 * sum + x)
   return sum1 + sum2
 }
@@ -21,6 +20,11 @@ export function twoSum(array1, array2) {
  * @returns {boolean}  whether the number is a palindrome or not
  */
 export function luckyNumber(value) {
+  const stringifiedValue = value.toString()
+  const digitCount = stringifiedValue.length
+  for (let i = 0; i <= digitCount / 2; i++) {
+    if(stringifiedValue[i] !== stringifiedValue[digitCount - i - 1]) { return false }
+  }
   return true
 }
 
