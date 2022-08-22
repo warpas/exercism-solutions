@@ -32,7 +32,7 @@ describe('luckyNumber', () => {
   });
 });
 
-xdescribe('errorMessage', () => {
+describe('errorMessage', () => {
   test('identifies if there is no input value', () => {
     expect(errorMessage('')).toBe('Required field');
     expect(errorMessage(null)).toBe('Required field');

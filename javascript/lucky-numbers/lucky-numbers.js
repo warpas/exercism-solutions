@@ -36,5 +36,10 @@ export function luckyNumber(value) {
  * @returns {string} error message
  */
 export function errorMessage(input) {
-  throw new Error('Implement the errorMessage function');
+  if(input === '' || input === null || input === undefined) { return 'Required field' }
+  // let sum = 1
+  // const number = Array.from(input).reduce((sum, x) => 10 * sum + x)
+  // console.log(number)
+  if(input === '0') { return 'Must be a number besides 0' }
+  return ''
 }
