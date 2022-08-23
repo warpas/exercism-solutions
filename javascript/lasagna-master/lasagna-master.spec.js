@@ -28,7 +28,7 @@ describe('cookingStatus', () => {
   });
 });
 
-describe('preparationTime', () => {
+xdescribe('preparationTime', () => {
   test('applies the custom average time per layer', () => {
     const manyLayers = [
       'sauce',
@@ -76,7 +76,7 @@ describe('preparationTime', () => {
   });
 });
 
-describe('quantities', () => {
+xdescribe('quantities', () => {
   test('calculates the amounts of noodles and sauce correctly', () => {
     const fewLayers = ['noodles', 'sauce', 'noodles'];
     expectObjectsToBeEqual(quantities(fewLayers), { noodles: 100, sauce: 0.2 });
@@ -114,7 +114,7 @@ describe('quantities', () => {
   });
 });
 
-describe('addSecretIngredient', () => {
+xdescribe('addSecretIngredient', () => {
   test('adds the secret ingredient to the second array', () => {
     const friendsList = ['sauce', 'noodles', 'béchamel', 'marjoram'];
     const myList = ['sauce', 'noodles', 'meat', 'tomatoes'];
@@ -156,7 +156,7 @@ describe('addSecretIngredient', () => {
   });
 });
 
-describe('scaleRecipe', () => {
+xdescribe('scaleRecipe', () => {
   test('scales up correctly', () => {
     const recipe1 = {
       sauce: 0.5,

@@ -10,3 +10,12 @@
  *   ...
  * }
  */
+export function cookingStatus(timer) {
+  if(timer === undefined) {
+    return "You forgot to set the timer."
+  }
+  if(timer === 0) {
+    return "Lasagna is done."
+  }
+  return "Not done, please wait."
+}
