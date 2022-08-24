@@ -2,3 +2,4 @@
 .exercism
 *node_modules/
 *.stack-work/
+*target/
