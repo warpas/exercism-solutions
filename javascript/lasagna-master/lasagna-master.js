@@ -2,13 +2,10 @@
 // @ts-check
 
 /**
- * Implement the functions needed to solve the exercise here.
- * Do not forget to export them so they are available for the
- * tests. Here an example of the syntax as reminder:
+ * Says whether or not the lasagna is ready to take out of the oven.
  *
- * export function yourFunction(...) {
- *   ...
- * }
+ * @param {number} timer
+ * @returns {string} status message
  */
 export function cookingStatus(timer) {
   if(timer === undefined) {
@@ -18,4 +15,16 @@ export function cookingStatus(timer) {
     return "Lasagna is done."
   }
   return "Not done, please wait."
+}
+
+/**
+ * What does it do?
+ *
+ * @param {string[]} layers
+ * @param {number} timePerLayer
+ * @returns {number}
+ */
+export function preparationTime(layers, timePerLayer) {
+  const multiplier = timePerLayer === undefined ? 2 : timePerLayer
+  return layers.length * multiplier
 }

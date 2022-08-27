@@ -28,7 +28,7 @@ describe('cookingStatus', () => {
   });
 });
 
-xdescribe('preparationTime', () => {
+describe('preparationTime', () => {
   test('applies the custom average time per layer', () => {
     const manyLayers = [
       'sauce',
