@@ -51,13 +51,11 @@ fn production_rate_per_minute_at_speed_five() {
     process_rate_per_minute(5, 16);
 }
 
-#[ignore]
 #[test]
 fn production_rate_per_minute_at_speed_eight() {
     process_rate_per_minute(8, 26);
 }
 
-#[ignore]
 #[test]
 fn production_rate_per_minute_at_speed_ten() {
     process_rate_per_minute(10, 28);
