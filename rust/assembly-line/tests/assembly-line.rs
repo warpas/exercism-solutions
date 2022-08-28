@@ -46,7 +46,6 @@ fn production_rate_per_minute_at_speed_one() {
     process_rate_per_minute(1, 3);
 }
 
-#[ignore]
 #[test]
 fn production_rate_per_minute_at_speed_five() {
     process_rate_per_minute(5, 16);
