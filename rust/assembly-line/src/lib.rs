@@ -3,7 +3,7 @@
 #![allow(unused)]
 
 pub fn production_rate_per_hour(speed: u8) -> f64 {
-    unimplemented!("calculate hourly production rate at speed: {}", speed)
+    (221 * speed).into()
 }
 
 pub fn working_items_per_minute(speed: u8) -> u32 {
