@@ -3,7 +3,9 @@
 #![allow(unused)]
 
 pub fn production_rate_per_hour(speed: u8) -> f64 {
-    (221 * speed).into()
+    // <u8 as Into<f64>>::into(221 * speed) //* 0.2
+    <u8 as Into<f64>>::into(speed) * 221.0
+    // (speed).into() * 221.0
 }
 
 pub fn working_items_per_minute(speed: u8) -> u32 {
