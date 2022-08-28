@@ -16,5 +16,7 @@ pub fn production_rate_per_hour(speed: u8) -> f64 {
 }
 
 pub fn working_items_per_minute(speed: u8) -> u32 {
-    0
+    let speed_u32: u32 = speed.into();
+    let production_rate_per_hour: u32 = (221 / 60);
+    production_rate_per_hour * speed_u32
 }
