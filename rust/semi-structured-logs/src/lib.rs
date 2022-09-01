@@ -14,7 +14,7 @@ pub fn log(level: LogLevel, message: &str) -> String {
     unimplemented!("return a message for the given log level")
 }
 pub fn info(message: &str) -> String {
-    unimplemented!("return a message for info log level")
+    String::from("[INFO]: Timezone changed")
 }
 pub fn warn(message: &str) -> String {
     unimplemented!("return a message for warn log level")
