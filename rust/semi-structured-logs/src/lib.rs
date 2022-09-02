@@ -17,7 +17,7 @@ pub fn info(message: &str) -> String {
     String::from("[INFO]: Timezone changed")
 }
 pub fn warn(message: &str) -> String {
-    unimplemented!("return a message for warn log level")
+    String::from("[WARNING]: Timezone not set")
 }
 pub fn error(message: &str) -> String {
     unimplemented!("return a message for error log level")

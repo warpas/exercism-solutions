@@ -6,7 +6,6 @@ fn emits_info() {
 }
 
 #[test]
-#[ignore]
 fn emits_warning() {
     assert_eq!(warn("Timezone not set"), "[WARNING]: Timezone not set");
 }
