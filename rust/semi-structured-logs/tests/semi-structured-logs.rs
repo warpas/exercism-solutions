@@ -11,7 +11,6 @@ fn emits_warning() {
 }
 
 #[test]
-#[ignore]
 fn emits_error() {
     assert_eq!(error("Disk full"), "[ERROR]: Disk full");
 }

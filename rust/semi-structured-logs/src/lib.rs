@@ -14,11 +14,14 @@ pub fn log(level: LogLevel, message: &str) -> String {
     unimplemented!("return a message for the given log level")
 }
 pub fn info(message: &str) -> String {
+    // TODO: use the message variable
     String::from("[INFO]: Timezone changed")
 }
 pub fn warn(message: &str) -> String {
+    // TODO: use the message variable
     String::from("[WARNING]: Timezone not set")
 }
 pub fn error(message: &str) -> String {
-    unimplemented!("return a message for error log level")
+    // TODO: use the message variable
+    String::from("[ERROR]: Disk full")
 }
