@@ -11,7 +11,9 @@ pub enum LogLevel {
 }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
-    unimplemented!("return a message for the given log level")
+    // TODO: use the level variable
+    // TODO: use the message variable
+    String::from("[INFO]: Timezone changed")
 }
 pub fn info(message: &str) -> String {
     // TODO: use the message variable

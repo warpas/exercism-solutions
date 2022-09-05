@@ -16,7 +16,6 @@ fn emits_error() {
 }
 
 #[test]
-#[ignore]
 fn log_emits_info() {
     assert_eq!(
         log(LogLevel::Info, "Timezone changed"),
