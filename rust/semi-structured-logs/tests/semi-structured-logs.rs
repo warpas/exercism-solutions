@@ -24,7 +24,6 @@ fn log_emits_info() {
 }
 
 #[test]
-#[ignore]
 fn log_emits_warning() {
     assert_eq!(
         log(LogLevel::Warning, "Timezone not set"),
