@@ -11,10 +11,18 @@ pub enum LogLevel {
 }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
+    let levelsLevels = level as str;
+    format!("[{}]: Timezone changed", levelsLevels)
     // TODO: use the level variable
     // TODO: use the message variable
-    String::from("[INFO]: Timezone changed")
+    // String::from("[INFO]: Timezone changed")
 }
+// fn main() {
+//     let a = "AAA";
+//     let b = format!("BBB {}", a);
+//     println(b);
+// }
+// output: BBB AAA
 pub fn info(message: &str) -> String {
     // TODO: use the message variable
     String::from("[INFO]: Timezone changed")
