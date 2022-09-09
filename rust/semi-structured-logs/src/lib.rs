@@ -2,6 +2,9 @@
 // to enable stricter warnings.
 #![allow(unused)]
 
+use log::Level;
+use log::info;
+
 /// various log levels
 #[derive(Clone, PartialEq, Eq, Debug)]
 pub enum LogLevel {
@@ -11,11 +14,16 @@ pub enum LogLevel {
 }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
-    let levelsLevels = level as str;
-    format!("[{}]: Timezone changed", levelsLevels)
+    // let levelsLevels = level.to_string();
+    // format!("[{}]: Timezone changed", levelsLevels)
+
+    // if level ==
+    println!("{}", level);
+    // `LogLevel` cannot be formatted with the default formatter. What do?
+
     // TODO: use the level variable
     // TODO: use the message variable
-    // String::from("[INFO]: Timezone changed")
+    return String::from("[INFO]: Timezone changed");
 }
 // fn main() {
 //     let a = "AAA";
