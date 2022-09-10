@@ -12,17 +12,8 @@ pub enum LogLevel {
 }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
-    let header: &str =
-    if level == LogLevel::Warning {
-        "WARNING"
-    } else if level == LogLevel::Error {
-        "ERROR"
-    } else if level == LogLevel::Info {
-        "INFO"
-    } else {
-        "DEBUG"
-    };
-    format!("[{}]: {}", header, message)
+    let header = format!("{:?}", level);
+    format!("[{}]: {}", header.to_uppercase(), message)
 }
 pub fn info(message: &str) -> String {
     log(LogLevel::Info, message)
