@@ -12,26 +12,27 @@ pub enum LogLevel {
 }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
+    let header: &str =
     if level == LogLevel::Warning {
-        return warn(message)
-    }
-    if level == LogLevel::Error {
-        return error(message)
-    }
-    if level == LogLevel::Info {
-        return info(message)
-    }
-    return debug(message)
+        "WARNING"
+    } else if level == LogLevel::Error {
+        "ERROR"
+    } else if level == LogLevel::Info {
+        "INFO"
+    } else {
+        "DEBUG"
+    };
+    format!("[{}]: {}", header, message)
 }
 pub fn info(message: &str) -> String {
-    format!("[INFO]: {}", message)
+    log(LogLevel::Info, message)
 }
 pub fn warn(message: &str) -> String {
-    format!("[WARNING]: {}", message)
+    log(LogLevel::Warning, message)
 }
 pub fn error(message: &str) -> String {
-    format!("[ERROR]: {}", message)
+    log(LogLevel::Error, message)
 }
 fn debug(message: &str) -> String {
-    format!("[DEBUG]: {}", message)
+    log(LogLevel::Debug, message)
 }
