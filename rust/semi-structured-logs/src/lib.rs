@@ -29,9 +29,9 @@ pub fn log(level: LogLevel, message: &str) -> String {
     }
 
     println!("!!!!!!!!! end");
-    return String::from("[INFO]: Timezone changed");
+    // return String::from("[DEBUG]: Timezone changed");
+    return format!("[DEBUG]: {}", message)
 }
-
 pub fn info(message: &str) -> String {
     format!("[INFO]: {}", message)
 }
