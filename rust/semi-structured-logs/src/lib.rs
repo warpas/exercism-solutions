@@ -12,25 +12,16 @@ pub enum LogLevel {
 }
 /// primary function for emitting logs
 pub fn log(level: LogLevel, message: &str) -> String {
-    println!("!!!!!!!!! start");
-    println!("{}", message);
-
     if level == LogLevel::Warning {
-        println!("LogLevel::Warning");
         return warn(message)
     }
     if level == LogLevel::Error {
-        println!("LogLevel::Error");
         return error(message)
     }
     if level == LogLevel::Info {
-        println!("LogLevel::Info");
         return info(message)
     }
-
-    println!("!!!!!!!!! end");
-    // return String::from("[DEBUG]: Timezone changed");
-    return format!("[DEBUG]: {}", message)
+    return debug(message)
 }
 pub fn info(message: &str) -> String {
     format!("[INFO]: {}", message)
@@ -40,4 +31,7 @@ pub fn warn(message: &str) -> String {
 }
 pub fn error(message: &str) -> String {
     format!("[ERROR]: {}", message)
+}
+fn debug(message: &str) -> String {
+    format!("[DEBUG]: {}", message)
 }
