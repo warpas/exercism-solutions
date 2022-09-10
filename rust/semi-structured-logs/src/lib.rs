@@ -34,8 +34,9 @@ pub fn log(level: LogLevel, message: &str) -> String {
         // let computed: String = "[WARNING]: ".to_owned() + message;
         // let computed: String = format!("[WARNING]: {}", message);
         // return computed
-        return format!("[WARNING]: {}", message)
+        // return format!("[WARNING]: {}", message)
         // return "[WARNING]: ".to_owned() + message
+        return warn(message)
     }
     if level == LogLevel::Error {
         println!("LogLevel::Error")
@@ -62,8 +63,7 @@ pub fn info(message: &str) -> String {
     String::from("[INFO]: Timezone changed")
 }
 pub fn warn(message: &str) -> String {
-    // TODO: use the message variable
-    String::from("[WARNING]: Timezone not set")
+    format!("[WARNING]: {}", message)
 }
 pub fn error(message: &str) -> String {
     // TODO: use the message variable
