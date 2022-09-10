@@ -42,7 +42,8 @@ pub fn log(level: LogLevel, message: &str) -> String {
         println!("LogLevel::Error")
     }
     if level == LogLevel::Info {
-        println!("LogLevel::Info")
+        println!("LogLevel::Info");
+        return info(message)
     }
     // println!("{}", level);
     // `LogLevel` cannot be formatted with the default formatter. What do?
@@ -59,8 +60,7 @@ pub fn log(level: LogLevel, message: &str) -> String {
 // }
 // output: BBB AAA
 pub fn info(message: &str) -> String {
-    // TODO: use the message variable
-    String::from("[INFO]: Timezone changed")
+    format!("[INFO]: {}", message)
 }
 pub fn warn(message: &str) -> String {
     format!("[WARNING]: {}", message)
