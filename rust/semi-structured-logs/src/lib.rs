@@ -39,7 +39,8 @@ pub fn log(level: LogLevel, message: &str) -> String {
         return warn(message)
     }
     if level == LogLevel::Error {
-        println!("LogLevel::Error")
+        println!("LogLevel::Error");
+        return error(message)
     }
     if level == LogLevel::Info {
         println!("LogLevel::Info");
@@ -66,6 +67,5 @@ pub fn warn(message: &str) -> String {
     format!("[WARNING]: {}", message)
 }
 pub fn error(message: &str) -> String {
-    // TODO: use the message variable
-    String::from("[ERROR]: Disk full")
+    format!("[ERROR]: {}", message)
 }
