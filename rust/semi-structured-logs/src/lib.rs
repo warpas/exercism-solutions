@@ -31,8 +31,11 @@ pub fn log(level: LogLevel, message: &str) -> String {
     // };
     if level == LogLevel::Warning {
         println!("LogLevel::Warning");
-        let computed: String = "[WARNING]: ".to_owned() + message;
-        return computed
+        // let computed: String = "[WARNING]: ".to_owned() + message;
+        // let computed: String = format!("[WARNING]: {}", message);
+        // return computed
+        return format!("[WARNING]: {}", message)
+        // return "[WARNING]: ".to_owned() + message
     }
     if level == LogLevel::Error {
         println!("LogLevel::Error")
