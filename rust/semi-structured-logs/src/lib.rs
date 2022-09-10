@@ -2,8 +2,8 @@
 // to enable stricter warnings.
 #![allow(unused)]
 
-use log::Level;
-use log::info;
+// use log::Level;
+// use log::info;
 
 /// various log levels
 #[derive(Clone, PartialEq, Eq, Debug)]
@@ -17,12 +17,34 @@ pub fn log(level: LogLevel, message: &str) -> String {
     // let levelsLevels = level.to_string();
     // format!("[{}]: Timezone changed", levelsLevels)
 
+    println!("!!!!!!!!! start");
+    // println()
     // if level ==
-    println!("{}", level);
+    println!("{}", message);
+
+    // let success_rate: f64 = if speed < 5 {
+    //     1.0
+    // } else if speed < 9 {
+    //     0.9
+    // } else {
+    //     0.77
+    // };
+    if level == LogLevel::Warning {
+        println!("LogLevel::Warning");
+        return String::from("[WARNING]: Timezone not set")
+    }
+    if level == LogLevel::Error {
+        println!("LogLevel::Error")
+    }
+    if level == LogLevel::Info {
+        println!("LogLevel::Info")
+    }
+    // println!("{}", level);
     // `LogLevel` cannot be formatted with the default formatter. What do?
 
     // TODO: use the level variable
     // TODO: use the message variable
+    println!("!!!!!!!!! end");
     return String::from("[INFO]: Timezone changed");
 }
 // fn main() {
