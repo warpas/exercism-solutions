@@ -1,4 +1,5 @@
-#[derive(Debug, PartialEq, Eq)]
+use enum_iterator::{all, cardinality, first, last, next, previous, Sequence};
+#[derive(Debug, PartialEq, Eq, Sequence)]
 pub enum ResistorColor {
     Black,
     Blue,
@@ -13,7 +14,10 @@ pub enum ResistorColor {
 }
 
 pub fn color_to_value(_color: ResistorColor) -> u32 {
-    unimplemented!("convert a color into a numerical representation")
+    // 0
+    println!("{}", cardinality::<ResistorColor>());
+
+    0
 }
 
 pub fn value_to_color_string(value: u32) -> String {
