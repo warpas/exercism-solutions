@@ -15,7 +15,8 @@ pub enum ResistorColor {
 
 pub fn color_to_value(_color: ResistorColor) -> u32 {
     // 0
-    println!("{}", cardinality::<ResistorColor>());
+    println!("{:?}", _color);
+    println!("{:?}", first::<ResistorColor>());
 
     0
 }
