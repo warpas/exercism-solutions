@@ -2,34 +2,26 @@
 
 # Implementation of the Affine Cipher exercise in Ruby track on Exercism.
 class Affine
-  def initialize(a, b)
-    puts ""
-    @key_component_a = a
-    @key_component_b = b
+  def initialize(key_component_a, key_component_b)
+    @key_component_a = key_component_a
+    @key_component_b = key_component_b
   end
 
   def encode(text)
-    prepared_text = text.downcase.split(/[-\s]/).join
-    a_byte = 0
-    'a'.each_byte do |a|
-      a_byte = a
-    end
-    # p a_byte
     # p text
+    prepared_text = text.downcase.split(/[-\s]/).join
+    without_commas = prepared_text.split(/,/).join
+    without_dots = without_commas.split(/[.]/).join
+    # p without_dots
     bytes = []
-    prepared_text.each_byte do |c|
-      # puts "inside the encode loop"
-      # p c
-      byte_diff = c - a_byte
-      # p byte_diff
-      calculated_encoding = (@key_component_a * byte_diff + @key_component_b) % ALPHABET_LENGTH
-      bytes << calculated_encoding + a_byte
-      # p calculated_encoding
+    without_dots.each_byte do |c|
+      bytes << encoded_character(c)
     end
     # p bytes
     result = bytes.pack('c*')
 
-    insert_spaces(result)
+    # p result
+    p insert_spaces(result)
   end
 
   ALPHABET_LENGTH = 26
@@ -37,6 +29,24 @@ class Affine
   private
 
   private_constant :ALPHABET_LENGTH
+
+  def start_of_alphabet
+    a_byte = 0
+    'a'.each_byte do |a|
+      a_byte = a
+    end
+
+    a_byte
+  end
+
+  def encoded_character(char)
+    return char if char <= 60 && char > 47
+
+    byte_diff = char - start_of_alphabet
+    calculated_encoding = (@key_component_a * byte_diff + @key_component_b) % ALPHABET_LENGTH
+
+    calculated_encoding + start_of_alphabet
+  end
 
   def insert_spaces(string)
     with_spaces = []
