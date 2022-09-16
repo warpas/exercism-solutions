@@ -21,7 +21,7 @@ class Affine
     result = bytes.pack('c*')
 
     # p result
-    p insert_spaces(result)
+    insert_spaces(result)
   end
 
   ALPHABET_LENGTH = 26

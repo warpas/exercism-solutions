@@ -46,7 +46,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_deep_thought
-    skip
     cipher = Affine.new(5, 17)
     plaintext = 'Truth is fiction.'
     ciphertext = 'iynia fdqfb ifje'
@@ -54,7 +53,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_all_the_letters
-    skip
     cipher = Affine.new(17, 33)
     plaintext = 'The quick brown fox jumps over the lazy dog.'
     ciphertext = 'swxtj npvyk lruol iejdc blaxk swxmh qzglf'
