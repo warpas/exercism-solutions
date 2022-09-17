@@ -60,7 +60,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_encode_with_a_not_coprime_to_m
-    skip
     assert_raises(ArgumentError) { Affine.new(6, 17) }
   end
 
@@ -113,7 +112,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_with_a_not_coprime_to_m
-    skip
     assert_raises(ArgumentError) { Affine.new(13, 5) }
   end
 end

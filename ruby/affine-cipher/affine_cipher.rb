@@ -3,6 +3,8 @@
 # Implementation of the Affine Cipher exercise in Ruby track on Exercism.
 class Affine
   def initialize(key_component_a, key_component_b)
+    raise ArgumentError, 'a and m must be coprime.' if coprime?(key_component_a)
+
     @key_component_a = key_component_a
     @key_component_b = key_component_b
   end
@@ -51,9 +53,18 @@ class Affine
   def insert_spaces(string)
     with_spaces = []
     string.chars.each_with_index do |char, index|
-      with_spaces << ' ' if index % 5 == 0 && index > 0
+      with_spaces << ' ' if (index % 5).zero? && index.positive?
       with_spaces << char
     end
     with_spaces.join
+  end
+
+  def coprime?(number)
+    m_factors = [2, 13]
+    m_factors.each do |factor|
+      return true if (number % factor).zero?
+    end
+
+    false
   end
 end
