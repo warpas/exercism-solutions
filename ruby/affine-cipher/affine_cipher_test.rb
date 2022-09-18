@@ -64,7 +64,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_exercism
-    skip
     cipher = Affine.new(3, 7)
     ciphertext = 'tytgn fjr'
     plaintext = 'exercism'
