@@ -7,29 +7,43 @@ class Affine
 
     @key_component_a = key_component_a
     @key_component_b = key_component_b
+    p "@key_a = #{@key_component_a}, @key_b = #{@key_component_b}"
+    encode('exercism')
   end
 
   def encode(text)
-    # p text
+    puts "ENCODE"
+    p text
     prepared_text = text.downcase.split(/[-\s]/).join
     without_commas = prepared_text.split(/,/).join
-    without_dots = without_commas.split(/[.]/).join
-    # p without_dots
+    processed_text = without_commas.split(/[.]/).join
+    # p processed_text
     bytes = []
-    without_dots.each_byte do |c|
+    processed_text.each_byte do |c|
       bytes << encoded_character(c)
     end
     # p bytes
     result = bytes.pack('c*')
 
-    # p result
+    p insert_spaces(result)
     insert_spaces(result)
   end
 
   ALPHABET_LENGTH = 26
 
   def decode(text)
-    'exercism'
+    puts "DECODE"
+    p text
+    processed_text = text.downcase.split(/[-\s]/).join
+    # 'exercism'
+
+    bytes = []
+    processed_text.each_byte do |c|
+      bytes << decoded_character(c)
+    end
+
+    result = bytes.pack('c*')
+    p result
   end
 
   private
@@ -51,6 +65,7 @@ class Affine
     byte_diff = char - start_of_alphabet
     calculated_encoding = (@key_component_a * byte_diff + @key_component_b) % ALPHABET_LENGTH
 
+    p "#{char} -> #{calculated_encoding + start_of_alphabet}, byte_diff = #{byte_diff}, calc_enc = #{(@key_component_a * byte_diff + @key_component_b)}, calc_enc mod ALPHABET_LENGTH = #{calculated_encoding}"
     calculated_encoding + start_of_alphabet
   end
 
@@ -70,5 +85,14 @@ class Affine
     end
 
     false
+  end
+
+  def decoded_character(char)
+    byte_diff = char - start_of_alphabet
+    calculated_encoding = (@key_component_a * byte_diff + @key_component_b) % ALPHABET_LENGTH
+
+    p "#{char} -> #{calculated_encoding + start_of_alphabet}, byte_diff = #{byte_diff}, calc_enc = #{(@key_component_a * byte_diff + @key_component_b)}, calc_enc mod ALPHABET_LENGTH = #{calculated_encoding}"
+    calculated_encoding + start_of_alphabet
+    # char
   end
 end

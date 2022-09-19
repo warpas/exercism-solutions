@@ -71,7 +71,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_a_sentence
-    skip
     cipher = Affine.new(19, 16)
     ciphertext = 'qdwju nqcro muwhn odqun oppmd aunwd o'
     plaintext = 'anobstacleisoftenasteppingstone'
