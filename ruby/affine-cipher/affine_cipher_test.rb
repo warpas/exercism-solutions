@@ -78,7 +78,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_numbers
-    skip
     cipher = Affine.new(25, 7)
     ciphertext = 'odpoz ub123 odpoz ub'
     plaintext = 'testing123testing'
@@ -86,7 +85,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_all_the_letters
-    skip
     cipher = Affine.new(17, 33)
     ciphertext = 'swxtj npvyk lruol iejdc blaxk swxmh qzglf'
     plaintext = 'thequickbrownfoxjumpsoverthelazydog'
@@ -94,7 +92,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_with_no_spaces_in_input
-    skip
     cipher = Affine.new(17, 33)
     ciphertext = 'swxtjnpvyklruoliejdcblaxkswxmhqzglf'
     plaintext = 'thequickbrownfoxjumpsoverthelazydog'
@@ -102,7 +99,6 @@ class AffineCipherTest < Minitest::Test
   end
 
   def test_decode_with_too_many_spaces
-    skip
     cipher = Affine.new(15, 16)
     ciphertext = 'vszzm    cly   yd cg    qdp'
     plaintext = 'jollygreengiant'

@@ -92,6 +92,8 @@ class Affine
   end
 
   def decoded_character(char)
+    return char if char <= 60 && char > 47
+
     byte_diff = char - start_of_alphabet
 
     # calculated_encoding_no_mod = (byte_diff * @key_component_a + @key_component_b)
