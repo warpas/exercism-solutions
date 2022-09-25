@@ -7,8 +7,9 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class TwelveDays
-  def self.song
-    "On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
+  class << self
+    def song
+      "On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.
 
 On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.
 
@@ -32,6 +33,11 @@ On the eleventh day of Christmas my true love gave to me: eleven Pipers Piping, 
 
 On the twelfth day of Christmas my true love gave to me: twelve Drummers Drumming, eleven Pipers Piping, ten Lords-a-Leaping, nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.
 "
-  # TODO: don't miss the entire point of the exercise despite it having the laziest set of tests possible
+      # TODO: don't miss the entire point of the exercise despite it having the laziest set of tests possible
+    end
+
+    def verse(number)
+      'On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.'
+    end
   end
 end

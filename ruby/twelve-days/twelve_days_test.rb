@@ -7,4 +7,9 @@ class TwelveDaysTest < Minitest::Test
     expected = IO.read(song_file)
     assert_equal expected, TwelveDays.song
   end
+
+  def test_the_first_verse
+    expected = 'On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.'
+    assert_equal expected, TwelveDays.verse(1)
+  end
 end
