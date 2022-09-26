@@ -37,7 +37,12 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
     end
 
     def verse(number)
-      'On the first day of Christmas my true love gave to me: a Partridge in a Pear Tree.'
+      "On the #{MAPPING[number][:count]} day of Christmas my true love gave to me: a Partridge in a Pear Tree."
     end
+
+    MAPPING = {
+      1 => { count: 'first', gift: 'a Partridge in a Pear Tree' },
+      2 => { count: 'second', gift: 'two Turtle Doves' }
+    }.freeze
   end
 end
