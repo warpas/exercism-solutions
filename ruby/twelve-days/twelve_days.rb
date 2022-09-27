@@ -37,7 +37,8 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
     end
 
     def verse(number)
-      "On the #{MAPPING[number][:count]} day of Christmas my true love gave to me: a Partridge in a Pear Tree."
+      component = MAPPING[number]
+      "On the #{component[:count]} day of Christmas my true love gave to me: #{component[:gift]}."
     end
 
     MAPPING = {
