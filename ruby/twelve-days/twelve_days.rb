@@ -38,7 +38,14 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
 
     def verse(number)
       component = MAPPING[number]
-      "On the #{component[:count]} day of Christmas my true love gave to me: #{component[:gift]}."
+      gifts = []
+      1.upto(number) do |day|
+        gift = MAPPING[day][:gift]
+        gifts.push gift
+      end
+
+      output_gifts = gifts.reverse.join(', ')
+      "On the #{component[:count]} day of Christmas my true love gave to me: #{output_gifts}."
     end
 
     MAPPING = {
