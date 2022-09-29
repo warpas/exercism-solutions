@@ -44,7 +44,7 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
         gifts.push gift
       end
 
-      output_gifts = gifts.reverse.join(', ')
+      output_gifts = gifts.reverse.join(', and ')
       "On the #{component[:count]} day of Christmas my true love gave to me: #{output_gifts}."
     end
 
