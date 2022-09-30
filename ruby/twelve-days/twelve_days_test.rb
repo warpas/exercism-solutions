@@ -17,4 +17,9 @@ class TwelveDaysTest < Minitest::Test
     expected = 'On the second day of Christmas my true love gave to me: two Turtle Doves, and a Partridge in a Pear Tree.'
     assert_equal expected, TwelveDays.verse(2)
   end
+
+  def test_the_thirst_verse
+    expected = 'On the third day of Christmas my true love gave to me: three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.'
+    assert_equal expected, TwelveDays.verse(3)
+  end
 end

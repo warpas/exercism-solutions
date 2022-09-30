@@ -40,17 +40,23 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
       component = MAPPING[number]
       gifts = []
       1.upto(number) do |day|
-        gift = MAPPING[day][:gift]
+        gift =
+          if number > 1 && day == 1
+            "and #{MAPPING[day][:gift]}"
+          else
+            MAPPING[day][:gift]
+          end
         gifts.push gift
       end
 
-      output_gifts = gifts.reverse.join(', and ')
+      output_gifts = gifts.reverse.join(', ')
       "On the #{component[:count]} day of Christmas my true love gave to me: #{output_gifts}."
     end
 
     MAPPING = {
       1 => { count: 'first', gift: 'a Partridge in a Pear Tree' },
-      2 => { count: 'second', gift: 'two Turtle Doves' }
+      2 => { count: 'second', gift: 'two Turtle Doves' },
+      3 => { count: 'third', gift: 'three French Hens' }
     }.freeze
   end
 end
