@@ -18,8 +18,13 @@ class TwelveDaysTest < Minitest::Test
     assert_equal expected, TwelveDays.verse(2)
   end
 
-  def test_the_thirst_verse
+  def test_the_third_verse
     expected = 'On the third day of Christmas my true love gave to me: three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.'
     assert_equal expected, TwelveDays.verse(3)
+  end
+
+  def test_the_fourth_verse
+    expected = 'On the fourth day of Christmas my true love gave to me: four Calling Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear Tree.'
+    assert_equal expected, TwelveDays.verse(4)
   end
 end
