@@ -57,7 +57,10 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
       1 => { count: 'first', gift: 'a Partridge in a Pear Tree' },
       2 => { count: 'second', gift: 'two Turtle Doves' },
       3 => { count: 'third', gift: 'three French Hens' },
-      4 => { count: 'fourth', gift: 'four Calling Birds' }
+      4 => { count: 'fourth', gift: 'four Calling Birds' },
+      5 => { count: 'fifth', gift: 'five Gold Rings' },
+      6 => { count: 'sixth', gift: 'six Geese-a-Laying' },
+      7 => { count: 'seventh', gift: 'seven Swans-a-Swimming' }
     }.freeze
   end
 end
