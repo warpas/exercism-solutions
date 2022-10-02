@@ -60,7 +60,12 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
       4 => { count: 'fourth', gift: 'four Calling Birds' },
       5 => { count: 'fifth', gift: 'five Gold Rings' },
       6 => { count: 'sixth', gift: 'six Geese-a-Laying' },
-      7 => { count: 'seventh', gift: 'seven Swans-a-Swimming' }
+      7 => { count: 'seventh', gift: 'seven Swans-a-Swimming' },
+      8 => { count: 'eighth', gift: 'eight Maids-a-Milking' },
+      9 => { count: 'ninth', gift: 'nine Ladies Dancing' },
+      10 => { count: 'tenth', gift: 'ten Lords-a-Leaping' },
+      11 => { count: 'eleventh', gift: 'eleven Pipers Piping' },
+      12 => { count: 'twelfth', gift: 'twelve Drummers Drumming' }
     }.freeze
   end
 end
