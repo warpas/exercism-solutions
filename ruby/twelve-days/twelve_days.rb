@@ -50,7 +50,7 @@ On the twelfth day of Christmas my true love gave to me: twelve Drummers Drummin
       end
 
       output_gifts = gifts.reverse.join(', ')
-      "On the #{component[:count]} day of Christmas my true love gave to me: #{output_gifts}."
+      "On the #{component[:count]} day of Christmas my true love gave to me: #{output_gifts}.\n"
     end
 
     MAPPING = {
