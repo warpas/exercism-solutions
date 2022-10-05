@@ -45,3 +45,5 @@ class TwelveDays
     }.freeze
   end
 end
+
+# TODO: there is room to grow on this solution
