@@ -1,12 +1,8 @@
-=begin
-Write your code for the 'Simple Cipher' exercise in this file. Make the tests in
-`simple_cipher_test.rb` pass.
+class Cipher
+  def initialize(arg = '')
+  end
 
-To get started with TDD, see the `README.md` file in your
-`ruby/simple-cipher` directory.
-=end
-
-
-
-
-# @raise [ArgumentError] if argument missing or not String
+  def key
+    'fdsafsdf'
+  end
+end
