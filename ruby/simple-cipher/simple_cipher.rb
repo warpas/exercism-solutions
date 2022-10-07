@@ -5,4 +5,8 @@ class Cipher
   def key
     'fdsafsdf'
   end
+
+  def encode(text)
+    'fdsafsdf'
+  end
 end
