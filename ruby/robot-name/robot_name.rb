@@ -10,11 +10,13 @@ class Robot
   end
 
   def name
-    @name ||= new_name
+    p @old_names
+    candidate = new_name
+    @old_names << candidate
+    @name ||= candidate
   end
 
   def reset
-    @old_names << name
     @name = new_name
   end
 
@@ -22,9 +24,9 @@ class Robot
 
   def new_name
     if @old_names.empty?
-      "AX#{rand(100..999)}"
+      "AX#{Kernel.rand(100..999)}"
     else
-      "EC#{rand(100..999)}"
+      "EC#{Kernel.rand(100..999)}"
     end
   end
 end
