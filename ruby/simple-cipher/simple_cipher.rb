@@ -6,7 +6,11 @@ class Cipher
     'fdsafsdf'
   end
 
-  def encode(text)
+  def encode(_)
     'fdsafsdf'
+  end
+
+  def decode(_)
+    'aaaaaaaaaa'
   end
 end
