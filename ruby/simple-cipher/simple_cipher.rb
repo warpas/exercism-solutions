@@ -1,5 +1,6 @@
 class Cipher
-  def initialize(arg = '')
+  def initialize(arg = 'a')
+    raise ArgumentError if arg == arg.upcase
   end
 
   def key
