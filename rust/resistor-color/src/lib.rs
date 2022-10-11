@@ -13,19 +13,19 @@ pub enum ResistorColor {
     Yellow,
 }
 
-pub fn color_to_value(_color: ResistorColor) -> u32 {
+pub fn color_to_value(color: ResistorColor) -> u32 {
     // 0
     let first_color;
     // match get_an_optional_value() {
     //     Some(v) => x = v, // if Some("abc"), set x to "abc"
     //     None => panic!(), // if None, panic without any message
     // }
+    println!("{:?}", color);
     match get_first() {
         Some(x) => first_color = x,
         None => panic!()
     }
 
-    println!("{:?}", _color);
     println!("{:?}", first_color);
 
     0
