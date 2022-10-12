@@ -45,3 +45,7 @@ pub fn colors() -> Vec<ResistorColor> {
 fn get_first() -> Option<ResistorColor> {
     first::<ResistorColor>()
 }
+
+fn get_all() -> Option<ResistorColor> {
+    all::<ResistorColor>()
+}
