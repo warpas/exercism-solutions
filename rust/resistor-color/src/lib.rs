@@ -1,4 +1,4 @@
-use enum_iterator::{all, cardinality, first, last, next, previous, Sequence};
+use enum_iterator::{all, cardinality, first, last, next, previous, Sequence, All};
 #[derive(Debug, PartialEq, Eq, Sequence)]
 pub enum ResistorColor {
     Black,
@@ -25,6 +25,12 @@ pub fn color_to_value(color: ResistorColor) -> u32 {
         Some(x) => first_color = x,
         None => panic!()
     }
+    let mut all_colors = get_all();
+
+    println!("{:?}", all_colors);
+    println!("{:?}", all_colors.next());
+    println!("{:?}", all_colors.next());
+    println!("{:?}", all_colors.next());
 
     println!("{:?}", first_color);
 
@@ -46,6 +52,6 @@ fn get_first() -> Option<ResistorColor> {
     first::<ResistorColor>()
 }
 
-fn get_all() -> Option<ResistorColor> {
+fn get_all() -> All<ResistorColor> {
     all::<ResistorColor>()
 }
