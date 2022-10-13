@@ -11,7 +11,6 @@ fn test_orange() {
 }
 
 #[test]
-#[ignore]
 fn test_white() {
     assert_eq!(color_to_value(ResistorColor::White), 9);
 }
