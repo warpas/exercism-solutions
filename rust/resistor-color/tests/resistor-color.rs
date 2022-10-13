@@ -26,7 +26,6 @@ fn test_6() {
 }
 
 #[test]
-#[ignore]
 fn test_8() {
     assert_eq!(value_to_color_string(8), String::from("Grey"));
 }
