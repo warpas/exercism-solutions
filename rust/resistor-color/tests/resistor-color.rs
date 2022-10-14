@@ -31,7 +31,6 @@ fn test_8() {
 }
 
 #[test]
-#[ignore]
 fn test_11_out_of_range() {
     assert_eq!(
         value_to_color_string(11),
