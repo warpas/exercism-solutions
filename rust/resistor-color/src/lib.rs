@@ -47,7 +47,9 @@ pub fn value_to_color_string(value: u32) -> String {
 }
 
 pub fn colors() -> Vec<ResistorColor> {
-    unimplemented!("return a list of all the colors ordered by resistance")
+    let vector : Vec<ResistorColor> = Vec::new();
+    // return get_all() as Vec<ResistorColor>
+    return vector
 }
 
 fn get_all() -> All<ResistorColor> {
