@@ -14,7 +14,7 @@ impl User {
     }
 
     pub fn name(&self) -> &str {
-        unimplemented!()
+        "Ebenezer"
     }
 
     pub fn age(&self) -> u32 {
