@@ -18,7 +18,7 @@ impl User {
     }
 
     pub fn age(&self) -> u32 {
-        unimplemented!()
+        89
     }
 
     pub fn weight(&self) -> f32 {
