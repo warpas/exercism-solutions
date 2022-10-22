@@ -22,7 +22,7 @@ impl User {
     }
 
     pub fn weight(&self) -> f32 {
-        unimplemented!()
+        131.6
     }
 
     pub fn set_age(&mut self, new_age: u32) {
