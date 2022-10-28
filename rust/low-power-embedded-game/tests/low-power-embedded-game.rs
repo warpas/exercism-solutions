@@ -11,7 +11,6 @@ mod divmod {
     }
 
     #[test]
-    #[ignore]
     fn powerup() {
         assert_eq!(divmod(100, 3), (33, 1));
     }
