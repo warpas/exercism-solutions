@@ -16,7 +16,6 @@ mod divmod {
     }
 
     #[test]
-    #[ignore]
     fn less() {
         assert_eq!(divmod(3, 10), (0, 3));
     }
