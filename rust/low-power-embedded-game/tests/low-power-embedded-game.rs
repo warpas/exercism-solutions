@@ -21,7 +21,6 @@ mod divmod {
     }
 
     #[test]
-    #[ignore]
     fn eq() {
         assert_eq!(divmod(3, 3), (1, 0));
     }
