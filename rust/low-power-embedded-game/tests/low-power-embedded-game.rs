@@ -26,7 +26,6 @@ mod divmod {
     }
 
     #[test]
-    #[ignore]
     fn multiple() {
         assert_eq!(divmod(9, 3), (3, 0));
     }
