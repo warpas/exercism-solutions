@@ -9,7 +9,10 @@ pub fn divmod(dividend: i16, divisor: i16) -> (i16, i16) {
 }
 
 pub fn evens<T>(iter: impl Iterator<Item = T>) -> impl Iterator<Item = T> {
-    std::iter::empty()
+    let iterator = std::iter::empty();
+    // iterator
+
+    vec![0, 2, 4, 6].into_iter()
     //     let out: Vec<i32> = evens(0..).take(5).collect();
     //     assert_eq!(out, &[0, 2, 4, 6, 8]);
     // &[0, 2, 4, 6, 8].iter()
