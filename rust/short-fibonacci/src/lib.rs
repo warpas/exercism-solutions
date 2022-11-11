@@ -9,10 +9,11 @@ pub fn create_empty() -> Vec<u8> {
 pub fn create_buffer(count: usize) -> Vec<u8> {
     // unimplemented!("create a zeroized buffer of {} bytes", count)
     // let my_vector = Vec::new();
-    let mut my_vector = vec![1u8, 2, 3];
+    // let mut my_vector = vec![1u8, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let mut my_vector = vec![];
     println!("Initial vector: {:?}", my_vector);
-    my_vector.push(1);
-    println!("Updated vector: {:?}", my_vector);
+    // my_vector.push(1);
+    // println!("Updated vector: {:?}", my_vector);
     my_vector
 }
 
