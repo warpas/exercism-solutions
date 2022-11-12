@@ -12,6 +12,12 @@ pub fn create_buffer(count: usize) -> Vec<u8> {
     // let mut my_vector = vec![1u8, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     let mut my_vector = vec![];
     println!("Initial vector: {:?}", my_vector);
+    let mut i = 0;
+    while i < count {
+        my_vector.push(0u8);
+        i += 1;
+        println!("Iterator: {:?}", i);
+    }
     // my_vector.push(1);
     // println!("Updated vector: {:?}", my_vector);
     my_vector
