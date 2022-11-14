@@ -8,16 +8,11 @@ fn test_empty() {
 fn test_buffer() {
     for n in 0..10 {
         let zeroized = create_buffer(n);
-        println!("Initial zeroized: {:?}", zeroized);
-        println!("Initial zeroized length: {:?}", zeroized.len());
-        println!("Initial zeroized EXPECTED length: {:?}", n);
-
         assert_eq!(zeroized.len(), n);
         assert!(zeroized.iter().all(|&v| v == 0));
     }
 }
 #[test]
-#[ignore]
 fn test_fibonacci() {
     let fibb = fibonacci();
     assert_eq!(fibb.len(), 5);
