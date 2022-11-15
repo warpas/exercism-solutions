@@ -19,5 +19,16 @@ pub fn create_buffer(count: usize) -> Vec<u8> {
 /// Fibonacci's sequence is the list of numbers where the next number is a sum of the previous two.
 /// Its first five elements are `1, 1, 2, 3, 5`.
 pub fn fibonacci() -> Vec<u8> {
-    unimplemented!()
+    let mut fib_vector = create_buffer(5);
+    // println!("Initial vector: {:?}", my_vector);
+    // let mut i = 0;
+    // while i < count {
+    //     my_vector.push(0u8);
+    //     i += 1;
+    //     println!("Iterator: {:?}", i);
+    // }
+
+    // my_vector.push(1);
+    // println!("Updated vector: {:?}", my_vector);
+    fib_vector
 }
