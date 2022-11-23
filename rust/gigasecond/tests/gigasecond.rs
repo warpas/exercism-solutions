@@ -27,7 +27,6 @@ fn test_another_date() {
 }
 
 #[test]
-#[ignore]
 fn test_third_date() {
     let start_date = dt(1959, 7, 19, 0, 0, 0);
 
