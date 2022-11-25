@@ -8,16 +8,23 @@ pub fn divmod(dividend: i16, divisor: i16) -> (i16, i16) {
     (result, remainder)
 }
 
-pub fn evens<T>(iter: impl Iterator<Item = i32>) -> impl Iterator<Item = i32> {
-    let array = [0i32, 2, 4, 6];
-    // let iterator = std::iter::empty();
-    let iterator = array.iter();
+pub fn evens<T>(iter: impl Iterator<Item = T>) -> impl Iterator<Item = T> {
+
+    // println!("{:}", iter);
+    // for i in iter {
+    //     println!("{:?}", i);
+    // }
+    // let array = [0i32, 2, 4, 6];
+    // // let iterator = std::iter::empty();
+    // let my_iterator = array.iter();
 
     // vec![0, 2, 4, 6]: Iterator<i32>
     //     let out: Vec<i32> = evens(0..).take(5).collect();
     //     assert_eq!(out, &[0, 2, 4, 6, 8]);
     // &[0, 2, 4, 6, 8].iter()
-    iterator
+    // my_iterator
+    iter.push(0i32);
+    iter
 }
 
 pub struct Position(pub i16, pub i16);
