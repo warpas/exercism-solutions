@@ -28,3 +28,7 @@ export function preparationTime(layers, timePerLayer) {
   const multiplier = timePerLayer === undefined ? 2 : timePerLayer
   return layers.length * multiplier
 }
+
+export function quantities(layersArray) {
+  return {"noodles": 0, "sauce": 0}
+}
