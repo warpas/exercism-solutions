@@ -25,10 +25,22 @@ export function cookingStatus(timer) {
  * @returns {number}
  */
 export function preparationTime(layers, timePerLayer) {
-  const multiplier = timePerLayer === undefined ? 2 : timePerLayer
-  return layers.length * multiplier
+  const multiplier = timePerLayer === undefined ? 2 : timePerLayer;
+  return layers.length * multiplier;
 }
 
 export function quantities(layersArray) {
-  return {"noodles": 0, "sauce": 0}
+  const ingredients = {"noodles": 0, "sauce": 0};
+  const noodle_multiplier = 50;
+  const sauce_multiplier = 0.2;
+  for (const ingredient in layersArray) {
+    const element = layersArray[ingredient];
+    if (element === "noodles") {
+      ingredients["noodles"] += noodle_multiplier;
+    };
+    if (element === "sauce") {
+      ingredients["sauce"] += sauce_multiplier;
+    };
+  };
+  return ingredients;
 }
