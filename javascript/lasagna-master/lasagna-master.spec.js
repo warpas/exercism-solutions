@@ -114,7 +114,7 @@ describe('quantities', () => {
   });
 });
 
-xdescribe('addSecretIngredient', () => {
+describe('addSecretIngredient', () => {
   test('adds the secret ingredient to the second array', () => {
     const friendsList = ['sauce', 'noodles', 'béchamel', 'marjoram'];
     const myList = ['sauce', 'noodles', 'meat', 'tomatoes'];
