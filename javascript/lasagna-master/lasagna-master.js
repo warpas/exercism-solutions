@@ -44,3 +44,5 @@ export function quantities(layersArray) {
   };
   return ingredients;
 }
+
+export function addSecretIngredient() {}
