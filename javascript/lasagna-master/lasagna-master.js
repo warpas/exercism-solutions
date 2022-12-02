@@ -45,4 +45,6 @@ export function quantities(layersArray) {
   return ingredients;
 }
 
-export function addSecretIngredient() {}
+export function addSecretIngredient(firendList, myList) {
+  return firendList.concat(myList);
+}
