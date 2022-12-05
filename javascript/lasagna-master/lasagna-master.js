@@ -49,3 +49,7 @@ export function addSecretIngredient(friendList, myList) {
   const secretIngredient = friendList[friendList.length-1]
   myList[myList.length] = secretIngredient
 }
+
+export function scaleRecipe() {
+  return {}
+}
