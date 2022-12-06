@@ -50,6 +50,7 @@ export function addSecretIngredient(friendList, myList) {
   myList[myList.length] = secretIngredient
 }
 
-export function scaleRecipe() {
+export function scaleRecipe(arg1, arg2) {
+  console.log(`arg1 = ${arg1}, arg2 = ${arg2}`)
   return {}
 }
