@@ -50,7 +50,26 @@ export function addSecretIngredient(friendList, myList) {
   myList[myList.length] = secretIngredient
 }
 
-export function scaleRecipe(arg1, arg2) {
-  console.log(`arg1 = ${arg1}, arg2 = ${arg2}`)
-  return {}
+export function scaleRecipe(recipe, scale) {
+  console.log(`recipe = ${recipe}, scale = ${scale}`)
+  // return {}
+  const scaledRecipe = {}
+  for (const key in recipe) {
+    if (Object.hasOwnProperty.call(recipe, key)) {
+      const amount = recipe[key];
+      scaledRecipe[key] = amount * scale
+
+    }
+  }
+  // for (const iterator of recipe) {
+  //   console.log(recipe[iterator])
+
+  // }
+  // console.log(Object.keys(recipe))
+  // recipe.keys(element => {
+  //   recipe[element]
+
+  // });
+  // return recipe.map(function (key, value) {value * scale})
+  return scaledRecipe;
 }
