@@ -22,7 +22,7 @@ describe('getFirstCard', () => {
   });
 });
 
-describe('getSecondCard', () => {
+xdescribe('getSecondCard', () => {
   test('from a deck with two cards', () => {
     expect(getSecondCard([10, 4])).toBe(4);
   });
@@ -40,7 +40,7 @@ describe('getSecondCard', () => {
   });
 });
 
-describe('swapTopTwoCards', () => {
+xdescribe('swapTopTwoCards', () => {
   test('in a deck with two cards', () => {
     expect(swapTopTwoCards([3, 6])).toStrictEqual([6, 3]);
   });
@@ -50,7 +50,7 @@ describe('swapTopTwoCards', () => {
   });
 });
 
-describe('discardTopCard', () => {
+xdescribe('discardTopCard', () => {
   test('from a deck with one card', () => {
     expect(discardTopCard([7])).toStrictEqual([7, []]);
   });
@@ -60,7 +60,7 @@ describe('discardTopCard', () => {
   });
 });
 
-describe('insertFaceCards', () => {
+xdescribe('insertFaceCards', () => {
   test('into a deck with many cards', () => {
     expect(insertFaceCards([3, 10, 7])).toStrictEqual([
       3,
