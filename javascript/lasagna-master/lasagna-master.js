@@ -60,3 +60,5 @@ export function scaleRecipe(recipe, scale) {
   }
   return scaledRecipe;
 }
+// TODO: add type signatures to functions
+// TODO: refactor
