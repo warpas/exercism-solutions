@@ -22,7 +22,7 @@ describe('getFirstCard', () => {
   });
 });
 
-xdescribe('getSecondCard', () => {
+describe('getSecondCard', () => {
   test('from a deck with two cards', () => {
     expect(getSecondCard([10, 4])).toBe(4);
   });
