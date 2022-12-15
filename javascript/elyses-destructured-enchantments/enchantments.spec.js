@@ -40,7 +40,7 @@ describe('getSecondCard', () => {
   });
 });
 
-xdescribe('swapTopTwoCards', () => {
+describe('swapTopTwoCards', () => {
   test('in a deck with two cards', () => {
     expect(swapTopTwoCards([3, 6])).toStrictEqual([6, 3]);
   });
