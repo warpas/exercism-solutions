@@ -50,7 +50,7 @@ describe('swapTopTwoCards', () => {
   });
 });
 
-xdescribe('discardTopCard', () => {
+describe('discardTopCard', () => {
   test('from a deck with one card', () => {
     expect(discardTopCard([7])).toStrictEqual([7, []]);
   });
