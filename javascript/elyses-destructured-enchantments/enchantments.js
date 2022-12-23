@@ -65,5 +65,5 @@ const FACE_CARDS = ['jack', 'queen', 'king'];
 export function insertFaceCards(deck) {
   let firstCard, otherCards;
   [firstCard, otherCards] = discardTopCard(deck)
-  return [firstCard, ...FACE_CARDS];
+  return [firstCard, ...FACE_CARDS,...otherCards];
 }
