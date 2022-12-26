@@ -16,7 +16,7 @@ import { order } from './grocer';
  * @return void
  */
 export function onSuccess() {
-  // implement the onSuccess callback to call notify with a success message
+  return notify({ message: 'SUCCESS' });
 }
 
 /**
