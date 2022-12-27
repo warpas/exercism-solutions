@@ -24,7 +24,7 @@ describe('task 1', () => {
   });
 });
 
-xdescribe('task 2', () => {
+describe('task 2', () => {
   test('onError should call notify with an error message', () => {
     expect(onError()).toEqual(undefined);
     expect(notify).toHaveBeenCalledTimes(1);
