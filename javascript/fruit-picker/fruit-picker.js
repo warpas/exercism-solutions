@@ -23,7 +23,7 @@ export function onSuccess() {
  * @return void
  */
 export function onError() {
-  // implement the onError callback to call notify with an error message
+  return notify({ message: 'ERROR' });
 }
 
 /**
