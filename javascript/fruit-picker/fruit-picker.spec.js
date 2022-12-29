@@ -32,7 +32,7 @@ describe('task 2', () => {
   });
 });
 
-xdescribe('task 3', () => {
+describe('task 3', () => {
   test('order from grocer passes callback function arguments forward', () => {
     const query = { variety: 'apple', quantity: 10 };
     orderFromGrocer(query, onSuccess, onError);
