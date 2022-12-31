@@ -41,7 +41,7 @@ describe('task 3', () => {
   });
 });
 
-xdescribe('task 4', () => {
+describe('task 4', () => {
   test('postOrder composes a request to the grocer using the defined callbacks', () => {
     const variety = 'banana';
     const quantity = 5;
