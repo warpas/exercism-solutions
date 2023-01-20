@@ -3,3 +3,7 @@
 *node_modules/
 *.stack-work/
 *target/
+
+# Python-specific cache
+*__pycache__*
+*.pyc
