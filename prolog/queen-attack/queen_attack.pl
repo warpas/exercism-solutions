@@ -8,14 +8,105 @@
 
 %! create(+DimTuple)
 %
-% The create/1 predicate succeeds if the DimTuple contains valid chessboard 
+% The create/1 predicate succeeds if the DimTuple contains valid chessboard
 % dimensions, e.g. (0,0) or (2,4).
 create((DimX, DimY)) :-
-	fail.
+	DimX < 8,
+	DimX > 0,
+	DimY < 8,
+	DimY > 0.
 
 %! attack(+FromTuple, +ToTuple)
 %
-% The attack/2 predicate succeeds if a queen positioned on ToTuple is 
+% The attack/2 predicate succeeds if a queen positioned on ToTuple is
 % vulnerable to an attack by another queen positioned on FromTuple.
+attack((FromX, _), (ToX, _)):-
+	FromX = ToX, !.
+attack((_, FromY), (_, ToY)):-
+	FromY = ToY, !.
 attack((FromX, FromY), (ToX, ToY)):-
-	fail.
+	diagonalAttackUpLeft((FromX, FromY), (ToX, ToY)), !.
+attack((FromX, FromY), (ToX, ToY)):-
+	diagonalAttackUpRight((FromX, FromY), (ToX, ToY)), !.
+attack((FromX, FromY), (ToX, ToY)):-
+	diagonalAttackDownRight((FromX, FromY), (ToX, ToY)), !.
+attack((FromX, FromY), (ToX, ToY)):-
+	diagonalAttackDownLeft((FromX, FromY), (ToX, ToY)), !.
+
+diagonalAttackUpLeft((FromX, FromY), (FromX, FromY)) :- !.
+diagonalAttackUpLeft((FromX, FromY), (ToX, ToY)) :-
+	% writeln("FromX is:"),
+	% writeln(FromX),
+	% writeln("FromY is:"),
+	% writeln(FromY),
+	% writeln("ToX is:"),
+	% writeln(ToX),
+	% writeln("ToY is:"),
+	% writeln(ToY),
+	FromX >= 0,
+	FromY >= 0,
+	FromX < 7,
+	FromY < 7,
+	NextFromX is FromX - 1,
+	NextFromY is FromY + 1,
+	% writeln("NEXT CASE"),
+	diagonalAttackUpLeft((NextFromX, NextFromY), (ToX, ToY)).
+
+diagonalAttackUpRight((FromX, FromY), (FromX, FromY)) :- !.
+diagonalAttackUpRight((FromX, FromY), (ToX, ToY)) :-
+	% writeln("FromX is:"),
+	% writeln(FromX),
+	% writeln("FromY is:"),
+	% writeln(FromY),
+	% writeln("ToX is:"),
+	% writeln(ToX),
+	% writeln("ToY is:"),
+	% writeln(ToY),
+	FromX >= 0,
+	FromY >= 0,
+	FromX < 7,
+	FromY < 7,
+	NextFromX is FromX + 1,
+	NextFromY is FromY + 1,
+	% writeln("NEXT CASE"),
+	diagonalAttackUpRight((NextFromX, NextFromY), (ToX, ToY)).
+
+diagonalAttackDownRight((FromX, FromY), (FromX, FromY)) :- !.
+diagonalAttackDownRight((FromX, FromY), (ToX, ToY)) :-
+	% writeln("FromX is:"),
+	% writeln(FromX),
+	% writeln("FromY is:"),
+	% writeln(FromY),
+	% writeln("ToX is:"),
+	% writeln(ToX),
+	% writeln("ToY is:"),
+	% writeln(ToY),
+	FromX >= 0,
+	FromY >= 0,
+	FromX < 7,
+	FromY < 7,
+	NextFromX is FromX + 1,
+	NextFromY is FromY - 1,
+	% writeln("NEXT CASE"),
+	diagonalAttackDownRight((NextFromX, NextFromY), (ToX, ToY)).
+
+diagonalAttackDownLeft((FromX, FromY), (FromX, FromY)) :- !.
+diagonalAttackDownLeft((FromX, FromY), (ToX, ToY)) :-
+	% writeln("FromX is:"),
+	% writeln(FromX),
+	% writeln("FromY is:"),
+	% writeln(FromY),
+	% writeln("ToX is:"),
+	% writeln(ToX),
+	% writeln("ToY is:"),
+	% writeln(ToY),
+	FromX >= 0,
+	FromY >= 0,
+	FromX < 7,
+	FromY < 7,
+	NextFromX is FromX - 1,
+	NextFromY is FromY - 1,
+	% writeln("NEXT CASE"),
+	diagonalAttackDownLeft((NextFromX, NextFromY), (ToX, ToY)).
+
+% attack((2,2), (0,4)).
