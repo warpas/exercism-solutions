@@ -35,78 +35,40 @@ attack((FromX, FromY), (ToX, ToY)):-
 
 diagonalAttackUpLeft((FromX, FromY), (FromX, FromY)) :- !.
 diagonalAttackUpLeft((FromX, FromY), (ToX, ToY)) :-
-	% writeln("FromX is:"),
-	% writeln(FromX),
-	% writeln("FromY is:"),
-	% writeln(FromY),
-	% writeln("ToX is:"),
-	% writeln(ToX),
-	% writeln("ToY is:"),
-	% writeln(ToY),
 	FromX >= 0,
 	FromY >= 0,
 	FromX < 7,
 	FromY < 7,
 	NextFromX is FromX - 1,
 	NextFromY is FromY + 1,
-	% writeln("NEXT CASE"),
 	diagonalAttackUpLeft((NextFromX, NextFromY), (ToX, ToY)).
 
 diagonalAttackUpRight((FromX, FromY), (FromX, FromY)) :- !.
 diagonalAttackUpRight((FromX, FromY), (ToX, ToY)) :-
-	% writeln("FromX is:"),
-	% writeln(FromX),
-	% writeln("FromY is:"),
-	% writeln(FromY),
-	% writeln("ToX is:"),
-	% writeln(ToX),
-	% writeln("ToY is:"),
-	% writeln(ToY),
 	FromX >= 0,
 	FromY >= 0,
 	FromX < 7,
 	FromY < 7,
 	NextFromX is FromX + 1,
 	NextFromY is FromY + 1,
-	% writeln("NEXT CASE"),
 	diagonalAttackUpRight((NextFromX, NextFromY), (ToX, ToY)).
 
 diagonalAttackDownRight((FromX, FromY), (FromX, FromY)) :- !.
 diagonalAttackDownRight((FromX, FromY), (ToX, ToY)) :-
-	% writeln("FromX is:"),
-	% writeln(FromX),
-	% writeln("FromY is:"),
-	% writeln(FromY),
-	% writeln("ToX is:"),
-	% writeln(ToX),
-	% writeln("ToY is:"),
-	% writeln(ToY),
 	FromX >= 0,
 	FromY >= 0,
 	FromX < 7,
 	FromY < 7,
 	NextFromX is FromX + 1,
 	NextFromY is FromY - 1,
-	% writeln("NEXT CASE"),
 	diagonalAttackDownRight((NextFromX, NextFromY), (ToX, ToY)).
 
 diagonalAttackDownLeft((FromX, FromY), (FromX, FromY)) :- !.
 diagonalAttackDownLeft((FromX, FromY), (ToX, ToY)) :-
-	% writeln("FromX is:"),
-	% writeln(FromX),
-	% writeln("FromY is:"),
-	% writeln(FromY),
-	% writeln("ToX is:"),
-	% writeln(ToX),
-	% writeln("ToY is:"),
-	% writeln(ToY),
 	FromX >= 0,
 	FromY >= 0,
 	FromX < 7,
 	FromY < 7,
 	NextFromX is FromX - 1,
 	NextFromY is FromY - 1,
-	% writeln("NEXT CASE"),
 	diagonalAttackDownLeft((NextFromX, NextFromY), (ToX, ToY)).
-
-% attack((2,2), (0,4)).
