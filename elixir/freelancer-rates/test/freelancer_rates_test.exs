@@ -12,7 +12,6 @@ defmodule FreelancerRatesTest do
       assert FreelancerRates.daily_rate(60) === 480.0
     end
 
-    @tag :skip
     @tag task_id: 1
     test "it does not round" do
       assert FreelancerRates.daily_rate(55.1) == 440.8

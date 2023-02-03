@@ -1,6 +1,6 @@
 defmodule FreelancerRates do
   def daily_rate(hourly_rate) do
-    400.0
+    hourly_rate * 8.0
   end
 
   def apply_discount(before_discount, discount) do
