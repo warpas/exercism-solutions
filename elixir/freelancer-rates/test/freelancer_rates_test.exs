@@ -62,7 +62,6 @@ defmodule FreelancerRatesTest do
   end
 
   describe "days_in_budget/3" do
-    @describetag :skip
     @tag task_id: 4
     test "it's the budget divided by the daily rate" do
       assert FreelancerRates.days_in_budget(1_600, 50, 0.0) == 4
