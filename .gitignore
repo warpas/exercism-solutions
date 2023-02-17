@@ -1,9 +1,18 @@
 .DS_Store
 .exercism
+
+# JavaScript-specific cache
 *node_modules/
+
+# Haskell-specific cache
 *.stack-work/
+
+# Rust-specific cache
 *target/
 
 # Python-specific cache
 *__pycache__*
 *.pyc
+
+# Erlang-specific cache
+_build/
