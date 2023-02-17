@@ -4,8 +4,8 @@ defmodule FreelancerRates do
   end
 
   def apply_discount(before_discount, discount) do
-    discount_price = before_discount * (discount * 0.01)
-    before_discount - discount_price
+    discounted_price_percentage = (1.0 - discount * 0.01)
+    before_discount * discounted_price_percentage
   end
 
   def monthly_rate(hourly_rate, discount) do
