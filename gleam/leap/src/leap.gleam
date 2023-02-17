@@ -1,3 +1,8 @@
 pub fn is_leap_year(year: Int) -> Bool {
-  year % 4 == 0 && year % 100 != 0 || year % 400 == 0
+  case year % 4, year % 100, year % 400 {
+    _, _, 0 -> True
+    0, 0, _ -> False
+    0, _, _ -> True
+    _, _, _ -> False
+  }
 }
