@@ -9,7 +9,9 @@ defmodule FreelancerRates do
   end
 
   def monthly_rate(hourly_rate, discount) do
-    # Please implement the monthly_rate/2 function
+    rate_without_discount = daily_rate(hourly_rate) * 22
+    apply_discount(rate_without_discount, discount)
+    |> Kernel.ceil
   end
 
   def days_in_budget(budget, hourly_rate, discount) do

@@ -36,7 +36,6 @@ defmodule FreelancerRatesTest do
   end
 
   describe "monthly_rate/2" do
-    @describetag :skip
     @tag task_id: 3
     test "it's the daily_rate times 22" do
       assert FreelancerRates.monthly_rate(62, 0.0) == 10_912
