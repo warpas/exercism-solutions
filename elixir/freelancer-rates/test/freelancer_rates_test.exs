@@ -19,7 +19,6 @@ defmodule FreelancerRatesTest do
   end
 
   describe "apply_discount/2" do
-    @describetag :skip
     @tag task_id: 2
     test "a discount of 10% leaves 90% of the original price" do
       assert FreelancerRates.apply_discount(140.0, 10) == 126.0
