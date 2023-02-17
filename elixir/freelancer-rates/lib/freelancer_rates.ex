@@ -1,4 +1,6 @@
 defmodule FreelancerRates do
+  @monthly_billable_days 22
+
   def daily_rate(hourly_rate) do
     hourly_rate * 8.0
   end
@@ -9,8 +11,8 @@ defmodule FreelancerRates do
   end
 
   def monthly_rate(hourly_rate, discount) do
-    rate_without_discount = daily_rate(hourly_rate) * 22
-    apply_discount(rate_without_discount, discount)
+    daily_rate(hourly_rate) * @monthly_billable_days
+    |> apply_discount(discount)
     |> Kernel.ceil
   end
 
