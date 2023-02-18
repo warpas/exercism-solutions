@@ -9,9 +9,9 @@ defmodule LogLevel do
   }
 
   def to_label(level, legacy?) do
-    if(level >= 0 && level <= 5) do
+    if(level >= 0 and level <= 5) do
       current_level = @levels[level]
-      if(legacy? && !current_level[:legacy]) do
+      if(legacy? and !current_level[:legacy]) do
         :unknown
       else
         current_level[:level]
@@ -22,6 +22,14 @@ defmodule LogLevel do
   end
 
   def alert_recipient(level, legacy?) do
-    # Please implement the alert_recipient/2 function
+    log_label = %{label: to_label(level, legacy?), legacy: legacy?}
+
+    case log_label do
+      %{label: :error} -> :ops
+      %{label: :fatal} -> :ops
+      %{label: :unknown, legacy: true} -> :dev1
+      %{label: :unknown, legacy: false} -> :dev2
+      _ -> false
+    end
   end
 end
