@@ -16,7 +16,6 @@ defmodule SecretsTest do
   end
 
   describe "secret_subtract" do
-    @describetag :skip
     @tag task_id: 2
     test "subtract 3" do
       subtract = Secrets.secret_subtract(3)
@@ -31,7 +30,6 @@ defmodule SecretsTest do
   end
 
   describe "secret_multiply" do
-    @describetag :skip
     @tag task_id: 3
     test "multiply by 3" do
       multiply = Secrets.secret_multiply(3)
@@ -46,7 +44,6 @@ defmodule SecretsTest do
   end
 
   describe "secret_divide" do
-    @describetag :skip
     @tag task_id: 4
     test "divide by 3" do
       divide = Secrets.secret_divide(3)
@@ -61,7 +58,6 @@ defmodule SecretsTest do
   end
 
   describe "secret_and" do
-    @describetag :skip
     @tag task_id: 5
     test "2 and 1" do
       ander = Secrets.secret_and(1)
@@ -76,7 +72,6 @@ defmodule SecretsTest do
   end
 
   describe "secret_xor" do
-    @describetag :skip
     @tag task_id: 6
     test "2 xor 1" do
       xorer = Secrets.secret_xor(1)
