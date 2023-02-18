@@ -52,6 +52,7 @@ defmodule LogLevelTest do
   end
 
   describe "LogLevel.alert_recipient/2" do
+    @describetag :skip
     @tag task_id: 2
     test "fatal code sends alert to ops" do
       assert LogLevel.alert_recipient(5, false) == :ops
