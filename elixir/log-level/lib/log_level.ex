@@ -9,15 +9,10 @@ defmodule LogLevel do
   }
 
   def to_label(level, legacy?) do
-    if(level >= 0 and level <= 5) do
-      current_level = @levels[level]
-      if(legacy? and !current_level[:legacy]) do
-        :unknown
-      else
-        current_level[:level]
-      end
-    else
-      :unknown
+    cond do
+      level >= 0 and level <= 5 and !legacy? -> @levels[level][:level]
+      level >= 0 and level <= 5 and legacy? and @levels[level][:legacy] -> @levels[level][:level]
+      true -> :unknown
     end
   end
 
