@@ -86,7 +86,6 @@ defmodule SecretsTest do
   end
 
   describe "secret_combine" do
-    @describetag :skip
     @tag task_id: 7
     test "5 add 10 then subtract 5" do
       f = Secrets.secret_add(10)

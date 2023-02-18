@@ -24,6 +24,6 @@ defmodule Secrets do
   end
 
   def secret_combine(secret_function1, secret_function2) do
-    # Please implement the secret_combine/2 function
+    fn arg -> secret_function1.(arg) |> secret_function2.() end
   end
 end
