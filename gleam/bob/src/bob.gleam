@@ -1,3 +1,30 @@
+import gleam/string
+import gleam/io
+
 pub fn hey(remark: String) -> String {
-  todo("Implement this function")
+  let trimmed_remark: String = string.trim(remark)
+  io.debug("Input:")
+  io.debug(remark)
+  io.debug(string.uppercase(remark))
+  io.debug(remark == string.uppercase(remark))
+  let out = case
+    remark,
+    trimmed_remark,
+    remark == string.uppercase(remark),
+    remark == string.lowercase(remark),
+    string.contains(remark, "?"),
+    string.contains(remark, "!"),
+    string.ends_with(trimmed_remark, "?"),
+    string.ends_with(trimmed_remark, "!")
+  {
+    _, "", _, _, _, _, _, _ -> "Fine. Be that way!"
+    _, _, False, _, _, _, True, _ -> "Sure."
+    _, _, True, False, _, _, True, _ -> "Calm down, I know what I'm doing!"
+    _, _, _, _, _, _, True, False -> "Sure."
+    _, _, True, False, _, _, _, _ -> "Whoa, chill out!"
+    // _, _, _, _, _, _, False, True -> "Whoa, chill out!"
+    _, _, _, _, _, _, _, _ -> "Whatever."
+  }
+  io.debug("Output:")
+  io.debug(out)
 }
