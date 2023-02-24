@@ -1,13 +1,8 @@
 import gleam/string
-import gleam/io
 
 pub fn hey(remark: String) -> String {
   let trimmed_remark: String = string.trim(remark)
-  io.debug("Input:")
-  io.debug(remark)
-  io.debug(string.uppercase(remark))
-  io.debug(remark == string.uppercase(remark))
-  let out = case
+  case
     trimmed_remark,
     remark == string.uppercase(remark),
     remark == string.lowercase(remark),
@@ -19,6 +14,4 @@ pub fn hey(remark: String) -> String {
     _, True, False, _ -> "Whoa, chill out!"
     _, _, _, _ -> "Whatever."
   }
-  io.debug("Output:")
-  io.debug(out)
 }
