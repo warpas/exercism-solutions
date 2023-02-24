@@ -1,27 +1,17 @@
 defmodule Secrets do
-  def secret_add(secret) do
-    fn arg -> arg + secret end
-  end
+  def secret_add(secret), do: &(&1 + secret)
 
-  def secret_subtract(secret) do
-    fn arg -> arg - secret end
-  end
+  def secret_subtract(secret), do: &(&1 - secret)
 
-  def secret_multiply(secret) do
-    fn arg -> arg * secret end
-  end
+  def secret_multiply(secret), do: &(&1 * secret)
 
   def secret_divide(secret) do
-    fn arg -> arg / secret |> Kernel.floor end
+    &(&1 / secret) |> Kernel.floor
   end
 
-  def secret_and(secret) do
-    fn arg -> Bitwise.band(arg, secret) end
-  end
+  def secret_and(secret), do: &(Bitwise.band(&1, secret))
 
-  def secret_xor(secret) do
-    fn arg -> Bitwise.bxor(arg, secret) end
-  end
+  def secret_xor(secret), do: &(Bitwise.bxor(&1, secret))
 
   def secret_combine(secret_function1, secret_function2) do
     fn arg -> secret_function1.(arg) |> secret_function2.() end
