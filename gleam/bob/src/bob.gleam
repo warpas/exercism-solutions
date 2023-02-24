@@ -1,12 +1,7 @@
-import gleam/string
+import gleam/string.{ends_with, lowercase, trim, uppercase}
 
 pub fn hey(remark: String) -> String {
-  let trimmed_remark: String = string.trim(remark)
-  case
-    silence(trimmed_remark),
-    shouting(trimmed_remark),
-    question(trimmed_remark)
-  {
+  case is_silence(remark), is_shouting(remark), is_question(remark) {
     True, _, _ -> "Fine. Be that way!"
     _, True, True -> "Calm down, I know what I'm doing!"
     _, _, True -> "Sure."
@@ -15,14 +10,16 @@ pub fn hey(remark: String) -> String {
   }
 }
 
-fn silence(remark: String) -> Bool {
-  remark == ""
+fn is_silence(remark: String) -> Bool {
+  trim(remark) == ""
 }
 
-fn shouting(remark: String) -> Bool {
-  remark == string.uppercase(remark) && remark != string.lowercase(remark)
+fn is_shouting(remark: String) -> Bool {
+  remark == uppercase(remark) && remark != lowercase(remark)
 }
 
-fn question(remark: String) -> Bool {
-  string.ends_with(remark, "?")
+fn is_question(remark: String) -> Bool {
+  remark
+  |> trim()
+  |> ends_with("?")
 }
