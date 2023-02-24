@@ -17,7 +17,9 @@ fn list_of_1_to_n(n: Int, list: List(Int)) -> List(Int) {
 }
 
 pub fn sum_of_squares(n: Int) -> Int {
-  todo("Implement this function")
+  n
+  |> list_of_1_to_n([])
+  |> list.fold_right(0, fn(a, b) { a + b * b })
 }
 
 pub fn difference(n: Int) -> Int {
