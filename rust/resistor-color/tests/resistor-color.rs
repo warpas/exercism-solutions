@@ -1,7 +1,7 @@
 use resistor_color::{
     color_to_value,
     // colors,
-    // value_to_color_string,
+    value_to_color_string,
     ResistorColor
 };
 
@@ -21,9 +21,8 @@ fn test_white() {
 }
 
 #[test]
-#[ignore]
 fn test_2() {
-    // assert_eq!(value_to_color_string(2), String::from("Red"));
+    assert_eq!(value_to_color_string(2), String::from("Red"));
 }
 
 #[test]

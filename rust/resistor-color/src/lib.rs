@@ -20,11 +20,7 @@ pub fn color_to_value(color: ResistorColor) -> u32 {
     color.int_value()
 }
 
-// pub fn color_to_value(color: ResistorColor) -> u32 {
-//     0
-// }
-
-// pub fn value_to_color_string(value: u32) -> String {
+pub fn value_to_color_string(value: u32) -> String {
 //     let mut considered_index = 0;
 //     let mut all_colors = get_all();
 //     let mut considered_color = all_colors.next();
@@ -45,7 +41,8 @@ pub fn color_to_value(color: ResistorColor) -> u32 {
 
 //     // let unwrapped_color = "Result";
 //     // format!("{:?}", unwrapped_color);
-// }
+    String::from("Result")
+}
 
 // pub fn colors() -> Vec<ResistorColor> {
 //     let mut vector : Vec<ResistorColor> = Vec::new();
