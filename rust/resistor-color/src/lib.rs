@@ -28,7 +28,7 @@ pub fn value_to_color_string(value: u32) -> String {
 }
 
 pub fn colors() -> Vec<ResistorColor> {
-    let vector : Vec<ResistorColor> = Vec::new();
+    // let vector : Vec<ResistorColor> = Vec::new();
     // let mut all_colors = get_all();
     // while true {
     //     let considered_color = all_colors.next();
@@ -39,8 +39,21 @@ pub fn colors() -> Vec<ResistorColor> {
     //     }
     //     vector.push(unwrapped_color);
     // }
-    vector
+    // vector
     // ^^^ OLD IMPLEMENTATION
+
+    [
+        ResistorColor::Black,
+        ResistorColor::Brown,
+        ResistorColor::Red,
+        ResistorColor::Orange,
+        ResistorColor::Yellow,
+        ResistorColor::Green,
+        ResistorColor::Blue,
+        ResistorColor::Violet,
+        ResistorColor::Grey,
+        ResistorColor::White,
+    ].iter().cloned().collect()
 }
 
 // fn get_all() -> All<ResistorColor> {
