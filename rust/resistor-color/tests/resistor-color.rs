@@ -26,24 +26,21 @@ fn test_2() {
 }
 
 #[test]
-#[ignore]
 fn test_6() {
-    // assert_eq!(value_to_color_string(6), String::from("Blue"));
+    assert_eq!(value_to_color_string(6), String::from("Blue"));
 }
 
 #[test]
-#[ignore]
 fn test_8() {
-    // assert_eq!(value_to_color_string(8), String::from("Grey"));
+    assert_eq!(value_to_color_string(8), String::from("Grey"));
 }
 
 #[test]
-#[ignore]
 fn test_11_out_of_range() {
-    // assert_eq!(
-    //     value_to_color_string(11),
-    //     String::from("value out of range")
-    // );
+    assert_eq!(
+        value_to_color_string(11),
+        String::from("value out of range")
+    );
 }
 
 #[test]

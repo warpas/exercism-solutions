@@ -45,7 +45,7 @@ pub fn value_to_color_string(value: u32) -> String {
     let unwrapped_color: ResistorColor;
     match ResistorColor::from_int(value) {
         Ok(x) => unwrapped_color = x,
-        Err(_) => return String::from("Result")
+        Err(_) => return String::from("value out of range")
     }
     let result: String = format!("{:?}", unwrapped_color);
     result
