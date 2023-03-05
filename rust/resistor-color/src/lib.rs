@@ -21,34 +21,10 @@ pub fn color_to_value(color: ResistorColor) -> u32 {
 }
 
 pub fn value_to_color_string(value: u32) -> String {
-//     let mut considered_index = 0;
-//     let mut all_colors = get_all();
-//     let mut considered_color = all_colors.next();
-
-//     while considered_index < value {
-//         considered_index = considered_index + 1;
-//         considered_color = all_colors.next();
-//     }
-//     let unwrapped_color: ResistorColor;
-//     match considered_color {
-//         Some(x) => unwrapped_color = x,
-//         None => return String::from("value out of range")
-//     }
-
-//     let result: String = format!("{:?}", unwrapped_color);
-//     result
-//     // ^^^ OLD IMPLEMENTATION
-
-//     // let unwrapped_color = "Result";
-//     // format!("{:?}", unwrapped_color);
-
-    let unwrapped_color: ResistorColor;
     match ResistorColor::from_int(value) {
-        Ok(x) => unwrapped_color = x,
-        Err(_) => return String::from("value out of range")
+        Ok(unwrapped_color) => format!("{:?}", unwrapped_color),
+        Err(_) => String::from("value out of range")
     }
-    let result: String = format!("{:?}", unwrapped_color);
-    result
 }
 
 // pub fn colors() -> Vec<ResistorColor> {
