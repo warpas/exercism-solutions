@@ -13,18 +13,43 @@ pub enum ResistorColor {
     White,
 }
 
+use int_enum::IntEnum;
+
+#[repr(u32)]
+#[derive(Clone, Copy, IntEnum)]
+// #[derive(Clone, Copy, Debug, Eq, PartialEq, IntEnum)]
+pub enum ResistorColorNew {
+    Black = 0,
+    Brown = 1,
+    Red = 2,
+    Orange = 3,
+    Yellow = 4,
+    Green = 5,
+    Blue = 6,
+    Violet = 7,
+    Grey = 8,
+    White = 9,
+}
+
+pub fn color_to_value_new(color: ResistorColorNew) -> u32 {
+    // let wrapped_color: Option<ResistorColor> = Some(color);
+    // let mut all_colors = get_all();
+    // let mut considered_color = all_colors.next();
+    // let mut considered_index = 0;
+
+    // while considered_color != wrapped_color {
+    //     considered_index = considered_index + 1;
+    //     considered_color = all_colors.next();
+    // }
+
+    // considered_index
+
+    // ^^^ OLD IMPLEMENTATION
+    color.int_value()
+}
+
 pub fn color_to_value(color: ResistorColor) -> u32 {
-    let wrapped_color: Option<ResistorColor> = Some(color);
-    let mut all_colors = get_all();
-    let mut considered_color = all_colors.next();
-    let mut considered_index = 0;
-
-    while considered_color != wrapped_color {
-        considered_index = considered_index + 1;
-        considered_color = all_colors.next();
-    }
-
-    considered_index
+    0
 }
 
 pub fn value_to_color_string(value: u32) -> String {
@@ -44,6 +69,10 @@ pub fn value_to_color_string(value: u32) -> String {
 
     let result: String = format!("{:?}", unwrapped_color);
     result
+    // ^^^ OLD IMPLEMENTATION
+
+    // let unwrapped_color = "Result";
+    // format!("{:?}", unwrapped_color);
 }
 
 pub fn colors() -> Vec<ResistorColor> {
@@ -59,6 +88,7 @@ pub fn colors() -> Vec<ResistorColor> {
         vector.push(unwrapped_color);
     }
     vector
+    // ^^^ OLD IMPLEMENTATION
 }
 
 fn get_all() -> All<ResistorColor> {

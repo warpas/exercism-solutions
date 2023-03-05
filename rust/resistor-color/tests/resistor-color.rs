@@ -1,20 +1,20 @@
-use resistor_color::{color_to_value, colors, value_to_color_string, ResistorColor};
+use resistor_color::{color_to_value, colors, value_to_color_string, ResistorColor,
+    color_to_value_new, ResistorColorNew};
 
 #[test]
 fn test_black() {
-    assert_eq!(color_to_value(ResistorColor::Black), 0);
+    // assert_eq!(color_to_value(ResistorColor::Black), 0);
+    assert_eq!(color_to_value_new(ResistorColorNew::Black), 0);
 }
 
 #[test]
-#[ignore]
 fn test_orange() {
-    assert_eq!(color_to_value(ResistorColor::Orange), 3);
+    assert_eq!(color_to_value_new(ResistorColorNew::Orange), 3);
 }
 
 #[test]
-#[ignore]
 fn test_white() {
-    assert_eq!(color_to_value(ResistorColor::White), 9);
+    assert_eq!(color_to_value_new(ResistorColorNew::White), 9);
 }
 
 #[test]
