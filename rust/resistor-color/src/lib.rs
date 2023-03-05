@@ -1,8 +1,8 @@
 use int_enum::IntEnum;
 
 #[repr(u32)]
-#[derive(Clone, Copy, IntEnum)]
-// #[derive(Clone, Copy, Debug, Eq, PartialEq, IntEnum)]
+// #[derive(Clone, Copy, IntEnum)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, IntEnum)]
 pub enum ResistorColor {
     Black = 0,
     Brown = 1,
@@ -41,7 +41,14 @@ pub fn value_to_color_string(value: u32) -> String {
 
 //     // let unwrapped_color = "Result";
 //     // format!("{:?}", unwrapped_color);
-    String::from("Result")
+
+    let unwrapped_color: ResistorColor;
+    match ResistorColor::from_int(value) {
+        Ok(x) => unwrapped_color = x,
+        Err(_) => return String::from("Result")
+    }
+    let result: String = format!("{:?}", unwrapped_color);
+    result
 }
 
 // pub fn colors() -> Vec<ResistorColor> {
