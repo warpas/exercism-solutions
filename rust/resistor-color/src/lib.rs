@@ -1,7 +1,6 @@
 use int_enum::IntEnum;
 
 #[repr(u32)]
-// #[derive(Clone, Copy, IntEnum)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq, IntEnum)]
 pub enum ResistorColor {
     Black = 0,
@@ -28,20 +27,6 @@ pub fn value_to_color_string(value: u32) -> String {
 }
 
 pub fn colors() -> Vec<ResistorColor> {
-    // let vector : Vec<ResistorColor> = Vec::new();
-    // let mut all_colors = get_all();
-    // while true {
-    //     let considered_color = all_colors.next();
-    //     let unwrapped_color: ResistorColor;
-    //     match considered_color {
-    //         Some(x) => unwrapped_color = x,
-    //         None => return vector
-    //     }
-    //     vector.push(unwrapped_color);
-    // }
-    // vector
-    // ^^^ OLD IMPLEMENTATION
-
     [
         ResistorColor::Black,
         ResistorColor::Brown,
@@ -55,7 +40,3 @@ pub fn colors() -> Vec<ResistorColor> {
         ResistorColor::White,
     ].iter().cloned().collect()
 }
-
-// fn get_all() -> All<ResistorColor> {
-//     all::<ResistorColor>()
-// }
