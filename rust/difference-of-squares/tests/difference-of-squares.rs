@@ -6,7 +6,6 @@ fn test_square_of_sum_1() {
 }
 
 #[test]
-#[ignore]
 fn test_square_of_sum_5() {
     assert_eq!(225, squares::square_of_sum(5));
 }
