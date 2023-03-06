@@ -31,19 +31,16 @@ fn test_sum_of_squares_100() {
 }
 
 #[test]
-#[ignore]
 fn test_difference_1() {
     assert_eq!(0, squares::difference(1));
 }
 
 #[test]
-#[ignore]
 fn test_difference_5() {
     assert_eq!(170, squares::difference(5));
 }
 
 #[test]
-#[ignore]
 fn test_difference_100() {
     assert_eq!(25_164_150, squares::difference(100));
 }
