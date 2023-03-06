@@ -8,7 +8,12 @@ pub fn square_of_sum(n: u32) -> u32 {
 }
 
 pub fn sum_of_squares(n: u32) -> u32 {
-    1
+    let mut from_1_to_n: Vec<u32> = vec![];
+    for i in 0..n {
+        from_1_to_n.push(i + 1)
+    }
+    let sum: u32 = from_1_to_n.iter().map(|v| v * v).sum();
+    sum
 }
 
 pub fn difference(n: u32) -> u32 {
