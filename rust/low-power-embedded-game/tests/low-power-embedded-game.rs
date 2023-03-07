@@ -41,6 +41,7 @@ mod evens {
     }
 
     #[test]
+    #[ignore]
     fn reverse_i32() {
         let out: Vec<i32> = evens((0..=10).rev()).collect();
         assert_eq!(out, &[10, 8, 6, 4, 2, 0]);

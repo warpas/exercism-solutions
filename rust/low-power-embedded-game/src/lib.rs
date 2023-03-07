@@ -15,7 +15,7 @@ pub fn evens<T>(iter: impl Iterator<Item = T>) -> impl Iterator<Item = T> {
     //     println!("{:?}", i);
     // }
     // let array = [0i32, 2, 4, 6];
-    // // let iterator = std::iter::empty();
+    // let iterator = std::iter::empty();
     // let my_iterator = array.iter();
 
     // vec![0, 2, 4, 6]: Iterator<i32>
@@ -23,8 +23,16 @@ pub fn evens<T>(iter: impl Iterator<Item = T>) -> impl Iterator<Item = T> {
     //     assert_eq!(out, &[0, 2, 4, 6, 8]);
     // &[0, 2, 4, 6, 8].iter()
     // my_iterator
-    iter.push(0i32);
-    iter
+    // iter.push(0i32);
+    // iter
+    // unimplemented!("implement `fn evens`");
+    // // TODO: remove this; it's only necessary to allow this function to compile
+    // // before the student has done any work.
+    std::iter::empty()
+
+
+    // let v_test1: Vec<T> = vec![0, 2, 4, 6, 8];
+    // v_test1.iter()
 }
 
 pub struct Position(pub i16, pub i16);
