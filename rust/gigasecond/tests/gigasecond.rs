@@ -34,7 +34,6 @@ fn test_third_date() {
 }
 
 #[test]
-#[ignore]
 fn test_datetime() {
     let start_date = dt(2015, 1, 24, 22, 0, 0);
 
@@ -42,7 +41,6 @@ fn test_datetime() {
 }
 
 #[test]
-#[ignore]
 fn test_another_datetime() {
     let start_date = dt(2015, 1, 24, 23, 59, 59);
 
