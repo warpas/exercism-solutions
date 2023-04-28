@@ -69,3 +69,5 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
         return 'NORMAL'
 
     return 'DANGER'
+
+# TODO: there are furhter pylint warnings on Exercism, but I don't have time for this now.
