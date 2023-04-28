@@ -5,4 +5,4 @@ def two_fer(name="you"):
     :param name: string - one for who?
     :return: string - one for each.
     """
-    return "One for %s, one for me." % name
+    return f"One for {name}, one for me."
