@@ -16,3 +16,6 @@
 
 # Erlang-specific cache
 _build/
+
+# Unison-specific files
+*.unisonHistory
