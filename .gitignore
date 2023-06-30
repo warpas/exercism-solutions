@@ -19,3 +19,6 @@ _build/
 
 # Unison-specific files
 *.unisonHistory
+
+# Clojure-specific files
+*.cpcache/
