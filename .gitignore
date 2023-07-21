@@ -22,3 +22,7 @@ _build/
 
 # Clojure-specific files
 *.cpcache/
+
+# C-specific build files
+*.out
+*.out.dSYM/
