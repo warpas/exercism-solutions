@@ -1,6 +1,8 @@
 #include "armstrong_numbers.h"
 #include <stdio.h>
 
+int calculate_armstrong_from(int raw_number);
+
 int calculate_armstrong_from(int raw_number)
 {
   int remainder = raw_number;
