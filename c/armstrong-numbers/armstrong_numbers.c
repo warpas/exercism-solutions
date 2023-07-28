@@ -1,6 +1,6 @@
 #include "armstrong_numbers.h"
 
-int calculate_armstrong_from(int raw_number);
+int calculate_armstrong_from(int);
 
 int calculate_armstrong_from(int raw_number)
 {
