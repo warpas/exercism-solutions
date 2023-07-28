@@ -21,13 +21,11 @@ static void test_single_digit_numbers_are_armstrong_numbers(void)
 
 static void test_there_are_no_two_digit_armstrong_numbers(void)
 {
-   // TEST_IGNORE();
    TEST_ASSERT_FALSE(is_armstrong_number(10));
 }
 
 static void test_three_digit_number_that_is_an_armstrong_number(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_TRUE(is_armstrong_number(153));
 }
 
