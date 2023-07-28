@@ -56,7 +56,11 @@ Exercises: Hamming, Collatz Conjecture, Robot Simulator, Yacht, Protein Translat
 ## The rules
 
 An exercise must be published during 2023.
+
 You can complete/publish them at any time during the year not just the featured month.
+
 You need to complete each exercise in at least one languages (it’s not required to complete it in all the featured languages)
+
 You can mix and match languages, so for Feb, do 3 in F# and 2 in Elixir, etc. So if you’d previously completed a Functional February exercise in F# in 2022, but you want to make it count for 2023, solve the same exercise in Elixir or one of the others (note that you can “Disable Learning Mode” - look for the ... button on the track page - if you don’t want to work through the whole syllabus, although we already recommend syllabuses if you have the time! 🙂)
+
 The correct language/exercise pairs to earn the badge can be found in month sections above 👆👆👆
