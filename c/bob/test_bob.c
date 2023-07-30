@@ -32,32 +32,27 @@ static void test_asking_a_question(void)
 
 static void test_asking_a_numeric_question(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("You are, what, like 15?"));
 }
 
 static void test_asking_gibberish(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("fffbbcbeab?"));
 }
 
 static void test_talking_forcefully(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.", hey_bob("Hi there!"));
 }
 
 static void test_using_acronyms_in_regular_speech(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
        "Whatever.", hey_bob("It's OK if you don't want to go work for NASA."));
 }
 
 static void test_forceful_question(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Calm down, I know what I'm doing!",
                             hey_bob("WHAT'S GOING ON?"));
 }
