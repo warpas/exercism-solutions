@@ -16,7 +16,6 @@ static void test_stating_something(void)
 
 static void test_shouting(void)
 {
-   TEST_IGNORE();   // delete this line to run test
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("WATCH OUT!"));
 }
 

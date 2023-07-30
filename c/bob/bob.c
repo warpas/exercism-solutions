@@ -1,14 +1,31 @@
 #include "bob.h"
 #include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool is_shouting(char *greeting);
+
+bool is_shouting(char *greeting)
+{
+  int comparison = strcmp(greeting, "WATCH OUT!");
+  printf("Is shouting? %d\n", comparison);
+  return comparison == 0;
+}
 
 char *hey_bob(char *greeting)
 {
   char all_digits = *greeting;
-  char* reply = "Whatever.";
+  char* default_reply = "Whatever.";
+  char* shouting_reply = "Whoa, chill out!";
 
-  printf("Input: %s\nIntermediary: %c\nOutput: %s\n", greeting, all_digits, reply);
+  printf("Input: %s\nIntermediary: %c\nOutput: %s\n", greeting, all_digits, default_reply);
 
-  return reply;
+  if(is_shouting(greeting))
+  {
+    return shouting_reply;
+  }
+
+  return default_reply;
 }
 
 // def response(hey_bob):
