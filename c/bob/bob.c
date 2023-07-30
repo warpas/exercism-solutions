@@ -7,6 +7,7 @@
 bool is_shouting(char *greeting);
 bool is_question(char *greeting);
 bool is_silence(char *greeting);
+char *strip_string(char *greeting);
 
 char *hey_bob(char *greeting)
 {
@@ -16,7 +17,7 @@ char *hey_bob(char *greeting)
   char* shouting_question_reply = "Calm down, I know what I'm doing!";
   char* silence_reply = "Fine. Be that way!";
 
-  printf("Input: %s\nOutput: %s\n", greeting, default_reply);
+  printf("Input: %s\n", greeting);
 
   if (is_shouting(greeting) && is_question(greeting))
   {
@@ -100,6 +101,22 @@ bool is_question(char *greeting)
 
 bool is_silence(char *greeting)
 {
-  int comparison = strcmp(greeting, "");
+  int comparison = strcmp(strip_string(greeting), "");
   return comparison == 0;
+}
+
+char *strip_string(char *string_input)
+{
+  char* string_copy[256] = {""};
+  string_copy[0] = "";
+  int j = 0;
+  for(int i = 0; string_input[i]; i++)
+  {
+    if(!isspace(string_input[i]))
+    {
+      string_copy[j] = &string_input[i];
+      j++;
+    }
+  }
+  return *string_copy;
 }

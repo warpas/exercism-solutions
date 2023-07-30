@@ -108,7 +108,6 @@ static void test_silence(void)
 
 static void test_prolonged_silence(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("          "));
 }
 
