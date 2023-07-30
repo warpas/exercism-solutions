@@ -53,7 +53,7 @@ bool is_shouting(char *greeting)
   // printf("Is shouting? %d\n", comparison);
   // return comparison == 0;
   bool all_uppercase = true;
-  bool all_lowercase = false;
+  bool all_lowercase = true;
 
   for(int i = 0; greeting[i]; i++)
   {
@@ -65,6 +65,11 @@ bool is_shouting(char *greeting)
       bool is_the_next_character_uppercase = greeting[i] == toupper(greeting[i]);
       printf("is upper? %d\n", is_the_next_character_uppercase);
       all_uppercase = is_the_next_character_uppercase;
+    }
+    if(all_lowercase)
+    {
+      bool is_the_next_character_lowercase = greeting[i] == tolower(greeting[i]);
+      all_lowercase = is_the_next_character_lowercase;
     }
   }
   return all_uppercase && !all_lowercase;

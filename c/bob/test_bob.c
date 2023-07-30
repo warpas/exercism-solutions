@@ -59,13 +59,11 @@ static void test_forceful_question(void)
 
 static void test_shouting_numbers(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("1, 2, 3 GO!"));
 }
 
 static void test_only_numbers(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.", hey_bob("1, 2, 3"));
 }
 
