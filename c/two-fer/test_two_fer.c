@@ -30,7 +30,6 @@ static void test_two_fer_a_name_given(void)
 
 static void test_two_fer_another_name_given(void)
 {
-   TEST_IGNORE();
    char response[BUFFER_SIZE];
    const char *expected = "One for Bob, one for me.";
    two_fer(response, "Bob");

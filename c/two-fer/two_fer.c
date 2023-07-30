@@ -1,11 +1,8 @@
 #include "two_fer.h"
-#include <stdio.h>
 #include <string.h>
 
 void two_fer(char *buffer, const char *name)
 {
-  printf("buffer: %s\n", buffer);
-  printf("name: %s\n", name);
   char* msg_start = "One for ";
   int msg_start_length = strlen(msg_start);
   char* default_name = "you";
@@ -16,7 +13,6 @@ void two_fer(char *buffer, const char *name)
   {
     name = default_name;
   }
-  printf("name: %s\n", name);
   int name_length = strlen(name);
 
   int i = 0;
@@ -34,4 +30,5 @@ void two_fer(char *buffer, const char *name)
     buffer[i] = msg_end[k];
     i++;
   }
+  buffer[i] = '\0';
 }
