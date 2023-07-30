@@ -21,7 +21,6 @@ static void test_shouting(void)
 
 static void test_shouting_gibberish(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("FCECDFCAAB"));
 }
 

@@ -5,20 +5,12 @@
 
 bool is_shouting(char *greeting);
 
-bool is_shouting(char *greeting)
-{
-  int comparison = strcmp(greeting, "WATCH OUT!");
-  printf("Is shouting? %d\n", comparison);
-  return comparison == 0;
-}
-
 char *hey_bob(char *greeting)
 {
-  char all_digits = *greeting;
   char* default_reply = "Whatever.";
   char* shouting_reply = "Whoa, chill out!";
 
-  printf("Input: %s\nIntermediary: %c\nOutput: %s\n", greeting, all_digits, default_reply);
+  printf("Input: %s\nOutput: %s\n", greeting, default_reply);
 
   if(is_shouting(greeting))
   {
@@ -42,6 +34,13 @@ char *hey_bob(char *greeting)
 
 // def shouting(remark):
 //     return remark == str.upper(remark) and remark != str.lower(remark)
+
+bool is_shouting(char *greeting)
+{
+  int comparison = strcmp(greeting, "WATCH OUT!");
+  printf("Is shouting? %d\n", comparison);
+  return comparison == 0;
+}
 
 // def question(remark):
 //     return remark.strip().endswith("?")
