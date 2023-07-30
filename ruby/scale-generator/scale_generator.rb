@@ -18,3 +18,4 @@ class Scale
   end
 end
 # TODO: OH BOI IS THERE room to grow on this solution
+# TODO: Maybe I'll return to this problem at some point
