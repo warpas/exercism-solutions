@@ -69,13 +69,11 @@ static void test_only_numbers(void)
 
 static void test_question_with_only_numbers(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob("4?"));
 }
 
 static void test_shouting_with_special_characters(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
        "Whoa, chill out!",
        hey_bob("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
@@ -83,33 +81,28 @@ static void test_shouting_with_special_characters(void)
 
 static void test_shouting_with_no_exclamation_mark(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whoa, chill out!", hey_bob("I HATE THE DENTIST"));
 }
 
 static void test_statement_containing_question_mark(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.",
                             hey_bob("Ending with ? means a question."));
 }
 
 static void test_non_letters_with_question(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.", hey_bob(":) ?"));
 }
 
 static void test_prattling_on(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Sure.",
                             hey_bob("Wait! Hang on.  Are you going to be OK?"));
 }
 
 static void test_silence(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob(""));
 }
 

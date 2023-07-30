@@ -57,13 +57,13 @@ bool is_shouting(char *greeting)
 
   for(int i = 0; greeting[i]; i++)
   {
-    printf("regular char: %c\n", greeting[i]);
-    printf("lowercase char: %c\n", tolower(greeting[i]));
-    printf("upprecase char: %c\n", toupper(greeting[i]));
+    // printf("regular char: %c\n", greeting[i]);
+    // printf("lowercase char: %c\n", tolower(greeting[i]));
+    // printf("upprecase char: %c\n", toupper(greeting[i]));
     if(all_uppercase)
     {
       bool is_the_next_character_uppercase = greeting[i] == toupper(greeting[i]);
-      printf("is upper? %d\n", is_the_next_character_uppercase);
+      // printf("is upper? %d\n", is_the_next_character_uppercase);
       all_uppercase = is_the_next_character_uppercase;
     }
     if(all_lowercase)
