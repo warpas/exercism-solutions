@@ -1,8 +1,33 @@
 #include "bob.h"
+#include <stdio.h>
 
 char *hey_bob(char *greeting)
 {
-  // char all_digits[100] = {0};
+  char all_digits = *greeting;
+  char* reply = "Whatever.";
 
-  return greeting;
+  printf("Input: %s\nIntermediary: %c\nOutput: %s\n", greeting, all_digits, reply);
+
+  return reply;
 }
+
+// def response(hey_bob):
+//     if(shouting(hey_bob) and question(hey_bob)):
+//         return "Calm down, I know what I'm doing!"
+//     elif(silence(hey_bob)):
+//         return "Fine. Be that way!"
+//     elif(shouting(hey_bob)):
+//         return "Whoa, chill out!"
+//     elif(question(hey_bob)):
+//         return "Sure."
+
+//     return "Whatever."
+
+// def shouting(remark):
+//     return remark == str.upper(remark) and remark != str.lower(remark)
+
+// def question(remark):
+//     return remark.strip().endswith("?")
+
+// def silence(remark):
+//     return not remark.strip()
