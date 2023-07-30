@@ -137,13 +137,11 @@ static void test_ending_with_whitespace(void)
 
 static void test_other_whitespace(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Fine. Be that way!", hey_bob("\n\r \t"));
 }
 
 static void test_non_question_ending_with_whitespace(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
        "Whatever.",
        hey_bob("This is a statement ending with whitespace      "));
