@@ -14,6 +14,11 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] year-long badge
 Languages: C, C++, Cobol, Fortran, Visual Basic
 Exercises: Bob, Allergies, Reverse String, High Scores, Armstrong Numbers
+- [ ] C track Bob
+- [ ] C track Allergies
+- [ ] C track Reverse String
+- [ ] C track High Scores
+- [x] C track Armstrong Numbers
 
 ## Summer of Sexps
 
