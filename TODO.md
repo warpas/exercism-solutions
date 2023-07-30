@@ -10,6 +10,7 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 ## Jurassic July
 
 - [ ] featured month badge
+- [ ] submit 5 exercises in 7 different languages (in total)
 - [ ] year-long badge
 Languages: C, C++, Cobol, Fortran, Visual Basic
 Exercises: Bob, Allergies, Reverse String, High Scores, Armstrong Numbers
@@ -17,6 +18,7 @@ Exercises: Bob, Allergies, Reverse String, High Scores, Armstrong Numbers
 ## Summer of Sexps
 
 - [x] featured month badge
+- [ ] submit 5 exercises in 6 different languages (in total)
 - [ ] year-long badge
 Languages: Common Lisp, Clojure, LFE, Emacs Lisp, Racket, Scheme
 Exercises: Difference of Squares, Leap, Matching Brackets, Robot Name, Two-Fer
@@ -24,6 +26,7 @@ Exercises: Difference of Squares, Leap, Matching Brackets, Robot Name, Two-Fer
 ## Mindshifting May
 
 - [x] featured month badge
+- [x] submit 5 exercises in 5 different languages (in total)
 - [ ] year-long badge
 Languages: Ballerina, Pharo, Prolog, Red, Rust, Tcl, Unison
 Exercises: Acronym, Isogram, Roman Numerals, Raindrops, Space Age
@@ -31,6 +34,7 @@ Exercises: Acronym, Isogram, Roman Numerals, Raindrops, Space Age
 ## Analytical April
 
 - [x] featured month badge
+- [x] submit 5 exercises in 4 different languages (in total)
 - [ ] year-long badge
 Languages: Julia, Python, R
 Exercises: ETL, Largest Series Product, Saddle Points, Sum Of Multiples, Word Count
@@ -38,6 +42,7 @@ Exercises: ETL, Largest Series Product, Saddle Points, Sum Of Multiples, Word Co
 ## Mechanical March
 
 - [x] featured month badge
+- [x] submit 5 exercises in 3 different languages (in total)
 - [ ] year-long badge
 Languages: C, C++, D, Nim, Go, Rust, V, Zig
 Exercises: Linked List (or Simple Linked List), Secret Handshake, Sieve, Binary Search, Pangram
@@ -45,13 +50,15 @@ Exercises: Linked List (or Simple Linked List), Secret Handshake, Sieve, Binary 
 ## Functional February
 
 - [x] featured month badge
+- [x] submit 5 exercises in 2 different languages (in total)
 - [ ] year-long badge
 Languages: Clojure, Elixir, Erlang, F#, Haskell, OCaml, Scala, SML, Gleam
 Exercises: Hamming, Collatz Conjecture, Robot Simulator, Yacht, Protein Translation
 
 ## Intimate Introduction - January
 
-- [x] featured month badge
+- [ ] submit 5 exercises (not including "Hello World") in 12 different language tracks in 2023
+- [x] submit 5 exercises in 1 language in January
 
 ## The rules
 
