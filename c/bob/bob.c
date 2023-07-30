@@ -5,17 +5,23 @@
 #include <ctype.h>
 
 bool is_shouting(char *greeting);
+bool is_question(char *greeting);
 
 char *hey_bob(char *greeting)
 {
   char* default_reply = "Whatever.";
   char* shouting_reply = "Whoa, chill out!";
+  char* question_reply = "Sure.";
 
   printf("Input: %s\nOutput: %s\n", greeting, default_reply);
 
   if(is_shouting(greeting))
   {
     return shouting_reply;
+  }
+  else if (is_question(greeting))
+  {
+    return question_reply;
   }
 
   return default_reply;
@@ -61,6 +67,17 @@ bool is_shouting(char *greeting)
 
 // def question(remark):
 //     return remark.strip().endswith("?")
+
+bool is_question(char *greeting)
+{
+  char last_character = '.';
+  for(int i = 0; greeting[i]; i++)
+  {
+    last_character = greeting[i];
+  }
+
+  return last_character == '?';
+}
 
 // def silence(remark):
 //     return not remark.strip()

@@ -26,7 +26,6 @@ static void test_shouting_gibberish(void)
 
 static void test_asking_a_question(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
        "Sure.", hey_bob("Does this cryogenic chamber make me look fat?"));
 }
