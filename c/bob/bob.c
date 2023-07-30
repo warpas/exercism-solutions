@@ -6,6 +6,7 @@
 
 bool is_shouting(char *greeting);
 bool is_question(char *greeting);
+bool is_silence(char *greeting);
 
 char *hey_bob(char *greeting)
 {
@@ -13,6 +14,7 @@ char *hey_bob(char *greeting)
   char* shouting_reply = "Whoa, chill out!";
   char* question_reply = "Sure.";
   char* shouting_question_reply = "Calm down, I know what I'm doing!";
+  char* silence_reply = "Fine. Be that way!";
 
   printf("Input: %s\nOutput: %s\n", greeting, default_reply);
 
@@ -23,6 +25,10 @@ char *hey_bob(char *greeting)
   else if(is_shouting(greeting))
   {
     return shouting_reply;
+  }
+  else if(is_silence(greeting))
+  {
+    return silence_reply;
   }
   else if (is_question(greeting))
   {
@@ -91,3 +97,9 @@ bool is_question(char *greeting)
 
 // def silence(remark):
 //     return not remark.strip()
+
+bool is_silence(char *greeting)
+{
+  int comparison = strcmp(greeting, "");
+  return comparison == 0;
+}
