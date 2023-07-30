@@ -3,12 +3,14 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 bool is_shouting(char *greeting);
 bool is_question(char *greeting);
 bool is_silence(char *greeting);
 char *strip_string(char *greeting);
-char *rtrim(char *s);
+char *internet_rtrim(char *s);
+char *internet_strdup(const char *s);
 
 char *hey_bob(char *greeting)
 {
@@ -88,14 +90,24 @@ char *strip_string(char *string_input)
     }
   }
 
-  char* left_trimmed_copy = strdup(*string_copy);
-  return rtrim(left_trimmed_copy);
+  char* left_trimmed_copy = internet_strdup(*string_copy);
+  return internet_rtrim(left_trimmed_copy);
 }
 
-char *rtrim(char *s)
+char *internet_rtrim(char *s)
 {
     char* back = s + strlen(s);
     while(isspace(*--back));
     *(back+1) = '\0';
     return s;
+}
+
+char *internet_strdup(const char *s)
+{
+    size_t size = strlen(s) + 1;
+    char *p = malloc(size);
+    if (p != NULL) {
+        memcpy(p, s, size);
+    }
+    return p;
 }
