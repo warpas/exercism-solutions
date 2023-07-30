@@ -1,34 +1,37 @@
 #include "two_fer.h"
 #include <stdio.h>
+#include <string.h>
 
 void two_fer(char *buffer, const char *name)
 {
-  printf("buffer: %s\nname: %s\n", buffer, name);
-  // buffer = "One for you, one for me.";
+  printf("buffer: %s\n", buffer);
+  printf("name: %s\n", name);
+  char* msg_start = "One for ";
+  int msg_start_length = strlen(msg_start);
+  char* default_name = "you";
+  char* msg_end = ", one for me.";
+  int msg_end_length = strlen(msg_end);
 
-  // for(int i=0; )
-  buffer[0] = 'O';
-  buffer[1] = 'n';
-  buffer[2] = 'e';
-  buffer[3] = ' ';
-  buffer[4] = 'f';
-  buffer[5] = 'o';
-  buffer[6] = 'r';
-  buffer[7] = ' ';
-  buffer[8] = 'y';
-  buffer[9] = 'o';
-  buffer[10] = 'u';
-  buffer[11] = ',';
-  buffer[12] = ' ';
-  buffer[13] = 'o';
-  buffer[14] = 'n';
-  buffer[15] = 'e';
-  buffer[16] = ' ';
-  buffer[17] = 'f';
-  buffer[18] = 'o';
-  buffer[19] = 'r';
-  buffer[20] = ' ';
-  buffer[21] = 'm';
-  buffer[22] = 'e';
-  buffer[23] = '.';
+  if(name == NULL)
+  {
+    name = default_name;
+  }
+  printf("name: %s\n", name);
+  int name_length = strlen(name);
+
+  int i = 0;
+  for(; i < msg_start_length; i++)
+  {
+    buffer[i] = msg_start[i];
+  }
+  for(int j = 0; j < name_length; j++)
+  {
+    buffer[i] = name[j];
+    i++;
+  }
+  for(int k = 0; k < msg_end_length; k++)
+  {
+    buffer[i] = msg_end[k];
+    i++;
+  }
 }
