@@ -12,10 +12,15 @@ char *hey_bob(char *greeting)
   char* default_reply = "Whatever.";
   char* shouting_reply = "Whoa, chill out!";
   char* question_reply = "Sure.";
+  char* shouting_question_reply = "Calm down, I know what I'm doing!";
 
   printf("Input: %s\nOutput: %s\n", greeting, default_reply);
 
-  if(is_shouting(greeting))
+  if (is_shouting(greeting) && is_question(greeting))
+  {
+    return shouting_question_reply;
+  }
+  else if(is_shouting(greeting))
   {
     return shouting_reply;
   }
