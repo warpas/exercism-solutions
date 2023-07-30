@@ -113,14 +113,12 @@ static void test_prolonged_silence(void)
 
 static void test_alternate_silence(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Fine. Be that way!",
                             hey_bob("\t\t\t\t\t\t\t\t\t\t"));
 }
 
 static void test_multiple_line_question(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
        "Whatever.",
        hey_bob("\nDoes this cryogenic chamber make me look fat?\nNo"));
@@ -128,13 +126,11 @@ static void test_multiple_line_question(void)
 
 static void test_starting_with_whitespace(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING("Whatever.", hey_bob("         hmmmmmmm..."));
 }
 
 static void test_ending_with_whitespace(void)
 {
-   TEST_IGNORE();
    TEST_ASSERT_EQUAL_STRING(
        "Sure.", hey_bob("Okay if like my  spacebar  quite a bit?   "));
 }
