@@ -8,6 +8,7 @@ bool is_shouting(char *greeting);
 bool is_question(char *greeting);
 bool is_silence(char *greeting);
 char *strip_string(char *greeting);
+char *rtrim(char *s);
 
 char *hey_bob(char *greeting)
 {
@@ -17,21 +18,23 @@ char *hey_bob(char *greeting)
   char* shouting_question_reply = "Calm down, I know what I'm doing!";
   char* silence_reply = "Fine. Be that way!";
 
-  printf("Input: %s\n", greeting);
+  printf("Input: %s<\n", greeting);
+  char* trimmed_greeting = strip_string(greeting);
+  printf("Trim Input: %s<\n", trimmed_greeting);
 
-  if (is_shouting(greeting) && is_question(greeting))
+  if (is_shouting(trimmed_greeting) && is_question(trimmed_greeting))
   {
     return shouting_question_reply;
   }
-  else if(is_shouting(greeting))
+  else if(is_shouting(trimmed_greeting))
   {
     return shouting_reply;
   }
-  else if(is_silence(greeting))
+  else if(is_silence(trimmed_greeting))
   {
     return silence_reply;
   }
-  else if (is_question(greeting))
+  else if (is_question(trimmed_greeting))
   {
     return question_reply;
   }
@@ -87,11 +90,7 @@ bool is_shouting(char *greeting)
 
 bool is_question(char *greeting)
 {
-  char last_character = '.';
-  for(int i = 0; greeting[i]; i++)
-  {
-    last_character = greeting[i];
-  }
+  char last_character = greeting[strlen(greeting)-1];
 
   return last_character == '?';
 }
@@ -101,7 +100,7 @@ bool is_question(char *greeting)
 
 bool is_silence(char *greeting)
 {
-  int comparison = strcmp(strip_string(greeting), "");
+  int comparison = strcmp(greeting, "");
   return comparison == 0;
 }
 
@@ -118,5 +117,15 @@ char *strip_string(char *string_input)
       j++;
     }
   }
-  return *string_copy;
+
+  char* left_trimmed_copy = strdup(*string_copy);
+  return rtrim(left_trimmed_copy);
+}
+
+char *rtrim(char *s)
+{
+    char* back = s + strlen(s);
+    while(isspace(*--back));
+    *(back+1) = '\0';
+    return s;
 }
