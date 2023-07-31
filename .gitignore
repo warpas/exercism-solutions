@@ -23,7 +23,10 @@ _build/
 # Clojure-specific files
 *.cpcache/
 
-# C-specific build files
+# C-specific build/test files
 *.out
 *.out.dSYM/
 *test-framework/
+
+# Bash-specific build/test files
+bats-extra.bash
