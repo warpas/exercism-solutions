@@ -36,7 +36,7 @@ Languages: C, C++, Cobol, Fortran, Visual Basic
 Exercises: Bob, Allergies, Reverse String, High Scores, Armstrong Numbers
 - [x] C track Bob
 - [ ] C track Allergies
-- [ ] C track Reverse String
+- [x] C track Reverse String
 - [ ] C track High Scores
 - [x] C track Armstrong Numbers
 
