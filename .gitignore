@@ -3,6 +3,7 @@
 
 # JavaScript-specific cache
 *node_modules/
+package-lock.json
 
 # Haskell-specific cache
 *.stack-work/
