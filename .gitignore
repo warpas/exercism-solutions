@@ -31,3 +31,8 @@ _build/
 
 # Bash-specific build/test files
 bats-extra.bash
+
+# Swift-specific build/test files
+*.yarn/
+.pnp.*js
+yarn.lock
