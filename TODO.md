@@ -27,6 +27,26 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] submit 5 exercises in Kotlin
 - [ ] submit 5 exercises in TypeScript
 
+## Appy August
+
+
+- [ ] featured month badge
+- [ ] submit 5 exercises in 8 different languages (in total)
+- [ ] year-long badge
+Languages: ABAP, CoffeeScript, Dart, Delphi, Elm, Java, JavaScript, Kotlin, Objective-C, PHP, PureScript, ReasonML, Swift and TypeScript
+Exercises: Anagram, Phone Number, Triangle, RNA Transcription, Scrabble Score
+- [ ] JavaScript track Anagram
+- [ ] JavaScript track Phone Number
+- [ ] JavaScript track Triangle
+- [ ] JavaScript track RNA Transcription
+- [ ] JavaScript track Scrabble Score
+
+ Anagram: Given a word and a list of possible anagrams, find its anagrams
+ Phone Number: Clean-up a phone number
+ Triangle: Classify a triangle
+ RNA Transcription: Transform a DNA sequence into its RNA complement
+ Scrabble Score: Given a word, determine its scrabble score
+
 ## Jurassic July
 
 - [ ] featured month badge
@@ -155,16 +175,3 @@ Languages: Perl, Org, JQ, Bash
 - [ ] Bash track Bob
 - [ ] Bash track Bob
 - [ ] Bash track Bob
-
-## Apps of August
-
-- [ ] featured month badge
-- [ ] submit 5 exercises in 8 different languages (in total)
-- [ ] year-long badge
-Languages: JavaScript, Kotlin, Swift, Dart, ABAP
-Exercises:
-- [ ] JavaScript track Bob
-- [ ] JavaScript track Bob
-- [ ] JavaScript track Bob
-- [ ] JavaScript track Bob
-- [ ] JavaScript track Bob
