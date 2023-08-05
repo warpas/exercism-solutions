@@ -15,7 +15,6 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] get whatever year-long badge I can get with JavaScript
 - [ ] submit 5 exercises in Rust
 - [ ] get whatever year-long badge I can get with Rust
-- [ ] complete the "Low-Power Embedded Game" exercise in Rust because I'm stubborn
 
 ### Languages I want
 
@@ -26,6 +25,7 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] submit 5 exercises in Swift
 - [ ] submit 5 exercises in Kotlin
 - [ ] submit 5 exercises in TypeScript
+- [ ] complete the "Low-Power Embedded Game" exercise in Rust because I'm stubborn
 
 ## Appy August
 
