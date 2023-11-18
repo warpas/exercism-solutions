@@ -6,7 +6,7 @@ module SavingsAccount
     # @param balance [Float]
     # @return [Float]
     def interest_rate(balance)
-      return -3.213 if balance.negative?
+      return 3.213 if balance.negative?
       return 0.5 if balance < 1000
       return 1.621 if balance < 5000
 
@@ -17,7 +17,9 @@ module SavingsAccount
     # @return [Float]
     def annual_balance_update(balance)
       interest = balance.abs * interest_rate(balance) * 0.01
-      balance + interest
+      return balance + interest if balance.positive?
+
+      balance - interest
     end
 
     # @param current_balance [Float]
@@ -32,5 +34,4 @@ module SavingsAccount
       years
     end
   end
-
 end
