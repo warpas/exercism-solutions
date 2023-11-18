@@ -2,9 +2,9 @@
 
 # Implementation of the Circular Buffer exercise in Ruby track on Exercism.
 class CircularBuffer
-  # Error type for a read from an empty Buffer
+  # Error type for read attempts when the Buffer is empty
   class BufferEmptyException < RuntimeError; end
-  # Error type for a write to a full Buffer
+  # Error type for write attempts when the Buffer is full
   class BufferFullException < RuntimeError; end
 
   # @param size [Integer]

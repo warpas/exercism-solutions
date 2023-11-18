@@ -52,7 +52,9 @@ Languages: C#, Crystal, Java, Ruby, Pharo, Powershell
 Exercises: Binary Search Tree, Circular Buffer, Clock, Matrix, Simple Cipher
 
 - [ ] Ruby track Binary Search Tree
-- [ ] Ruby track Circular Buffer
+- [x] Ruby track Circular Buffer
+  - [ ] old solution, not sure if I need to do it in another language
+  - [ ] check all those in two weeks (after Dec 1st)
 - [x] Ruby track Clock
   - [ ] old solution, not sure if I need to do it in another language
 - [x] Ruby track Matrix
