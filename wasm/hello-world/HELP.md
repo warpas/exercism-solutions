@@ -60,13 +60,13 @@ It's possible to submit an incomplete solution which allows you to:
 If you'd like help solving the exercise, check the following pages:
 
 - The [WebAssembly track's documentation](https://exercism.org/docs/tracks/wasm)
-- [Exercism's support channel on gitter](https://gitter.im/exercism/support)
+- The [WebAssembly track's programming category on the forum](https://forum.exercism.org/c/programming/wasm)
+- [Exercism's programming category on the forum](https://forum.exercism.org/c/programming/5)
 - The [Frequently Asked Questions](https://exercism.org/docs/using/faqs)
 
 Should those resources not suffice, you could submit your (incomplete) solution to request mentoring.
 
 To get help if you're having trouble, you can use one of the following resources:
 
-- [Gitter](https://gitter.im/exercism/support) is Exercism's Gitter room; go here to get support and ask questions if you face any issues with downloading or submitting your exercises.
 - [/r/WebAssembly](https://www.reddit.com/r/WebAssembly/) is the WebAssembly subreddit.
 - [Github issue tracker](https://github.com/exercism/wasm/issues) is where we track our development and maintenance of Javascript exercises in exercism. But if none of the above links help you, feel free to post an issue here.

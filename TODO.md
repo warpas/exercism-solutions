@@ -79,7 +79,7 @@ Exercises: Atbash-cipher, Darts, Gigasecond, Luhn, Series
 
 ## Appy August
 
-- [ ] featured month badge
+- [x] featured month badge
 - [ ] submit 5 exercises in 8 different languages (in total)
 - [ ] year-long badge
 
@@ -100,8 +100,8 @@ Exercises: Anagram, Phone Number, Triangle, RNA Transcription, Scrabble Score
 
 ## Jurassic July
 
-- [ ] featured month badge
-- [ ] submit 5 exercises in 7 different languages (in total)
+- [x] featured month badge
+- [x] submit 5 exercises in 7 different languages (in total)
 - [ ] year-long badge
 
 Languages: C, C++, Cobol, Fortran, Visual Basic
