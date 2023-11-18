@@ -53,8 +53,10 @@ Exercises: Binary Search Tree, Circular Buffer, Clock, Matrix, Simple Cipher
 
 - [ ] Ruby track Binary Search Tree
 - [ ] Ruby track Circular Buffer
-- [ ] Ruby track Clock
-- [ ] Ruby track Matrix
+- [x] Ruby track Clock
+  - [ ] old solution, not sure if I need to do it in another language
+- [x] Ruby track Matrix
+  - [ ] old solution, not sure if I need to do it in another language
 - [ ] Ruby track Simple Cipher
 
 
