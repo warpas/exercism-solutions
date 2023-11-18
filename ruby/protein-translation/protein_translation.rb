@@ -17,12 +17,16 @@ class Translation
     # @param strand [String] RNA strand
     # @return [String] transcribed list of proteins
     def of_rna(strand)
-      strand.scan(/.../).reduce([]) do |chain, codon|
+      decoded_chain = strand.scan(/.../).reduce([]) do |chain, codon|
         protein = of_codon(codon)
         return chain if protein == 'STOP'
 
         chain << protein
       end
+
+      raise(InvalidCodonError) unless (strand.length % 3).zero?
+
+      decoded_chain
     end
   end
 
