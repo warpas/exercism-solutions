@@ -10,22 +10,57 @@
     (local $variable i32)
     (local.set $variable (i32.const 12))
 
-    ;; IF STATEMENT (the first line is the condition)
-    local.get $variable
-    ;;i32.const 0
+    ;; is the year NOT divisible by 400?
+    (i32.rem_s (local.get $year) (i32.const 400))
     (if
       (then
-        (i32.rem_s (local.get $year) (i32.const 4))
-        ;;i32.const 4
-        return
+        ;; (i32.rem_s (local.get $year) (i32.const 4))
+
+        ;; is the year NOT divisible by 100?
+        (i32.rem_s (local.get $year) (i32.const 100))
+        (if
+          (then
+            ;; (i32.rem_s (local.get $year) (i32.const 4))
+            ;;i32.const 1
+            ;;return
+
+            ;; is the year NOT divisible by 4?
+            (i32.rem_s (local.get $year) (i32.const 4))
+            ;; local.get $variable
+            ;;i32.const 0
+            (if
+              (then
+                ;; (i32.rem_s (local.get $year) (i32.const 4))
+                i32.const 0
+                return
+                ;; do something
+              )
+              (else
+                i32.const 1
+                return
+                ;; do something else
+              )
+            )
+            ;; do something
+          )
+          (else
+            i32.const 0
+            return
+            ;; do something else
+          )
+        )
+        ;;return
         ;; do something
       )
       (else
-        i32.const 0
+        i32.const 1
         return
         ;; do something else
       )
     )
+
+    ;; IF STATEMENT (the first line is the condition)
+
     ;; TODO: remove the fallback implicit return below
     i32.const 0
   )
