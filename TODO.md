@@ -27,14 +27,61 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] submit 5 exercises in TypeScript
 - [ ] complete the "Low-Power Embedded Game" exercise in Rust because I'm stubborn
 
-## Appy August
+## Nibbly Nobember
 
+- [ ] featured month badge
+- [ ] submit 5 exercises in 11 different languages (in total)
+- [ ] year-long badge
+
+Languages: MIPS Assembly, WebAssembly, x86-64 Assembly
+Exercises: Pop Count, Grains, Resistor Color, Rotational Cipher, Nucleotide Count
+
+- [ ] WebAssembly track Pop Count
+- [ ] WebAssembly track Grains
+- [ ] WebAssembly track Resistor Color
+- [ ] WebAssembly track Rotational Cipher
+- [ ] WebAssembly track Nucleotide Count
+
+## Object Oriented October
+
+- [ ] featured month badge
+- [ ] submit 5 exercises in 10 different languages (in total)
+- [ ] year-long badge
+
+Languages: C#, Crystal, Java, Ruby, Pharo, Powershell
+Exercises: Binary Search Tree, Circular Buffer, Clock, Matrix, Simple Cipher
+
+- [ ] Ruby track Binary Search Tree
+- [ ] Ruby track Circular Buffer
+- [ ] Ruby track Clock
+- [ ] Ruby track Matrix
+- [ ] Ruby track Simple Cipher
+
+
+## Slimline September
+
+- [ ] featured month badge
+- [ ] submit 5 exercises in 9 different languages (in total)
+- [ ] year-long badge
+
+Languages: 8th, AWK, Bash, JQ, Perl, Raku
+Exercises: Atbash-cipher, Darts, Gigasecond, Luhn, Series
+
+- [ ] Bash track Atbash-cipher
+- [ ] Bash track Darts
+- [ ] Bash track Gigasecond
+- [ ] Bash track Luhn
+- [ ] Bash track Series
+
+## Appy August
 
 - [ ] featured month badge
 - [ ] submit 5 exercises in 8 different languages (in total)
 - [ ] year-long badge
+
 Languages: ABAP, CoffeeScript, Dart, Delphi, Elm, Java, JavaScript, Kotlin, Objective-C, PHP, PureScript, ReasonML, Swift and TypeScript
 Exercises: Anagram, Phone Number, Triangle, RNA Transcription, Scrabble Score
+
 - [ ] JavaScript track Anagram
 - [ ] JavaScript track Phone Number
 - [ ] JavaScript track Triangle
@@ -52,8 +99,10 @@ Exercises: Anagram, Phone Number, Triangle, RNA Transcription, Scrabble Score
 - [ ] featured month badge
 - [ ] submit 5 exercises in 7 different languages (in total)
 - [ ] year-long badge
+
 Languages: C, C++, Cobol, Fortran, Visual Basic
 Exercises: Bob, Allergies, Reverse String, High Scores, Armstrong Numbers
+
 - [x] C track Bob
 - [ ] C track Allergies
 - [x] C track Reverse String
@@ -65,8 +114,10 @@ Exercises: Bob, Allergies, Reverse String, High Scores, Armstrong Numbers
 - [x] featured month badge
 - [x] submit 5 exercises in 6 different languages (in total)
 - [ ] year-long badge
+
 Languages: Common Lisp, Clojure, LFE, Emacs Lisp, Racket, Scheme
 Exercises: Difference of Squares, Leap, Matching Brackets, Robot Name, Two-Fer
+
 - [ ] Clojure track Difference of Squares
 - [ ] Clojure track Leap
 - [ ] Clojure track Matching Brackets
@@ -78,6 +129,7 @@ Exercises: Difference of Squares, Leap, Matching Brackets, Robot Name, Two-Fer
 - [x] featured month badge
 - [x] submit 5 exercises in 5 different languages (in total)
 - [ ] year-long badge
+
 Languages: Ballerina, Pharo, Prolog, Red, Rust, Tcl, Unison
 Exercises: Acronym, Isogram, Roman Numerals, Raindrops, Space Age
 
@@ -86,6 +138,7 @@ Exercises: Acronym, Isogram, Roman Numerals, Raindrops, Space Age
 - [x] featured month badge
 - [x] submit 5 exercises in 4 different languages (in total)
 - [ ] year-long badge
+
 Languages: Julia, Python, R
 Exercises: ETL, Largest Series Product, Saddle Points, Sum Of Multiples, Word Count
 
@@ -94,6 +147,7 @@ Exercises: ETL, Largest Series Product, Saddle Points, Sum Of Multiples, Word Co
 - [x] featured month badge
 - [x] submit 5 exercises in 3 different languages (in total)
 - [ ] year-long badge
+
 Languages: C, C++, D, Nim, Go, Rust, V, Zig
 Exercises: Linked List (or Simple Linked List), Secret Handshake, Sieve, Binary Search, Pangram
 
@@ -102,6 +156,7 @@ Exercises: Linked List (or Simple Linked List), Secret Handshake, Sieve, Binary 
 - [x] featured month badge
 - [x] submit 5 exercises in 2 different languages (in total)
 - [ ] year-long badge
+
 Languages: Clojure, Elixir, Erlang, F#, Haskell, OCaml, Scala, SML, Gleam
 Exercises: Hamming, Collatz Conjecture, Robot Simulator, Yacht, Protein Translation
 
@@ -139,39 +194,3 @@ Languages: Groovy, Lua, Wren
 - [ ] Lua track Bob
 - [ ] Lua track Bob
 - [ ] Lua track Bob
-
-## Nibbly Nobember
-
-- [ ] featured month badge
-- [ ] submit 5 exercises in 11 different languages (in total)
-- [ ] year-long badge
-Languages: x86-64 Assembly, WebAssembly
-- [ ] WebAssembly track Bob
-- [ ] WebAssembly track Bob
-- [ ] WebAssembly track Bob
-- [ ] WebAssembly track Bob
-- [ ] WebAssembly track Bob
-
-## Object Oriented October
-
-- [ ] featured month badge
-- [ ] submit 5 exercises in 10 different languages (in total)
-- [ ] year-long badge
-Languages: Ruby, C#, Crystal, Pharo
-- [ ] Ruby track Bob
-- [ ] Ruby track Bob
-- [ ] Ruby track Bob
-- [ ] Ruby track Bob
-- [ ] Ruby track Bob
-
-## Slimline September
-
-- [ ] featured month badge
-- [ ] submit 5 exercises in 9 different languages (in total)
-- [ ] year-long badge
-Languages: Perl, Org, JQ, Bash
-- [ ] Bash track Bob
-- [ ] Bash track Bob
-- [ ] Bash track Bob
-- [ ] Bash track Bob
-- [ ] Bash track Bob
