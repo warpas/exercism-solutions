@@ -34,35 +34,35 @@ describe("Darts", () => {
     expect(currentInstance.exports.score(-9, 9)).toEqual(0);
   });
 
-  xtest("On the outer circle", () => {
+  test("On the outer circle", () => {
     expect(currentInstance.exports.score(0, 10)).toEqual(1);
   });
 
-  xtest("On the middle circle", () => {
+  test("On the middle circle", () => {
     expect(currentInstance.exports.score(-5, 0)).toEqual(5);
   });
 
-  xtest("On the inner circle", () => {
+  test("On the inner circle", () => {
     expect(currentInstance.exports.score(0, -1)).toEqual(10);
   });
 
-  xtest("Exactly on centre", () => {
+  test("Exactly on centre", () => {
     expect(currentInstance.exports.score(0, 0)).toEqual(10);
   });
 
-  xtest("Near the centre", () => {
+  test("Near the centre", () => {
     expect(currentInstance.exports.score(-0.1, -0.1)).toEqual(10);
   });
 
-  xtest("Just within the inner circle", () => {
+  test("Just within the inner circle", () => {
     expect(currentInstance.exports.score(0.7, 0.7)).toEqual(10);
   });
 
-  xtest("Just outside the inner circle", () => {
+  test("Just outside the inner circle", () => {
     expect(currentInstance.exports.score(0.8, -0.8)).toEqual(5);
   });
 
-  xtest("Just within the middle circle", () => {
+  test("Just within the middle circle", () => {
     expect(currentInstance.exports.score(-3.5, 3.5)).toEqual(5);
   });
 
