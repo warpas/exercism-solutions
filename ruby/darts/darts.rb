@@ -1,15 +1,19 @@
-=begin
-Write your code for the 'Darts' exercise in this file. Make the tests in
-`darts_test.rb` pass.
+# frozen_string_literal: true
 
-To get started with TDD, see the `README.md` file in your
-`ruby/darts` directory.
-=end
+# Implementation of the Darts exercise in Ruby track on Exercism.
 class Darts
   def initialize(x, y)
+    @x = x.abs
+    @y = y.abs
+
+    @boundary = @x * @x + @y * @y
   end
 
   def score
-    0
+    return 0 if @boundary > 100
+    return 1 if @boundary > 25
+    return 5 if @boundary > 1
+
+    10
   end
 end
