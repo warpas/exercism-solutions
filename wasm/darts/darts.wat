@@ -4,52 +4,25 @@
     (local $y2 f32)
     (local $boundary f32)
 
-    ;; calculate x2 = x * x
-    (local.get $x)
-    (local.get $x)
-    f32.mul
+    (f32.mul (local.get $x) (local.get $x))
     (local.set $x2)
 
-    ;; calculate y2 = y * y
-    (local.get $y)
-    (local.get $y)
-    f32.mul
+    (f32.mul (local.get $y) (local.get $y))
     (local.set $y2)
 
-    ;; calculate boundary = x2 + y2
-    (local.get $x2)
-    (local.get $y2)
-    f32.add
+    (f32.add (local.get $y2) (local.get $x2))
     (local.set $boundary)
 
-    (local.get $boundary)
-    (f32.const 100)
-    f32.gt
-    (if
-      (then
-        i32.const 0
-        return
-      )
+    (if (f32.gt (local.get $boundary) (f32.const 100))
+      (then (return (i32.const 0)))
     )
 
-    (local.get $boundary)
-    (f32.const 25)
-    f32.gt
-    (if
-      (then
-        i32.const 1
-        return
-      )
+    (if (f32.gt (local.get $boundary) (f32.const 25))
+      (then (return (i32.const 1)))
     )
 
-    (local.get $boundary)
-    (f32.const 1)
-    f32.gt
-    (if
-      (then
-        i32.const 5
-        return
-      )
+    (if (f32.gt (local.get $boundary) (f32.const 1))
+      (then (return (i32.const 5)))
     )
 
     i32.const 10
