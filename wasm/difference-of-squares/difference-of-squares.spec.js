@@ -35,11 +35,11 @@ describe("difference-of-squares", () => {
       expect(currentInstance.exports.squareOfSum(1)).toBe(1);
     });
 
-    xtest("square of sum 5", () => {
+    test("square of sum 5", () => {
       expect(currentInstance.exports.squareOfSum(5)).toBe(225);
     });
 
-    xtest("square of sum 100", () => {
+    test("square of sum 100", () => {
       expect(currentInstance.exports.squareOfSum(100)).toBe(25502500);
     });
   });
