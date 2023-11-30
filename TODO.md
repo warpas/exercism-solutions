@@ -27,7 +27,7 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] submit 5 exercises in TypeScript
 - [ ] complete the "Low-Power Embedded Game" exercise in Rust because I'm stubborn
 
-## Nibbly Nobember
+## Nibbly November
 
 - [ ] featured month badge
 - [ ] submit 5 exercises in 11 different languages (in total)
