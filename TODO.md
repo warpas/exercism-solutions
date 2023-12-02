@@ -27,6 +27,21 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 - [ ] submit 5 exercises in TypeScript
 - [ ] complete the "Low-Power Embedded Game" exercise in Rust because I'm stubborn
 
+## December Diversions
+
+- [ ] featured month badge
+- [ ] submit 5 exercises in 12 different languages (in total)
+- [ ] year-long badge
+
+Languages: Cold Fusion, Groovy, Lua, VimScript, Wren
+Exercises: All Your Base, Flatten Array, Queen Attack, DND Character, Run-Length Encoding
+
+- [ ] Lua track All Your Base
+- [ ] Lua track Flatten Array
+- [ ] Lua track Queen Attack
+- [ ] Lua track DND Character
+- [ ] Lua track Run-Length Encoding
+
 ## Nibbly November
 
 - [ ] featured month badge
@@ -38,7 +53,7 @@ Exercises: Pop Count, Grains, Resistor Color, Rotational Cipher, Nucleotide Coun
 
 - [ ] WebAssembly track Pop Count
 - [ ] WebAssembly track Grains
-- [ ] WebAssembly track Resistor Color
+- [x] WebAssembly track Resistor Color
 - [ ] WebAssembly track Rotational Cipher
 - [ ] WebAssembly track Nucleotide Count
 
@@ -53,14 +68,15 @@ Exercises: Binary Search Tree, Circular Buffer, Clock, Matrix, Simple Cipher
 
 - [ ] Ruby track Binary Search Tree
 - [x] Ruby track Circular Buffer
-  - [ ] old solution, not sure if I need to do it in another language
-  - [ ] check all those in two weeks (after Dec 1st)
+  - [x] old solution, I need to do it in another language
+- [ ] another_language track Circular Buffer
 - [x] Ruby track Clock
-  - [ ] old solution, not sure if I need to do it in another language
+  - [x] old solution, I need to do it in another language
+- [ ] another_language track Clock
 - [x] Ruby track Matrix
-  - [ ] old solution, not sure if I need to do it in another language
+  - [x] old solution, I need to do it in another language
+- [ ] another_language track Matrix
 - [ ] Ruby track Simple Cipher
-
 
 ## Slimline September
 
@@ -184,17 +200,3 @@ The correct language/exercise pairs to earn the badge can be found in month sect
 <!-- ## Other ideas -->
 
 <!-- 15 years apart series: COBOL, C, C++, C# and Swift, they have been developed more or less 15 years apart and doing them in order allows to see how "main stream" programming has evolved over time. -->
-
-
-# Following months
-## December Diversions
-
-- [ ] featured month badge
-- [ ] submit 5 exercises in 12 different languages (in total)
-- [ ] year-long badge
-Languages: Groovy, Lua, Wren
-- [ ] Lua track Bob
-- [ ] Lua track Bob
-- [ ] Lua track Bob
-- [ ] Lua track Bob
-- [ ] Lua track Bob
