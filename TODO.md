@@ -29,7 +29,7 @@ The rules (taken from [this post](https://forum.exercism.org/t/new-12in23-badge-
 
 ## December Diversions
 
-- [ ] featured month badge
+- [x] featured month badge
 - [ ] submit 5 exercises in 12 different languages (in total)
 - [ ] year-long badge
 
@@ -39,12 +39,12 @@ Exercises: All Your Base, Flatten Array, Queen Attack, DND Character, Run-Length
 - [ ] Lua track All Your Base
 - [ ] Lua track Flatten Array
 - [ ] Lua track Queen Attack
-- [ ] Lua track DND Character
+- [x] Lua track DND Character
 - [ ] Lua track Run-Length Encoding
 
 ## Nibbly November
 
-- [ ] featured month badge
+- [x] featured month badge
 - [ ] submit 5 exercises in 11 different languages (in total)
 - [ ] year-long badge
 
@@ -81,7 +81,7 @@ Exercises: Binary Search Tree, Circular Buffer, Clock, Matrix, Simple Cipher
 ## Slimline September
 
 - [ ] featured month badge
-- [ ] submit 5 exercises in 9 different languages (in total)
+- [x] submit 5 exercises in 9 different languages (in total)
 - [ ] year-long badge
 
 Languages: 8th, AWK, Bash, JQ, Perl, Raku
@@ -96,7 +96,7 @@ Exercises: Atbash-cipher, Darts, Gigasecond, Luhn, Series
 ## Appy August
 
 - [x] featured month badge
-- [ ] submit 5 exercises in 8 different languages (in total)
+- [x] submit 5 exercises in 8 different languages (in total)
 - [ ] year-long badge
 
 Languages: ABAP, CoffeeScript, Dart, Delphi, Elm, Java, JavaScript, Kotlin, Objective-C, PHP, PureScript, ReasonML, Swift and TypeScript
