@@ -10,29 +10,29 @@ class TaskDailyRateFrom: XCTestCase {
   }
 
   func testdailyRateFromFor16() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(dailyRateFrom(hourlyRate: 16), 128.0, accuracy: 0.001)
   }
 
   func testdailyRateFromFor25() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(dailyRateFrom(hourlyRate: 25), 200.0, accuracy: 0.001)
   }
 }
 
 class TaskMonthlyRateFrom: XCTestCase {
   func testmonthlyWithWholeResult() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(monthlyRateFrom(hourlyRate: 80, withDiscount: 50), 7040, accuracy: 0.001)
   }
 
   func testmonthlyRoundDown() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(monthlyRateFrom(hourlyRate: 77, withDiscount: 10.5), 12129, accuracy: 0.001)
   }
 
   func testmonthlyRoundUp() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(monthlyRateFrom(hourlyRate: 80, withDiscount: 10.5), 12602, accuracy: 0.001)
   }
 }
