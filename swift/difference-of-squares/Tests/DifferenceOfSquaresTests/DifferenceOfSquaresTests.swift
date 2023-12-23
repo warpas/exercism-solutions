@@ -15,37 +15,37 @@ class DifferenceOfSquaresTests: XCTestCase {
   }
 
   func testSquareOfSum100() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(25_502_500, Squares(100).squareOfSum)
   }
 
   func testSumOfSquares1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(1, Squares(1).sumOfSquares)
   }
 
   func testSumOfSquares5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(55, Squares(5).sumOfSquares)
   }
 
   func testSumOfSquares100() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(338350, Squares(100).sumOfSquares)
   }
 
   func testDifferenceOfSquares1() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(0, Squares(1).differenceOfSquares)
   }
 
   func testDifferenceOfSquares5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(170, Squares(5).differenceOfSquares)
   }
 
   func testDifferenceOfSquares100() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(25_164_150, Squares(100).differenceOfSquares)
   }
 }

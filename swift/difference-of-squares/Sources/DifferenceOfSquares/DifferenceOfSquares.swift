@@ -15,10 +15,13 @@ class Squares {
     }
     // print("\n sum: \(sum)")
 
-    // return sum * sum
+    var sumOfSquares: Int = 0
+    for index in 1...self.number {
+      sumOfSquares = sumOfSquares + index * index
+    }
 
-    self.sumOfSquares = 1
     self.squareOfSum = sum * sum
-    self.differenceOfSquares = 1
+    self.sumOfSquares = sumOfSquares
+    self.differenceOfSquares = self.squareOfSum - self.sumOfSquares
   }
 }
