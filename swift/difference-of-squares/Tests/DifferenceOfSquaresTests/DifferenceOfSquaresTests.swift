@@ -10,7 +10,7 @@ class DifferenceOfSquaresTests: XCTestCase {
   }
 
   func testSquareOfSum5() throws {
-    try XCTSkipIf(true && !runAll)  // change true to false to run this test
+    try XCTSkipIf(false && !runAll)  // change true to false to run this test
     XCTAssertEqual(225, Squares(5).squareOfSum)
   }
 
