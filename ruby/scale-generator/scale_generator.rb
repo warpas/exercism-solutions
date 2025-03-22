@@ -3,9 +3,10 @@ class Scale
   CHROMATIC_SHARP_SCALE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
   CHROMATIC_FLAT_SCALE = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']
 
-  def initialize(tonic, var2)
+  def initialize(tonic, intervals, steps='')
     @tonic = tonic
-    @intervals = var2
+    @intervals = intervals
+    @steps = steps
   end
 
   def name
@@ -18,13 +19,32 @@ class Scale
 
     starting_index = scale.index(@tonic)
     result = []
-    0.upto(11) do |num|
-      current_index = (num + starting_index) % 12
-      result << scale[current_index]
+
+    if @steps.empty?
+      0.upto(11) do |num|
+        current_index = (num + starting_index) % 12
+        new_element = scale[current_index]
+        result << new_element
+      end
+    else
+      puts ''
+      p @steps unless @steps.empty?
+      next_step = 0
+      current_step = 0
+      last_step = starting_index + next_step
+      while(result.length < 12) do
+        current_index = (last_step + next_step) % 12
+        new_element = scale[current_index]
+        p "new_element: #{new_element}, current_index: #{current_index}" unless @steps.empty?
+        last_step += next_step
+        next_step = @steps[current_step] == 'M' ? 2 : 1
+        current_step += 1
+        return result if result.include?(new_element)
+        result << new_element
+      end
     end
 
     result
   end
 end
 # TODO: OH BOI IS THERE room to grow on this solution
-# TODO: Maybe I'll return to this problem at some point

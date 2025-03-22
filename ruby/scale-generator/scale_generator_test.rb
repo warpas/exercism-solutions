@@ -24,7 +24,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_naming_major_scale
-    skip
     major = Scale.new('G', :major, 'MMmMMMm')
     expected = 'G major'
     actual = major.name
@@ -32,7 +31,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_major_scale
-    skip
     major = Scale.new('C', :major, 'MMmMMMm')
     expected = %w[C D E F G A B]
     actual = major.pitches
