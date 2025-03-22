@@ -20,29 +20,30 @@ class Scale
     starting_index = scale.index(@tonic)
     result = []
 
-    if @steps.empty?
-      0.upto(11) do |num|
-        current_index = (num + starting_index) % 12
-        new_element = scale[current_index]
-        result << new_element
-      end
-    else
+    # if @steps.empty?
+    #   0.upto(11) do |num|
+    #     current_index = (num + starting_index) % 12
+    #     new_element = scale[current_index]
+    #     result << new_element
+    #   end
+    # else
       # puts ''
       # p @steps unless @steps.empty?
       next_step = 0
       current_step = 0
-      last_step = starting_index + next_step
-      while(result.length < 12) do
-        current_index = (last_step + next_step) % 12
-        new_element = scale[current_index]
+      last_step = starting_index
+      current_index = (last_step + next_step) % 12
+      new_element = scale[current_index]
+      while(!result.include?(new_element)) do
         # p "new_element: #{new_element}, current_index: #{current_index}" unless @steps.empty?
         last_step += next_step
         next_step = @steps[current_step] == 'M' ? 2 : 1
         current_step += 1
-        return result if result.include?(new_element)
         result << new_element
+        current_index = (last_step + next_step) % 12
+        new_element = scale[current_index]
       end
-    end
+    # end
 
     result
   end
