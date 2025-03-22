@@ -4,13 +4,13 @@ class Scale
   CHROMATIC_FLAT_SCALE = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']
 
   def initialize(tonic, intervals, steps='')
-    @tonic = tonic
+    @tonic = tonic.upcase
     @intervals = intervals
     @steps = steps
   end
 
   def name
-    "#{@tonic.upcase} #{@intervals}"
+    "#{@tonic} #{@intervals}"
   end
 
   def pitches
@@ -27,15 +27,15 @@ class Scale
         result << new_element
       end
     else
-      puts ''
-      p @steps unless @steps.empty?
+      # puts ''
+      # p @steps unless @steps.empty?
       next_step = 0
       current_step = 0
       last_step = starting_index + next_step
       while(result.length < 12) do
         current_index = (last_step + next_step) % 12
         new_element = scale[current_index]
-        p "new_element: #{new_element}, current_index: #{current_index}" unless @steps.empty?
+        # p "new_element: #{new_element}, current_index: #{current_index}" unless @steps.empty?
         last_step += next_step
         next_step = @steps[current_step] == 'M' ? 2 : 1
         current_step += 1
