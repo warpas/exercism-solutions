@@ -1,20 +1,29 @@
 class Scale
   # I deem this task unworthy of my time
-  SCALE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
+  CHROMATIC_SHARP_SCALE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
+  CHROMATIC_FLAT_SCALE = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']
 
-  def initialize(var1, var2)
-    @var1 = var1
-    @var2 = var2
+  def initialize(tonic, var2)
+    @tonic = tonic
+    @intervals = var2
   end
 
   def name
-    'C chromatic'
+    "#{@tonic.upcase} #{@intervals}"
   end
 
   def pitches
-    return ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"] if @var1 == 'C'
+    scale = CHROMATIC_SHARP_SCALE
+    scale = CHROMATIC_FLAT_SCALE if @tonic == 'F'
 
-    ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E"]
+    starting_index = scale.index(@tonic)
+    result = []
+    0.upto(11) do |num|
+      current_index = (num + starting_index) % 12
+      result << scale[current_index]
+    end
+
+    result
   end
 end
 # TODO: OH BOI IS THERE room to grow on this solution
