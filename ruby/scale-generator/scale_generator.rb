@@ -26,6 +26,7 @@ class Scale
   def pitches
     @scale ||= CHROMATIC_SHARP_SCALE
     @scale = CHROMATIC_FLAT_SCALE if @tonic == 'F'
+    @scale = CHROMATIC_FLAT_SCALE if @intervals == :locrian
 
     starting_index = @scale.index(@tonic)
     result = []
