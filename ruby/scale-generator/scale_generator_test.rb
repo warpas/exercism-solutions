@@ -59,7 +59,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_dorian_mode
-    skip
     dorian = Scale.new('d', :dorian, 'MmMMMmM')
     expected = %w[D E F G A B C]
     actual = dorian.pitches
@@ -67,7 +66,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_mixolydian_mode
-    skip
     mixolydian = Scale.new('Eb', :mixolydian, 'MMmMMmM')
     expected = %w[Eb F G Ab Bb C Db]
     actual = mixolydian.pitches
@@ -75,7 +73,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_lydian_mode
-    skip
     lydian = Scale.new('a', :lydian, 'MMMmMMm')
     expected = %w[A B C# D# E F# G#]
     actual = lydian.pitches
@@ -83,7 +80,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_phrygian_mode
-    skip
     phrygian = Scale.new('e', :phrygian, 'mMMMmMM')
     expected = %w[E F G A B C D]
     actual = phrygian.pitches
