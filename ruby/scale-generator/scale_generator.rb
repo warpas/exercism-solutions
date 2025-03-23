@@ -32,22 +32,18 @@ class Scale
     starting_index = @scale.index(@tonic)
     result = []
 
-    # puts ''
-    # p @steps unless @steps.empty?
     next_step = 0
     current_step = 0
     last_step = starting_index
     current_index = (last_step + next_step) % 12
     new_element = @scale[current_index]
     while(!result.include?(new_element)) do
-      # p "new_element: #{new_element}, current_index: #{current_index}" unless @steps.empty?
       last_step += next_step
       if @steps[current_step] == 'A'
         next_step = 3
       elsif @steps[current_step] == 'M'
         next_step = 2
       else
-        # elsif @steps[current_step] == 'm'
         next_step = 1
       end
       current_step += 1

@@ -115,7 +115,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_pentatonic
-    skip
     pentatonic = Scale.new('A', :pentatonic, 'MMAMA')
     expected = %w[A B C# E F#]
     actual = pentatonic.pitches
@@ -123,7 +122,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_enigmatic
-    skip
     enigmatic = Scale.new('G', :enigma, 'mAMMMmM')
     expected = %w[G G# B C# D# F F#]
     actual = enigmatic.pitches
