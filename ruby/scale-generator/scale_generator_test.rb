@@ -52,7 +52,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_another_minor_scale
-    skip
     minor = Scale.new('bb', :minor, 'MmMMmMM')
     expected = %w[Bb C Db Eb F Gb Ab]
     actual = minor.pitches
