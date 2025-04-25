@@ -58,5 +58,11 @@ class Scale
   def chromatic
     pitches
   end
+
+  def interval(steps)
+    @steps = steps
+    result = pitches
+    result.push @tonic
+  end
 end
 # TODO: OH BOI IS THERE room to grow on this solution

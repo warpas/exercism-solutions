@@ -13,7 +13,6 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_scales_with_specified_intervals_simple_major_scale
-    skip
     scale = Scale.new("C")
     assert_equal %w[C D E F G A B C], scale.interval("MMmMMMm")
   end
