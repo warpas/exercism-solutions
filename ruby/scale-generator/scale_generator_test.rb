@@ -3,13 +3,11 @@ require_relative 'scale_generator'
 
 class ScaleGeneratorTest < Minitest::Test
   def test_chromatic_scales_chromatic_scale_with_sharps
-    # skip
     scale = Scale.new("C")
     assert_equal ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"], scale.chromatic
   end
 
   def test_chromatic_scales_chromatic_scale_with_flats
-    skip
     scale = Scale.new("F")
     assert_equal %w[F Gb G Ab A Bb B C Db D Eb E], scale.chromatic
   end
