@@ -2,7 +2,7 @@ class Scale
   CHROMATIC_SHARP_SCALE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
   CHROMATIC_FLAT_SCALE = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab']
 
-  def initialize(tonic, intervals, steps='')
+  def initialize(tonic, intervals='', steps='')
     if tonic.length > 1
       @tonic = "#{tonic[0].upcase}#{tonic[1]}"
       if tonic[1] == '#'
@@ -53,6 +53,10 @@ class Scale
     end
 
     result
+  end
+
+  def chromatic
+    pitches
   end
 end
 # TODO: OH BOI IS THERE room to grow on this solution
